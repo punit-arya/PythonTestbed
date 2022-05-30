@@ -1912,71 +1912,76 @@ PythonTestbed: Python testbed.
 # LP5.  p. 156.
 # import random
 #
-# print(random.randint(2, 4))
-# myList = list(range(10))
-# random.shuffle(myList)
-# print(myList)
+# suits = ['hearts', 'clubs', 'diamonds', 'spades']
+# random.shuffle(suits)
+# print(suits)
+# random.shuffle(suits)
+# print(suits)
+
+
+# LP5.  p. 158.
+# print(0.1 + 0.1 + 0.1 - 0.3)
+
+
+# LP5.  p. 158.
+# import decimal
+#
+# print(decimal.Decimal.from_float(1.25))
+
+
+# LP5.  p. 158.
+# from decimal import Decimal
+#
+# print(Decimal('0.1') + Decimal('0.1') + Decimal('0.1') - Decimal('0.3'))
+# print(Decimal('0.1') + Decimal('0.10') + Decimal('0.10') - Decimal('0.30'))
 
 
 # LP5.  p. 159.
 # import decimal
 #
-# print('Decimal is fixed-precision unlike floating-points' if decimal.Decimal('1.11') + decimal.Decimal('2.22') == decimal.Decimal('3.33') else 'it\'s not')
-# print(decimal.Decimal.from_float(1.11))
-#
+# print(decimal.Decimal(1) / decimal.Decimal(7))	# Default: 28 digits.
+# decimal.getcontext().prec = 4
+# print(decimal.Decimal(1) / decimal.Decimal(7))
+# print(Decimal(0.1) + Decimal(0.1) + Decimal(0.1) - Decimal(0.3))
+
+
+# LP5.  p. 159.
 # with decimal.localcontext() as myContext:
 # 	myContext.prec = 2
-# 	print(decimal.Decimal('0.10') / decimal.Decimal('0.30'))
+# 	print(decimal.Decimal('1.00') / decimal.Decimal('3.00'))
 
 
-print(0.1 + 0.1 + 0.1 - 0.3)
+# LP5.  p. 159.
+# with decimal.localcontext() as ctx:
+#     ctx.prec = 2
+#     print(decimal.Decimal('1.00') / decimal.Decimal('3.00'))
+# print(decimal.Decimal('1.00') / decimal.Decimal('3.00'))
 
 
-from decimal import Decimal
-
-print(Decimal('0.1') + Decimal('0.1') + Decimal('0.1') - Decimal('0.3'))
-
-
-print(Decimal('0.1') + Decimal('0.10') + Decimal('0.10') - Decimal('0.30'))
-
-
-import decimal
-
-print(decimal.Decimal.from_float(1.25))
+# LP5.  p. 160.
+# from fractions import Fraction
+#
+# x = Fraction(1, 3)
+# y = Fraction(4, 6)
+#
+# print(x + y)
+# print(x - y)
+# print(x * y)
 
 
-import decimal
+# LP5.  p. 160.
+# print(Fraction('.25'))
 
-print(decimal.Decimal(1) / decimal.Decimal(7))	# Default: 28 digits.
-decimal.getcontext().prec = 4
-Decimal(0.1) + Decimal(0.1) + Decimal(0.1) - Decimal(0.3)
-
-
-with decimal.localcontext() as ctx:
-    ctx.prec = 2
-    decimal.Decimal('1.00') / decimal.Decimal('3.00')
-print(decimal.Decimal('1.00') / decimal.Decimal('3.00'))
-
-
-from fractions import Fraction
-
-x = Fraction(1, 3)
-y = Fraction(4, 6)
-
-print(x + y)
-
-
-Fraction('.25')
 
 # LP5.  P. 162.
-# import fractions
-#
-# print(fractions.Fraction('0.25'))
-# myDecimal = 0.25
-# print(fractions.Fraction(*myDecimal.as_integer_ratio()))
-# print(fractions.Fraction(*(0.25).as_integer_ratio()))
-# myFraction = fractions.Fraction(4 / 3)
-# print(myFraction.limit_denominator(3))
+import fractions
+
+print(fractions.Fraction('0.25'))
+myDecimal = 0.25
+print(fractions.Fraction(*myDecimal.as_integer_ratio()))
+print(fractions.Fraction(*(0.25).as_integer_ratio()))
+myFraction = fractions.Fraction(4 / 3)
+print(myFraction.limit_denominator(3))
 
 
 print(decimal.Decimal(str(1 / 3)) + decimal.Decimal(str(6 / 12)))
@@ -2411,4 +2416,8 @@ print(True + 4)
 # print([1, 2] < [2, 1])
 
 
-test
+# import decimal
+#
+# print('Decimal is fixed-precision unlike floating-points' if decimal.Decimal('1.11') + decimal.Decimal('2.22') == decimal.Decimal('3.33') else 'it\'s not')
+# print(decimal.Decimal.from_float(1.11))
+#
