@@ -2,36 +2,36 @@
 PythonTestbed: Python testbed.
 '''
 
-# # TUTORIAL.  3.5.2.
+# TUTORIAL.  3.5.2.
 the_world_is_flat = True
 if the_world_is_flat:
 	print("Be careful not to fall off!")
 
 
-# # TUTORIAL.  3.5.2.
+# TUTORIAL.  3.5.2.
 print(17 / 3)
 print(17 // 3)
 
 
-# # TUTORIAL.  3.5.2.
+# TUTORIAL.  3.5.2.
 print(5 ** 2)
 print(-3 ** 2)
 print((-3) ** 2)
 
 
-# # TUTORIAL.  3.5.2.
+# TUTORIAL.  3.5.2.
 print('doesn\'t')
 print("doesn't")
 print('"Yes," he said.')
 print("\"Yes,\" he said.")
 
 
-# # TUTORIAL.  3.5.2.
+# TUTORIAL.  3.5.2.
 print('C:\some\name')
 print(r'C:\some\name')
 
 
-# # TUTORIAL.  3.5.2.
+# TUTORIAL.  3.5.2.
 print("""\
 Usage: thingy [OPTIONS]
 		-h		Display this usage message
@@ -42,7 +42,7 @@ text = ('''A
 print(text)
 
 
-# # TUTORIAL.  3.5.2.
+# TUTORIAL.  3.5.2.
 print(3 * 'un' + 'ium')
 print('Py' 'thon')	# Concatenation.  Works with literals only, no variables or expressions.  Works across literal newline characters if enclosed within parentheses.
 prefix = 'Py'
@@ -1953,8 +1953,8 @@ with decimal.localcontext() as myContext:
 
 # LP5.  p. 159.
 with decimal.localcontext() as ctx:
-    ctx.prec = 2
-    print(decimal.Decimal('1.00') / decimal.Decimal('3.00'))
+	ctx.prec = 2
+	print(decimal.Decimal('1.00') / decimal.Decimal('3.00'))
 print(decimal.Decimal('1.00') / decimal.Decimal('3.00'))
 
 
