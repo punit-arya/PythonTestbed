@@ -6,21 +6,21 @@ from inspect import currentframe, getframeinfo
 frameinfo = getframeinfo(currentframe())
 
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 # TUTORIAL.  3.5.2.
 the_world_is_flat = True
 if the_world_is_flat:
 	print("Be careful not to fall off!")
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 print(17 / 3)
 print(17 // 3)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -28,7 +28,7 @@ print(5 ** 2)
 print(-3 ** 2)
 print((-3) ** 2)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -37,14 +37,14 @@ print("doesn't")
 print('"Yes," he said.')
 print("\"Yes,\" he said.")
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 print('C:\some\name')
 print(r'C:\some\name')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -57,7 +57,7 @@ text = ('''A
 	B''')
 print(text)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -66,7 +66,7 @@ print('Py' 'thon')	# Concatenation.  Works with literals only, no variables or e
 prefix = 'Py'
 print(prefix + 'thon')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -79,14 +79,14 @@ print(word[4:42])
 # word[0] = 'J'
 print('J' + word[1:])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 s = 'supercalifragilisticexpialidocious'
 print(len(s))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -97,7 +97,7 @@ print("Shallow copy: ", squares[:])
 squares = squares + [36, 49, 64, 81, 100]
 print(squares)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -108,7 +108,7 @@ print(cubes.append(216))
 cubes.append(7 ** 3)
 print(cubes)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -129,7 +129,7 @@ print(x)
 print(x[0])
 print(x[0][1])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -138,7 +138,7 @@ while b < 10:
 	print(b)
 	a, b = b, a + b
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -148,7 +148,7 @@ while b < 1000:
 	a, b = b, a + b
 print()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -163,7 +163,7 @@ elif x == 1:
 else:
 	print('More')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -176,14 +176,14 @@ for w in words[:]:	# Makes a copy of 'words' to enable modification.
 		words.insert(0, w)
 print(words)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 for i in range(5):
 	print(i)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -191,19 +191,19 @@ a = ['Mary', 'had', 'a', 'little', 'lamb']
 for i in range(len(a)):	# Use 'enumerate()' function instead.
 	print(i, a[i])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 print(range(10))	# 'range(0, 10)' Doesn't work because range doesn't return a list.  Instead, it returns an iterator object to save space.
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 print(list(range(5)))	# Creates list from iterables.
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -215,7 +215,7 @@ for n in range(2, 10):
 		else:
 			print(n, 'is a prime number')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -225,28 +225,28 @@ for num in range(2, 10):
 		continue
 	print("Found a number", num)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 # while True:
 #	  pass
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 class MyEmptyClass:
 	pass
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 def initlog(*args):
 	pass
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -263,7 +263,7 @@ f = fib
 f(100)
 fib(0)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -278,7 +278,7 @@ def fib2(n):
 f100 = fib2(100)
 print(f100)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -297,7 +297,7 @@ ask_ok('Do you really wanna quit ? ')
 ask_ok('OK to overwrite the file ? ', 2)
 ask_ok('OK to overwrite the file ? ', 2, 'Come on, only yes or no!')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -309,7 +309,7 @@ def f(arg = i):
 i = 6
 f()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -321,7 +321,7 @@ print(f(1))
 print(f(2))
 print(f(3))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -333,7 +333,7 @@ def f(a, L = None):
 
 print(f(1))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -354,7 +354,7 @@ parrot('a thousand', state = 'pushing up the daisies')	# 1 positional, 1 keyword
 # parrot(110, voltage = 220)	# Invalid, because duplicate values for same argument.
 # parrot(actor = 'John Cleese')	# Keyword argument name is mispelt.
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -370,7 +370,7 @@ def cheeseshop(kind, *arguments, **keywords):
 
 cheeseshop("Limburger", "It's very runny, sir.", "It's really very, VERY runny, sir.", shopkeeper = "Michael Palin", client = "John Cleese", sketch = "Cheese Shop Sketch")
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -380,7 +380,7 @@ def concat(*args, sep = "/"):
 print(concat("earth", "mars", "venus"))
 print(concat("earth", "mars", "venus", sep = "."))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -391,7 +391,7 @@ def parrot(voltage, state = 'a stiff', action = 'voom'):
 d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
 parrot(**d)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -402,7 +402,7 @@ f = make_incrementor(42)	# make_incrementor makes and returns the adder and assi
 print(f(0))	# Calling 'f' with '0', calls the lambda function and assigns the '0' argument to 'x'.  0 = x, 42 = n.
 print(f(1))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -410,7 +410,7 @@ pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]	# Two-dimensional ar
 pairs.sort(key = lambda pair: pair[1])	# 'sort' takes no arguments, or one argument which should be a lambda function.  This lambda function should return the key.  The elements of the 'pairs' array is passed as an argument to the lambda function that is known as 'pair' inside the lambda function.
 print(pairs)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -423,7 +423,7 @@ def myfunction():
 
 print(myfunction.__doc__)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -434,7 +434,7 @@ def f(ham: str, eggs: str = 'eggs') -> str:
 
 f('spam')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -459,7 +459,7 @@ print(a.sort(key = None, reverse=False))	# Sort the items of the list in place. 
 a.clear()	# Equivalent to 'del a[:].
 copyOfA = a.copy()	# Return a shallow copy of the list.  Equivalent to 'a[:]'.
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -473,7 +473,7 @@ print(stack.pop())
 print(stack.pop())
 print(stack)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -486,7 +486,7 @@ print(queue.popleft())
 print(queue.popleft())
 print(queue)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -495,21 +495,21 @@ for x in range(10):
 	squares.append(x ** 2)
 print(squares)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 squares = list(map(lambda x: x ** 2, range(10)))	# Equivalent.  List comprehension.
 print(squares)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 squares = [x ** 2 for x in range(10)]
 print(squares)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -522,7 +522,7 @@ for x in [1, 2, 3]:
 			combs.append((x, y))
 print(combs)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -531,28 +531,28 @@ print([x * 2 for x in vec])
 print([x for x in vec if x >= 0])
 print([abs(x) for x in vec])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 freshfruit = ['	 banana', '  loganberry ', 'passion fruit  ']
 print([weapon.strip() for weapon in freshfruit])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 print([(x, x ** 2) for x in range(6)])	# To create a list of tuples.
 print([x, x ** 2] for x in range(6))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 vec = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 print([num for elem in vec for num in elem])	# Flatten a list of tuples using listcomp.
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -560,7 +560,7 @@ from math import pi
 
 print([str(round(pi, i)) for i in range(1, 6)])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -568,7 +568,7 @@ matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], ]
 print(matrix)
 print([[row[i] for row in matrix] for i in range(4)])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -577,7 +577,7 @@ for i in range(4):
 	transposed.append([row[i] for row in matrix])
 print(transposed)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -589,13 +589,13 @@ for i in range(4):
 	transposed.append(transposed_row)
 print(transposed)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 print(list(zip(*matrix)))		# Better than listcomp.
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -612,7 +612,7 @@ print(a)
 del a		# Deletes entire variable.
 # print(a)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -624,14 +624,14 @@ print(u)
 # t[0] = 88888	# Tuples are immutable.  They can contain mutable objects.
 print(t[0])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 v = ([1, 2, 3], [3, 2, 1])
 print(v)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -641,7 +641,7 @@ print(len(empty))
 print(len(singleton))
 print(singleton)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -650,7 +650,7 @@ print(t)
 x, y, z = t	# Unpacking a tuple.  This can work for any sequence.
 print(x, y, z)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -659,7 +659,7 @@ print(basket)
 print('orange' in basket)
 print('crabgrass' in basket)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -674,7 +674,7 @@ print(a ^ b)
 a = {x for x in 'abracadabra' if x not in 'abc'}
 print(a)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -696,7 +696,7 @@ print({x: x ** 2 for x in (2, 4, 6)})		# Dict comprehensions.
 
 print(dict(sape = 4139, guido = 4127, jack = 4098))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -704,14 +704,14 @@ knights = {'gallahad': 'the pure', 'robin': 'the brave'}
 for k, v in knights.items():
 	print(k, v)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 for i, v in enumerate(['tic', 'tac', 'toe']):
 	print(i, v)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -720,14 +720,14 @@ answers = ['lancelot', 'the holy grail', 'blue']
 for q, a in zip(questions, answers):
 	print('What is your {0}?  It is {1}.'.format(q, a))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 for i in reversed(range(1, 10, 2)):
 	print(i)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -735,7 +735,7 @@ basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
 for f in sorted(set(basket)):	# sorted() takes any sequence and returns a new list.
 	print(f)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -748,7 +748,7 @@ for value in raw_data:
 		filtered_data.append(value)
 print(filtered_data)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -756,7 +756,7 @@ string1, string2, string3 = '', 'Trondheim', 'Hammer Dance'
 non_null = string1 or string2 or string3
 print(non_null)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -768,7 +768,7 @@ print(fibo.__name__)
 fib = fibo.fib
 print(fib(500))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -776,7 +776,7 @@ from fibo import fib, fib2
 
 print(fib(500))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -784,7 +784,7 @@ from fibo import *
 
 print(fib(500))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -795,7 +795,7 @@ import sys
 # sys.ps1 = 'C> '
 # print(sys.ps1)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -803,7 +803,7 @@ import sys
 
 sys.path.append('/home/punit/lib/python')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -812,7 +812,7 @@ import fibo, sys
 print('dir(fibo): ', dir(fibo))
 print('dir(sys): ', dir(sys))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -822,7 +822,7 @@ a = [1, 2, 3, 4, 5]
 fib = fibo.fib
 print('dir(): ', dir())
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -830,13 +830,13 @@ import builtins
 
 print('dir(builtins): ', dir(builtins))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 print('sys.path: ', sys.path)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -852,7 +852,7 @@ hellos = repr(hello)
 print(hellos)
 print(repr((x, y, ('spam', 'eggs'))))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -860,14 +860,14 @@ for x in range(1, 11):
 	print(repr(x).rjust(2), repr(x * x).rjust(3), end = ' ')
 	print(repr(x * x * x).rjust(4))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 for x in range(1, 11):
 	print('{0:2d} {1:3d} {2:4d}'.format(x, x * x, x * x * x))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -884,7 +884,7 @@ contents = 'eels'
 print('My hovercraft is full of {}.'.format(contents))
 print('My hovercraft is full of {!r}.'.format(contents))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -902,7 +902,7 @@ print('Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}: Dcab: {0[Dcab]:d}'.format(table
 table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
 print('Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}'.format(**table))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -937,7 +937,7 @@ print(f.read(1))
 f.close()
 # f.read()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -945,7 +945,7 @@ with open('../var/in.txt', 'r') as f:
 	read_data = f.read()
 print(f.closed)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -953,7 +953,7 @@ import json
 
 print(json.dumps([1, 'simple', 'list']))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -966,7 +966,7 @@ y = json.load(f)
 print(y)
 f.close()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -977,7 +977,7 @@ while True:
 	except ValueError:
 		print('Oops! Invalid number.')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1000,7 +1000,7 @@ for myClass in [B, C, D]:
 	except B:
 		print('B')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1028,7 +1028,7 @@ for arg in sys.argv[1:]:
 		print(arg, 'has', len(f.readlines()), 'lines')
 		f.close()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1042,7 +1042,7 @@ except Exception as inst:
 	print('x = ', x)
 	print('y = ', y)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1054,7 +1054,7 @@ try:
 except ZeroDivisionError as error:
 	print('Handling run-time error:', error)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1065,7 +1065,7 @@ except NameError:
 	print('An exception flew by!')
 	raise
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1100,7 +1100,7 @@ class TransitionError(Error):
 		self.next = next
 		self.message = message
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1110,7 +1110,7 @@ try:
 finally:
 	print('Goodbye, World!')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1128,7 +1128,7 @@ divide(2, 1)
 divide(2, 0)
 # divide('2', '1')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1154,7 +1154,7 @@ def scope_test():
 scope_test()
 print('In global scope: ', spam)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1165,7 +1165,7 @@ class MyClass:
 	def f(self):
 		return 'Hello, world!'
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1177,7 +1177,7 @@ class Complex:
 x = Complex(3.0, -4.5)
 print(x.r, x.i)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1188,7 +1188,7 @@ while x.counter < 10:
 print(x.counter)
 del x.counter
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1196,7 +1196,7 @@ xf = x.f
 # while True:
 print(xf())
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1213,7 +1213,7 @@ print(e.kind)
 print(d.name)
 print(e.name)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1233,7 +1233,7 @@ e.add_trick('play dead')
 print(d.tricks)
 print(e.tricks)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1248,7 +1248,7 @@ class C:
 
 	h = g
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1263,7 +1263,7 @@ class Bag:
 		self.add(x)
 		self.add(x)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1283,7 +1283,7 @@ class MappingSubclass(Mapping):
 		for items in zip(key, values):
 			self.items_list.append(item)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1295,7 +1295,7 @@ john.name = 'John Doe'
 john.dept = 'computer lab'
 john.salary = 1000
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1310,7 +1310,7 @@ for char in '123':
 for line in open('../var/in.txt'):
 	print(line, end = '')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1322,7 +1322,7 @@ print(next(it))
 print(next(it))
 # print(next(it))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1345,7 +1345,7 @@ print(iter(rev))
 for char in rev:
 	print(char)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1361,7 +1361,7 @@ xvec = [10, 20, 30]
 yvec = [7, 5, 3]
 print(sum(x * y for x, y in zip(xvec, yvec)))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1374,7 +1374,7 @@ print(sine_table)
 data = 'golf'
 print(list(data[i] for i in range(len(data) - 1, -1, -1)))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1385,7 +1385,7 @@ os.chdir('../var/log/')
 os.system('mkdir pythontestbed')
 os.chdir('/home/punit/src/PythonTestbed/src/')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1394,7 +1394,7 @@ import os
 print(dir(os))
 # print(help(os))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1404,7 +1404,7 @@ print(os.getcwd())
 shutil.copyfile('../var/in.txt', '../var/copy_of_in.txt')
 shutil.move('../var/copy_of_in.txt', '../var/copy_of_in_moved.txt')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1412,7 +1412,7 @@ import glob
 
 print(glob.glob('*.py'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1421,7 +1421,7 @@ import sys
 print(sys.argv)
 sys.stderr.write('Warning, log file not found starting a new one\n')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1432,7 +1432,7 @@ print(re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the hat'))
 
 print('tea for too'.replace('too', 'two'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1441,7 +1441,7 @@ import math
 print(math.cos(math.pi / 4))
 print(math.log(1024 / 2))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1452,7 +1452,7 @@ print(random.sample(range(100), 10))
 print(random.random())
 print(random.randrange(6))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1463,7 +1463,7 @@ print(statistics.mean(data))
 print(statistics.median(data))
 print(statistics.variance(data))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1476,7 +1476,7 @@ with urlopen('http://worldtimeapi.org/api/timezone/etc/UTC.txt') as response:
 		if 'EST' in line or 'EDT' in line:
 			print(line)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1491,7 +1491,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # 	""")
 # server.quit()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1504,7 +1504,7 @@ birthday = date(2020, 3, 15)
 age = now - birthday
 print(age.days)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1519,7 +1519,7 @@ print(len(t))
 print(zlib.decompress(t))
 print('crc32:', zlib.crc32(s))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1528,7 +1528,7 @@ from timeit import Timer
 print(Timer('t = a; a = b; b = t', 'a = 1; b = 2').timeit())
 print(Timer('a, b = b, a', 'a = 1; b = 2').timeit())
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1558,7 +1558,7 @@ class TestStatisticalFunctions(unittest.TestCase):
 
 unittest.main()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1566,7 +1566,7 @@ import reprlib
 
 print(reprlib.repr(set('supercalifragilisticexpialidocious')))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1578,7 +1578,7 @@ print(len(t[0]))
 print(len(t[0][0]))
 pprint.pprint(t, width = 30)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1587,7 +1587,7 @@ import textwrap
 doc = """The wrap() method is just like fill() except that it returns a list of strings instead of one big string with newlines to separate the wrapped lines."""
 print(textwrap.fill(doc, width = 40))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1600,7 +1600,7 @@ x = 1234567.8
 print(locale.format('%d', x, grouping = True))
 print(locale.format_string('%s%.*f', (conv['currency_symbol'], conv['frac_digits'], x), grouping = True))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1614,7 +1614,7 @@ d = dict(item = 'unladen swallow')
 # t.substitute(d)
 print(t.safe_substitute(d))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1635,7 +1635,7 @@ for i, filename in enumerate(photofiles):
 	newname = t.substitute(d = date, n = i, f = ext)
 	print('{0} --> {1}'.format(filename, newname))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1644,7 +1644,7 @@ import struct
 with open('/mnt/pc4-windows/Users/punit/Documents/_OOS/Hacking/CEH/Hacker School/metasploitable-linux-2.0.0.zip', 'rb') as f:
 	data = f.read()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 start = 0
 for i in range(3):
@@ -1661,7 +1661,7 @@ for i in range(3):
 
 	start += extra_size + comp_size
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1687,7 +1687,7 @@ print('The main program continues to run in foreground')	# This is main thread, 
 background.join()	# Wait for background task to finish.
 print("Background done.")
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1699,7 +1699,7 @@ logging.warning('Warning: %s', 'server.conf')
 logging.error('Error')
 logging.critical('Critical error')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1718,7 +1718,7 @@ del a
 gc.collect()
 # print("d['primary']: ", d['primary'])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1728,7 +1728,7 @@ a = array('H', [4000, 10, 700, 22222])	# 'H' is typecode for 2-byte unsigned bin
 print('sum: ', sum(a))
 print('a[1:3]: ', a[1:3])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1738,7 +1738,7 @@ d = deque(["task1", "task2", "task3"])
 d.append("task4")
 print("Handling", d.popleft())
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1748,7 +1748,7 @@ scores = [(100, 'perl'), (200, 'tcl'), (400, 'lua'), (500, 'python')]
 bisect.insort(scores, (300, 'ruby'))
 print(scores)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1759,7 +1759,7 @@ heapify(data)
 heappush(data, -5)
 print([heappop(data) for i in range(3)])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1776,7 +1776,7 @@ print(sum([0.1] * 10) == 1.0)
 getcontext().prec = 36
 print(Decimal(1) / Decimal(7))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1786,13 +1786,13 @@ print(format(math.pi, '.12g'))
 print(format(math.pi, '.2f'))
 print(repr(math.pi))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 print(.1 + .1 + .1 == .3)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1800,7 +1800,7 @@ print(round(0.1, 1) + round(0.1, 1) + round(0.1, 1) == round(0.3, 1))
 print(round(0.1, 20) + round(0.1, 20) + round(0.1, 20) == round(0.3, 20))
 print(round(0.1 + 0.1 + 0.1, 10) == round(0.3, 10))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1815,13 +1815,13 @@ print(sum([0.1] * 10) == 1.0)
 
 print(math.fsum([0.1] * 10) == 1.0)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
 print(2 ** 52 <= 2 ** 56 // 10 < 2 ** 53)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1829,7 +1829,7 @@ q, r = divmod(2 ** 56, 10)
 print(r)
 print(q + 1)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1838,7 +1838,7 @@ print(3602879701896397 * 10 ** 55 // 2 ** 55)
 
 print(format(0.1, '.17f'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # TUTORIAL.  3.5.2.
@@ -1850,13 +1850,13 @@ print(0.1.as_integer_ratio())
 print(Decimal.from_float(0.1))
 print(format(Decimal.from_float(0.1), '.17'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 97.
 print(len(str(2 ** 1000000)))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 102.
@@ -1866,7 +1866,7 @@ L[1] = 'c'
 L = ''.join(L)
 print(L)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5. p. 102.
@@ -1875,7 +1875,7 @@ B.extend(b'eggs')
 print(B)
 print(B.decode())
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5. p. 102.
@@ -1884,14 +1884,14 @@ print(S.find('pa'))
 print(S.replace('pa', 'XYZ'))
 print(S)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 103.
 line = 'aaa,bbb,ccccc,dd'
 print(line.split(','))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 104.
@@ -1899,19 +1899,19 @@ S = 'spam'
 print(S + 'NI!')
 print(S.__add__('NI!'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 104.
 print(help(S.replace))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 107.
 print('sp\xc4\u00c4\U000000c4m')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 108.
@@ -1926,7 +1926,7 @@ print(match.groups())
 
 print(re.split('[/:]', '/usr/home/lumberjack'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p.112.  NOT ALL THE STUFF.
@@ -1959,7 +1959,7 @@ print({row: sum(matrix[row]) for row in range(3)})
 print([ord(character) for character in 'PALLAVIBABY'])
 print({ord(character) for character in 'PALLAVI'})
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 115, 116, and so on.
@@ -1978,7 +1978,7 @@ print(keys)
 for key in sorted(myDictionary2):
 	print(myDictionary2[key])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 118.
@@ -1988,7 +1988,7 @@ print(value)
 value = D['x'] if 'x' in D else 0
 print(value)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 121.
@@ -1998,7 +1998,7 @@ print(myTuple.index(2))
 print(myTuple.count('item1'))
 print(myTuple[3])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 121.
@@ -2006,7 +2006,7 @@ T = (1, 2, 3, 4)
 T = (2,) + T[1:]
 print(T)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 124.
@@ -2018,7 +2018,7 @@ myFile = open('/home/punit/src/PythonTestbed/var/bytestring.bin', 'wb')	# Open b
 myFile.write(packed)
 myFile.close()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 readString = open('/home/punit/src/PythonTestbed/var/bytestring.bin', 'rb').read()
 print(readString)
@@ -2028,7 +2028,7 @@ print(list(readString))
 print('Read: ' + readString.decode())
 print(struct.unpack('>i10sh', readString))	# Unpack in to objects again.
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 124.
@@ -2051,7 +2051,7 @@ print(text.encode('utf-8'))
 print(raw.decode('utf-8'))
 print(text.encode('utf-16'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 126.
@@ -2059,7 +2059,7 @@ X = set('spam')
 Y = {'h', 'a', 'm'}
 print(X, Y)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 126.
@@ -2069,7 +2069,7 @@ print(mySet)
 print(mySet & mySet1)
 print(mySet - mySet1)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 127.
@@ -2078,7 +2078,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 print(set('spam') == set('asmp'))	# Order-neutral equality test.
 print('p' in set('spam'), 'p' in 'spam', 'ham' in ['eggs', 'spam', 'ham'])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 127.
@@ -2090,7 +2090,7 @@ print(d + 1)
 decimal.getcontext().prec = 2
 print(decimal.Decimal('1.00') / decimal.Decimal('3.00'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 127.
@@ -2100,13 +2100,13 @@ myFraction = Fraction(1, 4)
 print(myFraction + 1)
 print(myFraction + Fraction(1, 2))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 128.
 print(bool('spam'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 128.
@@ -2126,7 +2126,7 @@ if type(myList) == list:
 if isinstance(myList, list):	# OO test.
 	print('isInstance working')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 129.
@@ -2145,14 +2145,14 @@ print(punitArya.getLastName())
 print(pallaviArya.giveHike(20))
 print(pallaviArya.salary)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 140.
 print(int(3.1415))
 print(float(3))	# Converts to float.
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 144.
@@ -2160,7 +2160,7 @@ print(repr('spam'))
 print(str('spam'))
 print(str(b'xy', 'utf8'))	# Alternative to 'bytes.decode' method.
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 145.
@@ -2176,7 +2176,7 @@ print(1 < 2 < 3.0 < 4)
 print(1 > 2 > 3.0 > 4)
 print(1 == 2 < 3)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 145.
@@ -2184,7 +2184,7 @@ print(1.1 + 2.2 == 3.3)
 print(1.1 + 2.2)
 print(int(1.1 + 2.2) == int(3.3))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 151.
@@ -2192,7 +2192,7 @@ print(1j * 1J)
 print(2 + 1j * 3)
 print((2 + 1j) * 3)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 152.
@@ -2201,14 +2201,14 @@ print(64, 0o100, 0x40, 0b1000000)
 print(int('64'), int('100', 8), int('40', 16), int('1000000', 2))
 print(int('0x40', 16), int('0b10000000', 2))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 152.
 print('{0:0}, {1:x}, {2:b}'.format(64, 64, 64))	# Returns digits not strings.
 print('%o, %x, %x, %X' % (64, 64, 255, 255))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 154.
@@ -2216,7 +2216,7 @@ X = 99
 print(bin(X), X.bit_length(), len(bin(X)) - 2)
 print(bin(256), (256).bit_length(), len(bin(256)) - 2)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 155.
@@ -2237,7 +2237,7 @@ print(math.sqrt(144))
 print(144 ** .5)
 print(pow(144, .5))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 151.
@@ -2266,21 +2266,21 @@ print(sorted(myDictionary.items()))
 print(int(3.14), int(3.54), int(3.84))
 print(float(3))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 152.
 myCode = 'print(oct(8))'
 eval(myCode)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 152.
 print('{0:o}, {1:x}, {2:b}'.format(16, 16, 16))
 print('%o, %x, %X' % (15, 15, 15))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 156.
@@ -2289,7 +2289,7 @@ import random
 print(random.randint(1, 10))
 print(random.randint(1, 10))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 156.
@@ -2301,13 +2301,13 @@ print(suits)
 random.shuffle(suits)
 print(suits)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 158.
 print(0.1 + 0.1 + 0.1 - 0.3)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 158.
@@ -2315,7 +2315,7 @@ import decimal
 
 print(decimal.Decimal.from_float(1.25))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 158.
@@ -2324,7 +2324,7 @@ from decimal import Decimal
 print(Decimal('0.1') + Decimal('0.1') + Decimal('0.1') - Decimal('0.3'))
 print(Decimal('0.1') + Decimal('0.10') + Decimal('0.10') - Decimal('0.30'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 159.
@@ -2335,7 +2335,7 @@ decimal.getcontext().prec = 4
 print(decimal.Decimal(1) / decimal.Decimal(7))
 print(Decimal(0.1) + Decimal(0.1) + Decimal(0.1) - Decimal(0.3))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 159.
@@ -2343,7 +2343,7 @@ with decimal.localcontext() as myContext:
 	myContext.prec = 2
 	print(decimal.Decimal('1.00') / decimal.Decimal('3.00'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 159.
@@ -2352,7 +2352,7 @@ with decimal.localcontext() as ctx:
 	print(decimal.Decimal('1.00') / decimal.Decimal('3.00'))
 print(decimal.Decimal('1.00') / decimal.Decimal('3.00'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 160.
@@ -2365,13 +2365,13 @@ print(x + y)
 print(x - y)
 print(x * y)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 160.
 print(Fraction('.25'))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  P. 162.
@@ -2439,7 +2439,7 @@ managers = {'tom', 'sue'}
 print(engineers > managers)
 print((managers | engineers) - (managers ^ engineers))	# Intersection.
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 print(type(True))
@@ -2448,7 +2448,7 @@ print(True == 1)
 print(True is 1)
 print(True + 4)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 183.
@@ -2459,7 +2459,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # copyOfCopyOfMySet = set(copyOfMySet)
 # print(copyOfCopyOfMySet)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 183.
@@ -2483,26 +2483,26 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # print(type(mySet[2]))
 # print(type(mySet[2][2]))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p.193.
 # print('knight\'s', "knight\"s")
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 197.
 # path = r'C:\new\text.dat'
 # print(path)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 226.
 # print(hex(255))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # LP5.  p. 289.
@@ -2513,20 +2513,20 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # 	words = line.split()
 # 	print(words)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # http://urwid.org/tutorial/index.html
 # import urwid
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 # txt = urwid.Text(u"Hello World")
 # fill = urwid.Filler(txt, 'top')
 # loop = urwid.MainLoop(fill)
 # loop.run()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # http://urwid.org/tutorial/index.html
@@ -2545,7 +2545,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # loop = urwid.MainLoop(map2, palette, unhandled_input = exit_on_q)
 # loop.run()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # https://matplotlib.org/stable/tutorials/introductory/pyplot.html
@@ -2566,18 +2566,18 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # plt.suptitle('Categorical Plotting')
 # plt.show()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
 # import math
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 # print(log2(1024))
 # print(2 ** 31)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2599,32 +2599,32 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 #     print(type(sys.exc_info()))
 #     raise
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
 # import _thread as thread, time
 # import os
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 # def counter(myId, count):
 #	for i in range(count):
 #		print('Thread ID: %s.  i: %s.' % (myId, i))
 #		time.sleep(2)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 # print('Main thread running.')
 # for i in range(5):
 #	thread.start_new_thread(counter, (i, 5))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 # time.sleep(12)
 # print('Main thread exiting.')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN [OLD VERSION OF TUTORIAL PROBABLY]
@@ -2632,7 +2632,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # import time
 # import zipfile
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 # def asyncZip(infile, outfile):
 #	print('Background thread started.')
@@ -2640,35 +2640,35 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 #		myzip.write(infile)
 #	print('Background thread ended. ', infile)	# This thread is run in background (background thread).
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 # print('Main thread started.')
 # thread.start_new_thread(asyncZip, ('/home/punit/src/_not_mine/py3testbed/tmp/ChangeLog.org', '/home/punit/src/_not_mine/py3testbed/tmp/new.zip'))
 # time.sleep(1)
 # print('Main thread ended.')	# This is main thread, running simultaneously.
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
 # import zipfile
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 # with zipfile.ZipFile('/home/punit/src/_not_mine/py3testbed/tmp/ChangeLog.zip', 'w') as myzip:
 #	myzip.write('/home/punit/src/_not_mine/py3testbed/tmp/ChangeLog.org')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
 # import readline
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 # print(readline.get_history_length())
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2697,7 +2697,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # if __name__ == '__main__':
 #	merge_lists()
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2708,13 +2708,13 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # print(str(math.sqrt(10))[0])
 # print(str(math.pi)[len(str(math.pi))-2])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
 # print(len(list(myString)))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2723,7 +2723,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # print('{:,.2f} and {:+04d}'.format(3000.14159, 3))
 # print('%+04d and %.3f' %(3, 30.300999))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2731,7 +2731,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # print(list('🌥'.encode('utf-16')))
 # print(list('🌥'.encode('utf-32')))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2739,13 +2739,13 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 #
 # print(platform.version(), platform.release(), platform.python_version())
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
 # print('%e' % 31415.926)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2757,7 +2757,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # import cmath
 # print(cmath.cos(complex(2, -3)))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2772,7 +2772,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # print(math.trunc(-2.1))
 # print(round(-2.1111, 2))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2796,13 +2796,13 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # print(set([1, 3, 5]) - set([1, 2, 3, 4, 5]))
 # print(set(dir(str)) - set(dir(bytes)))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
 # print(True + 4)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2814,17 +2814,17 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # list2[2] = 5
 # print(list1, list2)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
 # import sys
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 # print(sys.argv[0], len(sys.argv[0]))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2833,7 +2833,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # if (a // b) * b + (a % b) == a:
 #	print("True")
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2845,7 +2845,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # else:
 #	print('all less than 5 printed')
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2855,7 +2855,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # num.shuffle()
 # print(num)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2865,7 +2865,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # ab.sort(key = lambda mykey : mykey[1])
 # print(ab)
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2882,7 +2882,7 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # print(fruits)
 # print(fruits.pop())
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN
@@ -2892,13 +2892,13 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # print(matrix)
 # print(matrix[0][1])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # UNKNOWN:
 # print([1, 2] < [2, 1])
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
 
 
 # import decimal
@@ -2906,4 +2906,4 @@ print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
 # print('Decimal is fixed-precision unlike floating-points' if decimal.Decimal('1.11') + decimal.Decimal('2.22') == decimal.Decimal('3.33') else 'it\'s not')
 # print(decimal.Decimal.from_float(1.11))
 
-print('-' * 4, getframeinfo(currentframe()).lineno, '-' * 4)
+print('\n', '-' * 4, getframeinfo(currentframe()).lineno, '-' * 4, '\n')
