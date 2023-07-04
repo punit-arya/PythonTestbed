@@ -6,8 +6,10 @@ PythonTestbed: Python testbed.
 """
 
 import doctest
+import gc
 import glob
 import locale
+import logging
 import math
 import os
 import pprint
@@ -20,8 +22,18 @@ import statistics
 import struct
 import sys
 import textwrap
+from decimal import Decimal
+from fractions import Fraction
+import math
+from decimal import *
+from heapq import heapify, heappop, heappush
+import bisect
+from collections import deque
+import threading, zipfile
+from array import array
 import time
 import unittest
+import weakref
 import zlib
 from datetime import date
 from inspect import currentframe
@@ -1102,6 +1114,7 @@ import urwid
 # # TUTORIAL.
 
 def scope_test():
+
 	def do_local():
 		spam = "local spam"
 
@@ -1129,6 +1142,7 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 # TUTORIAL.
 
 class MyClass:
+
 	"""A simple example class"""
 
 	i = 12345
@@ -1217,10 +1231,10 @@ class Dog:
 	def add_trick(self, trick):
 		self.tricks.append(trick)
 
-d = Dog('Fido')
-e = Dog('Buddy')
-d.add_trick('roll over')
-e.add_trick('play dead')
+d = Dog("Fido")
+e = Dog("Buddy")
+d.add_trick("roll over")
+e.add_trick("play dead")
 print(d.tricks)
 print(e.tricks)
 
@@ -1321,6 +1335,7 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 # TUTORIAL.
 
 class Reverse:
+
 	"""Iterating for looping over a sequence backwards."""
 
 	def __init__(self, data):
@@ -1458,7 +1473,7 @@ server.sendmail("soothsayer@example.org", "jcaesar@example.org", """To: jcaesar@
  	From: soothsayer@example.org
 
  	Beware the Ides of March.
- 	""", )
+ 	""",)
 server.quit()
 
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -1499,10 +1514,10 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 def average(values):
 	"""Computes the arithmetic mean of a list of numbers.
 
-	>>> print(average([20, 30, 70]))
+    >>> print(average([20, 30, 70]))
 
-	40.0
-	"""
+    40.0
+    """
 
 	return sum(values) / len(values)
 
@@ -1593,19 +1608,19 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # TUTORIAL.
 
-with open("/home/punit/doc/_OOS/Hacking/CEH/Hacker School/metasploitable-linux-2.0.0.zip", "rb", ) as f:
+with open("/home/punit/doc/_OOS/Hacking/CEH/Hacker School/metasploitable-linux-2.0.0.zip", "rb",) as f:
 	data = f.read()
 
 start = 0
 for i in range(3):
 	start += 14
-	fields = struct.unpack("<IIIHH", data[start: start + 16])
+	fields = struct.unpack("<IIIHH", data[start : start + 16])
 	crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
 
 	start += 16
-	filename = data[start: start + filenamesize]
+	filename = data[start : start + filenamesize]
 	start += filenamesize
-	extra = data[start: start + extra_size]
+	extra = data[start : start + extra_size]
 	print("Header ", i + 1, ":", sep = "", end = "")
 	print(filename, hex(crc32), comp_size, uncomp_size)
 
@@ -1615,16 +1630,12 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # TUTORIAL.
 
-import threading, zipfile
-
 class AsyncZip(threading.Thread):  # Like Java, we need to create a class that will create a thread object.
 
 	def __init__(self, infile, outfile):
 		threading.Thread.__init__(self)  # This line should be there for every thread class in its 'init'.  Doesn't work.
 		self.infile = infile  # Initialise other fields of your thread class.
 		self.outfile = outfile
-
-	pass
 
 	def run(self):  # Define the operations to be done by the thread.
 		f = zipfile.ZipFile(self.outfile, "w", zipfile.ZIP_DEFLATED)  # Operation step number one.
@@ -1637,25 +1648,21 @@ background.start()  # Start the execution of your thread.
 print("The main program continues to run in foreground")  # This is main thread, running simultaneously.
 
 background.join()  # Wait for background task to finish.
-print("Background done.")
+print("'Main program waited until background was done.")
 
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # TUTORIAL.
 
-import logging
-
-logging.debug("Debug message")
+logging.debug("Debugging information")
 logging.info("Informational message")
-logging.warning("Warning: %s", "server.conf")
-logging.error("Error")
-logging.critical("Critical error")
+logging.warning("Warning:config file %s not found', 'server.conf'")
+logging.error("Error occurred'")
+logging.critical("Critical error -- shutting down")
 
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # TUTORIAL.
-
-import weakref, gc
 
 class A:
 
@@ -1677,17 +1684,13 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # TUTORIAL.
 
-from array import array
-
 a = array("H", [4000, 10, 700, 22222])  # 'H' is typecode for 2-byte unsigned binary number, thus 2 bytes per entry.
 print("sum:", sum(a))
-print("a[1:3]:", a[1:3])
+print("a[1:3]:", a[1 : 3])
 
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # TUTORIAL.
-
-from collections import deque
 
 d = deque(["task1", "task2", "task3"])
 d.append("task4")
@@ -1697,8 +1700,6 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # TUTORIAL.
 
-import bisect
-
 scores = [(100, "perl"), (200, "tcl"), (400, "lua"), (500, "python")]
 bisect.insort(scores, (300, "ruby"))
 print(scores)
@@ -1706,8 +1707,6 @@ print(scores)
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # TUTORIAL.
-
-from heapq import heapify, heappop, heappush
 
 data = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
 heapify(data)
@@ -1718,12 +1717,10 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # TUTORIAL.
 
-from decimal import *
-
 print(round(Decimal("0.70") * Decimal("1.05"), 2))
-print(round(0.70 * 1.05, 2))
+print(round(.70 * 1.05, 2))
 
-print(Decimal("1.00") % Decimal("0.10"))
+print(Decimal("1.00") % Decimal(".10"))
 print(1.00 % 0.10)
 print(sum([Decimal("0.1")] * 10) == Decimal("1.0"))
 print(sum([0.1] * 10) == 1.0)
@@ -1735,8 +1732,6 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # TUTORIAL.
 
-import math
-
 print(format(math.pi, ".12g"))
 print(format(math.pi, ".2f"))
 print(repr(math.pi))
@@ -1745,26 +1740,25 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # TUTORIAL.
 
-print(0.1 + 0.1 + 0.1 == 0.3)
+print(.1 + .1 + .1 == .3)
+
+print(round(.1, 1) + round(.1, 1) + round(.1, 1) == round(.3, 1))
+
+print(round(.1 + .1 + .1, 10) == round(.3, 10))
 
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # TUTORIAL.
-
-print(round(0.1, 1) + round(0.1, 1) + round(0.1, 1) == round(0.3, 1))
-print(round(0.1, 20) + round(0.1, 20) + round(0.1, 20) == round(0.3, 20))
-print(round(0.1 + 0.1 + 0.1, 10) == round(0.3, 10))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-import math
 
 x = 3.14159
 print(x.as_integer_ratio())  # Much more exact than smaller numbers for lossless recreation of original numbers.
+print(x == 3537115888337719 / 1125899906842624)
 print(x.hex())
 print(x == float.fromhex("0x1.921f9f01b866ep+1"))
+
+print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+
+# TUTORIAL.
 
 print(sum([0.1] * 10) == 1.0)
 
@@ -1784,21 +1778,9 @@ q, r = divmod(2 ** 56, 10)
 print(r)
 print(q + 1)
 
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
 print(0.1 * 2 ** 55)
 print(3602879701896397 * 10 ** 55 // 2 ** 55)
-
 print(format(0.1, ".17f"))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-from decimal import Decimal
-from fractions import Fraction
 
 print(Fraction.from_float(0.1))
 print((0.1).as_integer_ratio())
@@ -1960,7 +1942,7 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 # LP5.  p. 121.
 
 T = (1, 2, 3, 4)
-T = (2,) + T[1:]
+T = (2,) + T[1 :]
 print(T)
 
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -1977,7 +1959,7 @@ myFile.close()
 
 readString = open("/home/punit/src/PythonTestbed/var/bytestring.bin", "rb").read()
 print(readString)
-print(readString[4:8])
+print(readString[4 : 8])
 print(len(readString))
 print(list(readString))
 print("Read: " + readString.decode())
@@ -2216,7 +2198,7 @@ print("OK" if False else "NOK")
 print("not in" if "s" not in "spam" else "in")
 myList2 = myList = [1]
 print("yes" if myList is not myList2 else "not")
-print("abcdefghi"[1:-1:2])
+print("abcdefghi"[1 :-1 : 2])
 myString = "abcdefghi"
 myString2 = myString[slice(1, 2, -1)]
 print(myString2)
@@ -2506,7 +2488,7 @@ def exit_on_q(key):
 	if key in ("q", "Q"):
 		raise urwid.ExitMainLoop()
 
-palette = [("banner", "black", "light gray"), ("streak", "black", "dark red"), ("bg", "black", "dark blue"), ]
+palette = [("banner", "black", "light gray"), ("streak", "black", "dark red"), ("bg", "black", "dark blue"),]
 
 txt = urwid.Text(("banner", " Hello World "), align = "center")
 
@@ -2599,7 +2581,7 @@ def asyncZip(infile, outfile):
 
 print("Main thread started.")
 
-thread.start_new_thread(asyncZip, ("/home/punit/src/_not_mine/py3testbed/tmp/ChangeLog.org", "/home/punit/src/_not_mine/py3testbed/tmp/new.zip",), )
+thread.start_new_thread(asyncZip, ("/home/punit/src/_not_mine/py3testbed/tmp/ChangeLog.org", "/home/punit/src/_not_mine/py3testbed/tmp/new.zip",),)
 time.sleep(1)
 
 print("Main thread ended.")  # This is main thread, running simultaneously.
@@ -2641,7 +2623,7 @@ def merge_lists():
 			list3.append(list2[j])
 			j += 1
 
-	list3 = list3 + list1[i:] + list2[j:]
+	list3 = list3 + list1[i :] + list2[j :]
 
 if __name__ == "__main__":
 	merge_lists()
