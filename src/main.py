@@ -5,48 +5,58 @@
 PythonTestbed: Python testbed.
 """
 
+import array
+import bisect
+import builtins
+import cmath
+import copy
+import datetime
+import decimal
 import doctest
 import gc
 import glob
+import json
 import locale
 import logging
 import math
 import os
+import platform
 import pprint
 import random
 import re
+import readline
 import reprlib
 import shutil
-import smtplib
 import statistics
+import string
 import struct
 import sys
 import textwrap
-from decimal import Decimal
-from fractions import Fraction
-import math
-from decimal import *
-from heapq import heapify, heappop, heappush
-import bisect
-from collections import deque
-import threading, zipfile
-from array import array
+import threading
 import time
+import timeit
 import unittest
+import urllib.request
 import weakref
+import zipfile
 import zlib
-from datetime import date
+from _decimal import Decimal
+from _decimal import getcontext
+from collections import deque
+from concurrent.futures import thread
+from fractions import Fraction
+from heapq import heapify
+from heapq import heappop
+from heapq import heappush
 from inspect import currentframe
 from inspect import getframeinfo
 from math import pi
-from string import Template
-from timeit import Timer
-from urllib.request import urlopen
 
 import urwid
+from matplotlib import pyplot as plt
 
-# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-#
+import fibo
+
 # # TUTORIAL.
 #
 # the_world_is_flat = True
@@ -97,7 +107,7 @@ import urwid
 # Usage: thingy [OPTIONS]
 # 		-h				Display this usage message
 # 		-H	hostname	Hostname to connect to
-# """)  # If we don't escape a newline here, it become embedded in the string.
+# """)# If we don't escape a newline here, it become embedded in the string.
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -105,7 +115,7 @@ import urwid
 #
 # print(3 * "un" + "ium")
 #
-# print("Py" "thon")  # Concatenation.  Works with literals only, no variables or expressions.  Works across literal newline characters if enclosed within parentheses.
+# print("Py" "thon")# Concatenation.Works with literals only, no variables or expressions.Works across literal newline characters if enclosed within parentheses.
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -210,7 +220,7 @@ import urwid
 #
 # a, b = 0, 1
 # while b < 1000:
-# 	print(b, end = ",")  # Don't append a newline to output, instead replace it with ','.  'end' is a keyword.
+# 	print(b, end = ",")# Don't append a newline to output, instead replace it with ','.'end' is a keyword.
 # 	a, b = b, a + b
 # print()
 #
@@ -234,10 +244,10 @@ import urwid
 # # TUTORIAL.
 #
 # words = ["cat", "window", "defenestrate"]
-# for (w) in (words):  # 'for' iterates over the items of any sequence (a list or a string).  This form can not modify the items.
+# for (w) in (words):# 'for' iterates over the items of any sequence (a list or a string).This form can not modify the items.
 # 	print(w, len(w))
 #
-# for w in words[:]:  # Makes a copy of 'words' to enable modification.
+# for w in words[:]:	# Makes a copy of 'words' to enable modification.
 # 	if len(w) > 6:
 # 		words.insert(0, w)
 # print(words)
@@ -254,20 +264,20 @@ import urwid
 # # TUTORIAL.
 #
 # a = ["Mary", "had", "a", "little", "lamb"]
-# for i in range(len(a)):  # Use 'enumerate()' function instead.
+# for i in range(len(a)):	# Use 'enumerate()' function instead.
 # 	print(i, a[i])
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
 # # TUTORIAL.
 #
-# print(range(10))  # 'range(0, 10)' Doesn't work because range doesn't return a list.  Instead, it returns an iterator object to save space.
+# print(range(10))	# 'range(0, 10)' Doesn't work because range doesn't return a list.  Instead, it returns an iterator object to save space.
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
 # # TUTORIAL.
 #
-# print(list(range(5)))  # Creates list from iterables.
+# print(list(range(5)))	# Creates list from iterables.
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -296,7 +306,7 @@ import urwid
 # # TUTORIAL.
 #
 # # while True:
-# # 	  pass
+# # 	pass
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -354,7 +364,7 @@ import urwid
 # def ask_ok(prompt, retries = 4, reminder = "Please try again!"):
 # 	while True:
 # 		ok = input(prompt)
-# 		if ok in ("y", "ye", "yes",):  # 'in' is a keyword.  Tests whether a value is in a sequence.
+# 		if ok in ("y", "ye", "yes",):	# 'in' is a keyword.  Tests whether a value is in a sequence.
 # 			return True
 # 		if ok in ("n", "no", "nop", "nope"):
 # 			return False
@@ -414,12 +424,12 @@ import urwid
 # 	print("-- Lovely plumage, the", type)
 # 	print("-- It's", state, "!")
 #
-# parrot(1000)  # 1 positional argument.
-# parrot(voltage = 1000)  # 1 keyword argument.
-# parrot(voltage = 1000000, action = "VOOOOOM")  # 2 keyword arguments.
-# parrot(action = "VOOOOOM", voltage = 1000000)  # 2 keyword arguments.
-# parrot("a million", "bereft of life", "jump")  # 3 positional arguments.
-# parrot("a thousand", state = "pushing up the daisies")  # 1 positional, 1 keyword.
+# parrot(1000)	# 1 positional argument.
+# parrot(voltage = 1000)	# 1 keyword argument.
+# parrot(voltage = 1000000, action = "VOOOOOM")	# 2 keyword arguments.
+# parrot(action = "VOOOOOM", voltage = 1000000)	# 2 keyword arguments.
+# parrot("a million", "bereft of life", "jump")	# 3 positional arguments.
+# parrot("a thousand", state = "pushing up the daisies")	# 1 positional, 1 keyword.
 # # parrot()
 # # parrot(voltage = 5.0, 'dead')	# Invalid call because 'dead' is a non-keyword argument so should be at the first position.  i.e., keyword arguments must follow positional arguments.
 # # parrot(110, voltage = 220)	# Invalid, because duplicate values for same argument.
@@ -478,16 +488,16 @@ import urwid
 # def make_incrementor(n):
 # 	return lambda x: x + n
 #
-# f = make_incrementor(42)  # 'make_incrementor' makes and returns the adder and assigns to 'f' which is a reference to a function.
-# print(f(0))  # Calling 'f' with '0', calls the lambda function and assigns the '0' argument to 'x'.  0 = x, 42 = n.
+# f = make_incrementor(42)	# 'make_incrementor' makes and returns the adder and assigns to 'f' which is a reference to a function.
+# print(f(0))	# Calling 'f' with '0', calls the lambda function and assigns the '0' argument to 'x'.  0 = x, 42 = n.
 # print(f(1))
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
 # # TUTORIAL.
 #
-# pairs = [(1, "one"), (2, "two"), (3, "three"), (4, "four"), ]  # Two-dimensional array: two rows, two columns.
-# pairs.sort(key = lambda pair: pair[1])  # 'sort' takes no arguments, or one argument which should be a lambda function.  This lambda function should return the key.  The elements of the 'pairs' array is passed as an argument to the lambda function that is known as 'pair' inside the lambda function.
+# pairs = [(1, "one"), (2, "two"), (3, "three"), (4, "four"), ]	# Two-dimensional array: two rows, two columns.
+# pairs.sort(key = lambda pair: pair[1])	# 'sort' takes no arguments, or one argument which should be a lambda function.  This lambda function should return the key.  The elements of the 'pairs' array is passed as an argument to the lambda function that is known as 'pair' inside the lambda function.
 # print(pairs)
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -520,25 +530,25 @@ import urwid
 #
 # a = [66.25, 333, 333, 1, 1234.5]
 # print(a.count(333), a.count(66.25), a.count("x"))
-# a.insert(2, -1)  # 'x' will be inserted at the index 'i'.  So, 'a.insert(len(a), x)' is same as 'a.append(x)'.
-# a.append(333)  # Equivalent to: 'a[len(a):] = [x]'
+# a.insert(2, -1)	# 'x' will be inserted at the index 'i'.  So, 'a.insert(len(a), x)' is same as 'a.append(x)'.
+# a.append(333)	# Equivalent to: 'a[len(a):] = [x]'
 # print(a)
-# print(a.index(333))  # Return the index of the item 'x'.
-# a.remove(333)  # Removes the first occurrence of 'x'.  Returns an error if item 'x' is not found.
+# print(a.index(333))	# Return the index of the item 'x'.
+# a.remove(333)	# Removes the first occurrence of 'x'.  Returns an error if item 'x' is not found.
 # print(a)
-# a.reverse()  # Reverse the elements of the list in place.
+# a.reverse()	# Reverse the elements of the list in place.
 # print(a)
 # a.sort()
 # print(a)
-# print(a.pop())  # If 'i' is not given, it removes and returns the last item in the list.
+# print(a.pop())	# If 'i' is not given, it removes and returns the last item in the list.
 # print(a)
 #
-# print(a.extend(a))  # Equivalent to: a[len(a):] = L
-# print(a.count(333))  # Return the number of times '333' appears in the list.
-# print(a.sort(key = None, reverse = False))  # Sort the items of the list in place.  See 'sorted()' for explanation of the optional arguments.
-# # print(a.pop([2]))  # List passed instead of integer.
-# a.clear()  # Equivalent to 'del a[:].
-# copyOfA = a.copy()  # Return a shallow copy of the list.  Equivalent to 'a[:]'.
+# print(a.extend(a))	# Equivalent to: a[len(a):] = L
+# print(a.count(333))	# Return the number of times '333' appears in the list.
+# print(a.sort(key = None, reverse = False))	# Sort the items of the list in place.  See 'sorted()' for explanation of the optional arguments.
+# # print(a.pop([2]))	# List passed instead of integer.
+# a.clear()	# Equivalent to 'del a[:].
+# copyOfA = a.copy()	# Return a shallow copy of the list.  Equivalent to 'a[:]'.
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -578,7 +588,7 @@ import urwid
 #
 # # TUTORIAL.
 #
-# squares = list(map(lambda x: x ** 2, range(10)))  # Equivalent.  List comprehension.
+# squares = list(map(lambda x: x ** 2, range(10)))	# Equivalent.  List comprehension.
 # print(squares)
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -592,7 +602,7 @@ import urwid
 #
 # # TUTORIAL.
 #
-# print([(x, y) for x in [1, 2, 3] for y in [3, 1, 4] if x != y])  # Equivalent to:
+# print([(x, y) for x in [1, 2, 3] for y in [3, 1, 4] if x != y])	# Equivalent to:
 #
 # combs = []
 # for x in [1, 2, 3]:
@@ -611,10 +621,10 @@ import urwid
 # print([abs(x) for x in vec])
 # freshfruit = ["	 banana", "  loganberry ", "passion fruit  "]
 # print([weapon.strip() for weapon in freshfruit])
-# print([(x, x ** 2) for x in range(6)])  # To create a list of tuples.
+# print([(x, x ** 2) for x in range(6)])	# To create a list of tuples.
 # print([x, x ** 2] for x in range(6))
 # vec = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-# print([num for elem in vec for num in elem])  # Flatten a list of tuples using listcomp.
+# print([num for elem in vec for num in elem])	# Flatten a list of tuples using listcomp.
 # print([str(round(pi, i)) for i in range(1, 6)])
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -635,7 +645,7 @@ import urwid
 # 		transposed_row.append(row[i])
 # 	transposed.append(transposed_row)
 # print(transposed)
-# print(list(zip(*matrix)))  # Better than listcomp.
+# print(list(zip(*matrix)))	# Better than listcomp.
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -648,7 +658,7 @@ import urwid
 # print(a)
 # del a[:]
 # print(a)
-# del a  # Deletes entire variable.
+# del a	# Deletes entire variable.
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -677,7 +687,7 @@ import urwid
 #
 # # TUTORIAL.
 #
-# t = 12345, 54321, "hello!"  # Packing a tuple.
+# t = 12345, 54321, "hello!"	# Packing a tuple.
 # print(t)
 # x, y, z = t	# Unpacking a tuple.  This can work for any sequence.
 # print(x, y, z)
@@ -716,7 +726,7 @@ import urwid
 # print("guido" in tel)
 # print("jack" not in tel)
 # print(dict([("sape", 4139), ("guido", 4127), ("jack", 4098)]))
-# print({x: x ** 2 for x in (2, 4, 6)})  # Dict comprehensions.
+# print({x: x ** 2 for x in (2, 4, 6)})	# Dict comprehensions.
 # print(dict(sape = 4139, guido = 4127, jack = 4098))
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -1040,61 +1050,29 @@ import urwid
 # 	print("Handling run-time error:", error)
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
+#
 # # TUTORIAL.
 #
 # try:
 # 	raise NameError('Hi There')
 # except NameError:
 # 	print("An exception flew by!")
-# 	raise
+# 	# raise
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
 # # TUTORIAL.
-
-# class Error(Exception):
-# 	"""Base class for exceptions in this module."""
 #
-# 	pass
-#
-# class InputError(Error):
-# 	"""Exceptions raised for errors in the input.
-#
-# 	Attributes:
-# 		expression -- input expression in which the error occurred
-# 		message -- explanation of the error"""
-#
-# 	def __init__(self, expression, message):
-# 		self.expression = expression
-# 		self.message = message
-#
-# class TransitionError(Error):
-# 	"""Raised when an operation attempts a state transition that's not allowed.
-#
-# 	Attributes:
-# 		previous -- state at beginning of transition
-# 		next -- attempted new state
-# 		message -- explanation of why the specific transition is not allowed"""
-#
-# 	def __init__(self, previous, next, message):
-# 		self.previous = previous
-# 		self.next = next
-# 		self.message = message
-#
-# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-#
-# # TUTORIAL.
-
 # try:
-# 	raise KeyboardInterrupt
+# 	# raise KeyboardInterrupt
+# 	pass
 # finally:
 # 	print("Goodbye, World!")
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
 # # TUTORIAL.
-
+#
 # def divide(x, y):
 # 	try:
 # 		result = x / y
@@ -1107,687 +1085,628 @@ import urwid
 #
 # divide(2, 1)
 # divide(2, 0)
-# divide("2", "1")
+# # divide("2", "1")
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
 # # TUTORIAL.
-
-def scope_test():
-
-	def do_local():
-		spam = "local spam"
-
-	def do_nonlocal():
-		nonlocal spam
-		spam = "nonlocal spam"
-
-	def do_global():
-		global spam
-		spam = "global spam"
-
-	spam = "test spam"
-	do_local()
-	print("After local assignment:", spam)
-	do_nonlocal()
-	print("After nonlocal assignment:", spam)
-	do_global()
-	print("After global assignment:", spam)
-
-scope_test()
-print("In global scope:", spam)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-class MyClass:
-
-	"""A simple example class"""
-
-	i = 12345
-
-	def f(self):
-		return "Hello, world!"
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-class Complex:
-
-	def __init__(self, realpart, imagpart):
-		self.r = realpart
-		self.i = imagpart
-
-x = Complex(3.0, -4.5)
-print(x.r, x.i)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-x = MyClass()
-x.counter = 1
-while x.counter < 10:
-	x.counter = x.counter * 2
-print(x.counter)
-del x.counter
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
+#
+# def scope_test():
+#
+# 	def do_local():
+# 		spam = "local spam"
+#
+# 	def do_nonlocal():
+# 		nonlocal spam
+# 		spam = "nonlocal spam"
+#
+# 	def do_global():
+# 		global spam
+# 		spam = "global spam"
+#
+# 	spam = "test spam"
+# 	do_local()
+# 	print("After local assignment:", spam)
+# 	do_nonlocal()
+# 	print("After nonlocal assignment:", spam)
+# 	do_global()
+# 	print("After global assignment:", spam)
+#
+# scope_test()
+# print("In global scope:", spam)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
 # # TUTORIAL.
+#
+# class Complex:
+#
+# 	def __init__(self, realpart, imagpart):
+# 		self.r = realpart
+# 		self.i = imagpart
+#
+# x = Complex(3.0, -4.5)
+# print(x.r, x.i)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# class MyClass:
+#
+# 	"""A simple example class"""
+#
+# 	i = 12345
+#
+# 	def f(self):
+# 		return "hello world"
+#
+# x = MyClass()
+# x.counter = 1
+# while x.counter < 10:
+# 	x.counter = x.counter * 2
+# print(x.counter)
+# del x.counter
 #
 # xf = x.f
-# while True:
-# 	print(xf())
+# # while True:
+# print(xf())
 #
 # print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-class Dog:
-	kind = "canine"
-
-	def __init__(self, name):
-		self.name = name
-
-d = Dog("Fido")
-e = Dog("Buddy")
-print(d.kind)
-print(e.kind)
-print(d.name)
-print(e.name)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-class Dog:
-	tricks = []
-
-	def __init__(self, name):
-		self.name = name
-
-	def add_trick(self, trick):
-		self.tricks.append(trick)
-
-d = Dog("Fido")
-e = Dog("Buddy")
-d.add_trick("roll over")
-e.add_trick("play dead")
-print(d.tricks)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-class Dog:
-
-	def __init__(self, name):
-		self.name = name
-		self.tricks = []
-
-	def add_trick(self, trick):
-		self.tricks.append(trick)
-
-d = Dog("Fido")
-e = Dog("Buddy")
-d.add_trick("roll over")
-e.add_trick("play dead")
-print(d.tricks)
-print(e.tricks)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-def f1(self, x, y):
-	return min(x, x + y)
-
-class C:
-	f = f1
-
-	def g(self):
-		return "Hello, world!"
-
-	h = g
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-class Bag:
-
-	def __init__(self):
-		self.data = []
-
-	def add(self, x):
-		self.data.append(x)
-
-	def addtwice(self, x):
-		self.add(x)
-		self.add(x)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-class Mapping:
-
-	def __init__(self, iterable):
-		self.items_list = []
-		self.__update(iterable)
-
-	def update(self, iterable):
-		for item in iterable:
-			self.items_list.append(item)
-
-	__update = update
-
-class MappingSubclass(Mapping):
-
-	def update(self, key, values):
-		for item in zip(keys, values):
-			self.items_list.append(item)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-class Employee:
-	pass
-
-john = Employee()
-john.name = "John Doe"
-john.dept = "computer lab"
-john.salary = 1000
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-for element in [1, 2, 3]:
-	print(element)
-for element in (1, 2, 3):
-	print(element)
-for key in {"one": 1, "two": 2}:
-	print(key)
-for char in "123":
-	print(char)
-for line in open("../var/in.txt"):
-	print(line, end = "")
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-s = "abc"
-it = iter(s)
-print(it)
-print(next(it))
-print(next(it))
-print(next(it))
+#
+# # TUTORIAL.
+#
+# class Dog:
+# 	kind = "canine"
+#
+# 	def __init__(self, name):
+# 		self.name = name
+#
+# d = Dog("Fido")
+# e = Dog("Buddy")
+# print(d.kind)
+# print(e.kind)
+# print(d.name)
+# print(e.name)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# class Dog:
+# 	tricks = []
+#
+# 	def __init__(self, name):
+# 		self.name = name
+#
+# 	def add_trick(self, trick):
+# 		self.tricks.append(trick)
+#
+# d = Dog("Fido")
+# e = Dog("Buddy")
+# d.add_trick("roll over")
+# e.add_trick("play dead")
+# print("d.tricks: ", d.tricks)
+# print("e.tricks: ", e.tricks)
+# print("Dog.tricks: ", Dog.tricks)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# class Dog:
+#
+# 	def __init__(self, name):
+# 		self.name = name
+# 		self.tricks = []
+#
+# 	def add_trick(self, trick):
+# 		self.tricks.append(trick)
+#
+# d = Dog("Fido")
+# e = Dog("Buddy")
+# d.add_trick("roll over")
+# e.add_trick("play dead")
+# print(d.tricks)
+# print(e.tricks)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# for element in [1, 2, 3]:
+# 	print(element)
+# for element in (1, 2, 3):
+# 	print(element)
+# for key in {"one": 1, "two": 2}:
+# 	print(key)
+# for char in "ABC":
+# 	print(char)
+# for line in open("../var/in.txt"):
+# 	print(line, end = "")
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# s = "abc"
+# it = iter(s)
+# print(it)
 # print(next(it))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-class Reverse:
-
-	"""Iterating for looping over a sequence backwards."""
-
-	def __init__(self, data):
-		self.data = data
-		self.index = len(data)
-
-	def __iter__(self):
-		return self
-
-	def __next__(self):
-		if self.index == 0:
-			raise StopIteration
-		self.index = self.index - 1
-		return self.data[self.index]
-
-rev = Reverse("spam")
-print(iter(rev))
-for char in rev:
-	print(char)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-def reverse(data):
-	for index in range(len(data) - 1, -1, -1):
-		yield data[index]
-
-	for char in reverse("golf"):
-		print(char)
-
-print(sum(i * i for i in range(10)))
-xvec = [10, 20, 30]
-yvec = [7, 5, 3]
-print(sum(x * y for x, y in zip(xvec, yvec)))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-sine_table = {x: math.sin(x * pi / 180) for x in range(0, 91)}
-print(sine_table)
-
-data = "golf"
-print(list(data[i] for i in range(len(data) - 1, -1, -1)))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(os.getcwd())
-os.chdir("../var/log/")
-os.system("mkdir pythontestbed")
-os.chdir("/home/punit/src/PythonTestbed/src/")
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(dir(os))
-print(help(os))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(os.getcwd())
-shutil.copyfile("../var/in.txt", "../var/copy_of_in.txt")
-shutil.move("../var/copy_of_in.txt", "../var/copy_of_in_moved.txt")
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(glob.glob("*.py"))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(sys.argv)
-sys.stderr.write("Warning, log file not found starting a new one\n")
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(re.findall(r"\bf[a-z]*", "which foot or hand fell fastest"))
-print(re.sub(r"(\b[a-z]+) \1", r"\1", "cat in the hat"))
-
-print("tea for too".replace("too", "two"))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(math.cos(math.pi / 4))
-print(math.log(1024 / 2))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(random.choice(["apple", "pear", "banana"]))
-print(random.sample(range(100), 10))
-print(random.random())
-print(random.randrange(6))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-data = [2.75, 1.75, 1.25, 0.25, 0.5, 1.25, 3.5]
-print(statistics.mean(data))
-print(statistics.median(data))
-print(statistics.variance(data))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-# with urlopen('https://www.usno.navy.mil/USNO/time/display-clocks/simpletime') as response:
-with urlopen("http://worldtimeapi.org/api/timezone/etc/UTC.txt") as response:
-	for line in response:
-		line = line.decode("utf-8")
-		if "EST" in line or "EDT" in line:
-			print(line)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-server = smtplib.SMTP("localhost")
-server.sendmail("soothsayer@example.org", "jcaesar@example.org", """To: jcaesar@example.org
- 	From: soothsayer@example.org
-
- 	Beware the Ides of March.
- 	""",)
-server.quit()
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-now = date.today()
-print(now)
-print(now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B."))
-birthday = date(1964, 7, 31)
-age = now - birthday
-print(age.days)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-s = b"witch which has which witches wrist watch"
-print(len(s))
-t = zlib.compress(s)
-print(len(t))
-print(zlib.decompress(t))
-print("crc32:", zlib.crc32(s))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(Timer("t = a; a = b; b = t", "a = 1; b = 2").timeit())
-print(Timer("a, b = b, a", "a = 1; b = 2").timeit())
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-# not able to debug.
-
-def average(values):
-	"""Computes the arithmetic mean of a list of numbers.
-
-    >>> print(average([20, 30, 70]))
-
-    40.0
-    """
-
-	return sum(values) / len(values)
-
-doctest.testmod()
-
-class TestStatisticalFunctions(unittest.TestCase):
-
-	def test_average(self):
-		self.assertEqual(average([20, 30, 70]), 40.0)
-		self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
-		with self.assertRaises(ZeroDivisionError):
-			average([])
-		with self.assertRaises(TypeError):
-			average([20, 30, 70])
-
-unittest.main()
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(reprlib.repr(set("supercalifragilisticexpialidocious")))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-t = [[[["black", "cyan"], "white", ["green", "red"]], [["magenta", "yellow"], "blue"]]]
-
-print("len(t):", len(t))
-print("len(t[0]:", len(t[0]))
-print("len(t[0][0]):", len(t[0][0]))
-print("len(t[0][0][0]):", len(t[0][0][0]))
-print("t:", t)
-print("t[0]:", t[0])
-print("t[0][0]:", t[0][0])
-print("t[0][0][0]:", t[0][0][0])
-
-pprint.pprint(t, width = 30)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-doc = """The wrap() method is just like fill() except that it returns a list of strings instead of one big string with newlines to separate the wrapped lines."""
-print(textwrap.fill(doc, width = 40))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-locale.setlocale(locale.LC_ALL, "en_US.utf-8")
-conv = locale.localeconv()
-x = 1234567.8
-print(locale.format("%d", x, grouping = True))
-print(locale.format_string("%s%.*f", (conv["currency_symbol"], conv["frac_digits"], x), grouping = True))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-t = Template("${village} folk send $$10 to $cause.")
-print(t.substitute(village = "Nottingham", cause = "the ditch fund"))
-
-t = Template("Return the $item to $owner.")
-d = dict(item = "unladen swallow")
-t.substitute(d)
-print(t.safe_substitute(d))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-photofiles = ["img_1074.jpg", "img_1076.jpg", "img_1077.jpg"]
-
-class BatchRename(Template):
-	delimiter = "%"
-
-fmt = input("Enter rename style (%d-date %n-seqnum %f-format): ")
-t = BatchRename(fmt)
-date = time.strftime("%d%b%y")
-for i, filename in enumerate(photofiles):
-	base, ext = os.path.splitext(filename)
-	newname = t.substitute(d = date, n = i, f = ext)
-	print("{0} --> {1}".format(filename, newname))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-with open("/home/punit/doc/_OOS/Hacking/CEH/Hacker School/metasploitable-linux-2.0.0.zip", "rb",) as f:
-	data = f.read()
-
-start = 0
-for i in range(3):
-	start += 14
-	fields = struct.unpack("<IIIHH", data[start : start + 16])
-	crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
-
-	start += 16
-	filename = data[start : start + filenamesize]
-	start += filenamesize
-	extra = data[start : start + extra_size]
-	print("Header ", i + 1, ":", sep = "", end = "")
-	print(filename, hex(crc32), comp_size, uncomp_size)
-
-	start += extra_size + comp_size
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-class AsyncZip(threading.Thread):  # Like Java, we need to create a class that will create a thread object.
-
-	def __init__(self, infile, outfile):
-		threading.Thread.__init__(self)  # This line should be there for every thread class in its 'init'.  Doesn't work.
-		self.infile = infile  # Initialise other fields of your thread class.
-		self.outfile = outfile
-
-	def run(self):  # Define the operations to be done by the thread.
-		f = zipfile.ZipFile(self.outfile, "w", zipfile.ZIP_DEFLATED)  # Operation step number one.
-		f.write(self.infile)
-		f.close()
-		print("Finished backgound zip of: ", self.infile)  # This thread is run in background (background thread).
-
-background = AsyncZip("../var/in.txt", "../var/in.zip")  # Create your thread.
-background.start()  # Start the execution of your thread.
-print("The main program continues to run in foreground")  # This is main thread, running simultaneously.
-
-background.join()  # Wait for background task to finish.
-print("'Main program waited until background was done.")
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-logging.debug("Debugging information")
-logging.info("Informational message")
-logging.warning("Warning:config file %s not found', 'server.conf'")
-logging.error("Error occurred'")
-logging.critical("Critical error -- shutting down")
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-class A:
-
-	def __init__(self, value):
-		self.value = value
-
-	def __repr__(self):
-		return str(self.value)
-
-a = A(10)
-d = weakref.WeakValueDictionary()
-d["primary"] = a
-print("d['primary']:", d["primary"])
-del a
-gc.collect()
-print("d['primary']:", d["primary"])
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-a = array("H", [4000, 10, 700, 22222])  # 'H' is typecode for 2-byte unsigned binary number, thus 2 bytes per entry.
-print("sum:", sum(a))
-print("a[1:3]:", a[1 : 3])
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-d = deque(["task1", "task2", "task3"])
-d.append("task4")
-print("Handling", d.popleft())
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-scores = [(100, "perl"), (200, "tcl"), (400, "lua"), (500, "python")]
-bisect.insort(scores, (300, "ruby"))
-print(scores)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-data = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
-heapify(data)
-heappush(data, -5)
-print([heappop(data) for i in range(3)])
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(round(Decimal("0.70") * Decimal("1.05"), 2))
-print(round(.70 * 1.05, 2))
-
-print(Decimal("1.00") % Decimal(".10"))
-print(1.00 % 0.10)
-print(sum([Decimal("0.1")] * 10) == Decimal("1.0"))
-print(sum([0.1] * 10) == 1.0)
-
-getcontext().prec = 36
-print(Decimal(1) / Decimal(7))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(format(math.pi, ".12g"))
-print(format(math.pi, ".2f"))
-print(repr(math.pi))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(.1 + .1 + .1 == .3)
-
-print(round(.1, 1) + round(.1, 1) + round(.1, 1) == round(.3, 1))
-
-print(round(.1 + .1 + .1, 10) == round(.3, 10))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-x = 3.14159
-print(x.as_integer_ratio())  # Much more exact than smaller numbers for lossless recreation of original numbers.
-print(x == 3537115888337719 / 1125899906842624)
-print(x.hex())
-print(x == float.fromhex("0x1.921f9f01b866ep+1"))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(sum([0.1] * 10) == 1.0)
-
-print(math.fsum([0.1] * 10) == 1.0)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-print(2 ** 52 <= 2 ** 56 // 10 < 2 ** 53)
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-# TUTORIAL.
-
-q, r = divmod(2 ** 56, 10)
-print(r)
-print(q + 1)
-
-print(0.1 * 2 ** 55)
-print(3602879701896397 * 10 ** 55 // 2 ** 55)
-print(format(0.1, ".17f"))
-
-print(Fraction.from_float(0.1))
-print((0.1).as_integer_ratio())
-print(Decimal.from_float(0.1))
-print(format(Decimal.from_float(0.1), ".17"))
-
-print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+# print(next(it))
+# print(next(it))
+# # print(next(it))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# class Reverse:
+#
+# 	"""Iterating for looping over a sequence backwards."""
+#
+# 	def __init__(self, data):
+# 		self.data = data
+# 		self.index = len(data)
+#
+# 	def __iter__(self):
+# 		return self
+#
+# 	def __next__(self):
+# 		if self.index == 0:
+# 			raise StopIteration
+# 		self.index = self.index - 1
+# 		return self.data[self.index]
+#
+# rev = Reverse("spam")
+# print(iter(rev))
+# for char in rev:
+# 	print(char)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# def reverse(data):
+# 	for index in range(len(data) - 1, -1, -1):
+# 		yield data[index]
+#
+# for char in reverse("golf"):
+# 	print(char)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(sum(i * i for i in range(10)))
+# xvec = [10, 20, 30]
+# yvec = [7, 5, 3]
+# print(sum(x * y for x, y in zip(xvec, yvec)))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# sine_table = {x: math.sin(x * pi / 180) for x in range(0, 91)}
+# print(sine_table)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# data = "golf"
+# print(list(data[i] for i in range(len(data) - 1, -1, -1)))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(os.getcwd())
+# os.chdir("../var/log/")
+# os.system("mkdir pythontestbed")
+# print('chdir: ', os.chdir("/home/punit/src/PythonTestbed/src/"))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print('dir(os): ', dir(os))
+# print('help(os): ', help(os))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(os.getcwd())
+# shutil.copyfile("../var/in.txt", "../var/copy_of_in.txt")
+# shutil.move("../var/copy_of_in.txt", "../var/copy_of_in_moved.txt")
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(glob.glob("*.py"))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(sys.argv)
+# sys.stderr.write("Warning, log file not found starting a new one\n")
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(re.findall(r"\bf[a-z]*", "which foot or hand fell fastest"))
+# print(re.sub(r"(\b[a-z]+) \1", r"\1", "cat in the the hat"))
+#
+# print("tea for too".replace("too", "two"))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(math.cos(math.pi / 4))
+# print(math.log(1024 / 2))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(random.choice(["apple", "pear", "banana"]))
+# print(random.sample(range(100), 10))
+# print(random.random())
+# print(random.randrange(6))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# data = [2.75, 1.75, 1.25, 0.25, 0.5, 1.25, 3.5]
+# print(statistics.mean(data))
+# print(statistics.median(data))
+# print(statistics.variance(data))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# # with urlopen('https://www.usno.navy.mil/USNO/time/display-clocks/simpletime') as response:
+# with urllib.request.urlopen("http://worldtimeapi.org/api/timezone/etc/UTC.txt") as response:
+# 	for line in response:
+# 		line = line.decode("utf-8")
+# 		if "EST" in line or "EDT" in line:
+# 			print(line)
+# 		else:
+# 			print("line: ", line)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# now = datetime.date.today()
+# print(now)
+# print(now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B."))
+# birthday = datetime.date(1964, 7, 31)
+# age = now - birthday
+# print(age.days)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# s = b"witch which has which witches wrist watch"
+# print(len(s))
+# t = zlib.compress(s)
+# print(len(t))
+# print(zlib.decompress(t))
+# print("crc32:", zlib.crc32(s))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(timeit.Timer("t = a; a = b; b = t", "a = 1; b = 2").timeit())
+# print(timeit.Timer("a, b = b, a", "a = 1; b = 2").timeit())
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# def average(values):
+# 	"""Computes the arithmetic mean of a list of numbers.
+#
+# 	>>> print(average([20, 30, 70]))
+# 	40.0
+# 	"""
+#
+# 	return sum(values) / len(values)
+#
+# doctest.testmod()
+#
+# class TestStatisticalFunctions(unittest.TestCase):
+#
+# 	def test_average(self):
+# 		self.assertEqual(average([20, 30, 70]), 40.0)
+# 		self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
+# 		with self.assertRaises(ZeroDivisionError):
+# 			average([])
+# 		# with self.assertRaises(TypeError):
+# 		# 	average([20, 30, 70])
+#
+# unittest.main()
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(reprlib.repr(set("supercalifragilisticexpialidocious")))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# t = [
+# 		[
+# 			[
+# 				[
+# 					"black", "cyan"
+# 				],
+# 				"white",
+# 				[
+# 					"green", "red"
+# 				]
+# 			],
+# 			[
+# 				[
+# 					"magenta", "yellow"
+# 				], "blue"
+# 			]
+# 		]
+# 	]
+#
+# print("len(t):", len(t))
+# print("len(t[0]:", len(t[0]))
+# print("len(t[0][0]):", len(t[0][0]))	# Count the commas, 1 comma means 2 elements.
+# print("len(t[0][0][0]):", len(t[0][0][0]))
+# print("t:", t)
+# print("t[0]:", t[0])
+# print("t[0][0]:", t[0][0])
+# print("t[0][0][0]:", t[0][0][0])
+#
+# pprint.pprint(t, width = 30)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# doc = """The wrap() method is just like fill() except that it returns a list of strings instead of one big string with newlines to separate the wrapped lines."""
+# print(textwrap.fill(doc, width = 40))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# locale.setlocale(locale.LC_ALL, "en_US.utf-8")
+# conv = locale.localeconv()
+# x = 1234567.8
+# print(locale.format("%d", x, grouping = True))
+# print(locale.format_string("%s%.*f", (conv["currency_symbol"], conv["frac_digits"], x), grouping = True))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# t = string.Template("${village} folk send $$10 to $cause.")
+# print(t.substitute(village = "Nottingham", cause = "the ditch fund"))
+#
+# t = string.Template("Return the $item to $owner.")
+# d = dict(item = "unladen swallow")
+# # print(t.substitute(d))
+# print(t.safe_substitute(d))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# photofiles = ["img_1074.jpg", "img_1076.jpg", "img_1077.jpg"]
+#
+# class BatchRename(string.Template):
+# 	delimiter = "%"
+#
+# fmt = input("Enter rename style (%d-date %n-seqnum %f-format): ")
+# t = BatchRename(fmt)
+# date = time.strftime("%d%b%y")
+# for i, filename in enumerate(photofiles):
+# 	base, ext = os.path.splitext(filename)
+# 	newname = t.substitute(d = date, n = i, f = ext)
+# 	print("{0} --> {1}".format(filename, newname))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# with open("/home/punit/doc/_OOS/Hacking/_CEH/Hacker School/metasploitable-linux-2.0.0.zip", "rb",) as f:
+# 	data = f.read()
+#
+# start = 0
+# for i in range(3):
+# 	start += 14
+# 	fields = struct.unpack("<IIIHH", data[start : start + 16])
+# 	crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
+#
+# 	start += 16
+# 	filename = data[start : start + filenamesize]
+# 	start += filenamesize
+# 	extra = data[start : start + extra_size]
+# 	print("Header ", i + 1, ":", sep = "", end = "")
+# 	print(filename, hex(crc32), comp_size, uncomp_size)
+#
+# 	start += extra_size + comp_size
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# class AsyncZip(threading.Thread):  # Like Java, we need to create a class that will create a thread object.
+#
+# 	def __init__(self, infile, outfile):
+# 		threading.Thread.__init__(self)  # This line should be there for every thread class in its 'init'.  Doesn't work.
+# 		self.infile = infile  # Initialise other fields of your thread class.
+# 		self.outfile = outfile
+#
+# 	def run(self):  # Define the operations to be done by the thread.
+# 		f = zipfile.ZipFile(self.outfile, "w", zipfile.ZIP_DEFLATED)  # Operation step number one.
+# 		f.write(self.infile)
+# 		f.close()
+# 		print("Finished backgound zip of: ", self.infile)  # This thread is run in background (background thread).
+#
+# background = AsyncZip("../var/in.txt", "../var/in.zip")  # Create your thread.
+# background.start()  # Start the execution of your thread.
+# print("The main program continues to run in foreground.")  # This is main thread, running simultaneously.
+#
+# background.join()  # Wait for the background task to finish.
+# print("Main program waited until background was done.")
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# logging.debug("Debugging information")
+# logging.info("Informational message")
+# logging.warning("Warning:config file %s not found", "server.conf")
+# logging.error("Error occurred")
+# logging.critical("Critical error -- shutting down")
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# class A:
+#
+# 	def __init__(self, value):
+# 		self.value = value
+#
+# 	def __repr__(self):
+# 		return str(self.value)
+#
+# a = A(10)
+# d = weakref.WeakValueDictionary()
+# d["primary"] = a
+# print("d['primary']:", d["primary"])
+# del a
+# gc.collect()
+# # print("d['primary']:", d["primary"])
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# a = array.array("H", [4000, 10, 700, 22222])  # 'H' is typecode for 2-byte unsigned binary number, thus 2 bytes per entry.
+# print("sum:", sum(a))
+# print("a[1:3]:", a[1 : 3])
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# d = deque(["task1", "task2", "task3"])
+# d.append("task4")
+# print("Handling", d.popleft())
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# scores = [(100, "perl"), (200, "tcl"), (400, "lua"), (500, "python")]
+# bisect.insort(scores, (300, "ruby"))
+# print(scores)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# data = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
+# heapify(data)
+# heappush(data, -5)
+# print([heappop(data) for i in range(3)])
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(round(Decimal("0.70") * Decimal("1.05"), 2))
+# print(round(0.70 * 1.05, 2))
+#
+# print(Decimal("1.00") % Decimal(".10"))
+# print(1.00 % 0.10)
+# print(sum([Decimal("0.1")] * 10) == Decimal("1.0"))
+# print(sum([0.1] * 10) == 1.0)
+#
+# getcontext().prec = 36
+# print(Decimal(1) / Decimal(7))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(format(math.pi, ".12g"))
+# print(format(math.pi, ".2f"))
+# print(repr(math.pi))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(0.1 + 0.1 + 0.1 == 0.3)
+#
+# print(round(0.1, 1) + round(0.1, 1) + round(0.1, 1) == round(0.3, 1))
+#
+# print(round(0.1 + 0.1 + 0.1, 10) == round(0.3, 10))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# x = 3.14159
+# print(x.as_integer_ratio())  # Much more exact than smaller numbers for lossless recreation of original numbers.
+# print(x == 3537115888337719 / 1125899906842624)
+# print(x.hex())
+# print(x == float.fromhex("0x1.921f9f01b866ep+1"))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(sum([0.1] * 10) == 1.0)
+#
+# print(math.fsum([0.1] * 10) == 1.0)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# print(2 ** 52 <= 2 ** 56 // 10 < 2 ** 53)
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # TUTORIAL.
+#
+# q, r = divmod(2 ** 56, 10)
+# print(r)
+# print(q + 1)
+#
+# print(0.1 * 2 ** 55)
+# print(3602879701896397 * 10 ** 55 // 2 ** 55)
+# print(format(0.1, ".17f"))
+#
+# print(Fraction.from_float(0.1))
+# print((0.1).as_integer_ratio())
+# print(Decimal.from_float(0.1))
+# print(format(Decimal.from_float(0.1), ".17"))
+#
+# print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # LP5.  p. 97.
 
@@ -1852,8 +1771,6 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # LP5.  p. 108.
 
-import re
-
 match = re.match("Hello[ \t]*(.*)world", "Hello		Python world")
 print(match.group(1))
 
@@ -1903,9 +1820,9 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 myDictionary = {"key1": "value1", "key2": "value2", "key3": "value3"}
 print(myDictionary["key1"] + str(1))
-myDictionary1["key3"] = "value3"
+myDictionary["key3"] = "value3"
 
-print(myDictionary1["key3"])
+print(myDictionary["key3"])
 myDictionary1 = dict(key4 = "value4")
 print(myDictionary1["key4"])
 myDictionary2 = dict(zip(["name", "age", "salary"], ["Pallavi", 27, 1000000]))
@@ -1948,8 +1865,6 @@ print(T)
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # LP5.  p. 124.
-
-import struct
 
 packed = struct.pack(">i10sh", 7, b"PALLAVI", 8)  # Create packed binary data.
 print(packed)
@@ -2020,8 +1935,6 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # LP5.  p. 127.
 
-import decimal
-
 d = decimal.Decimal("3.141")
 print(d + 1)
 
@@ -2031,8 +1944,6 @@ print(decimal.Decimal("1.00") / decimal.Decimal("3.00"))
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # LP5.  p. 127.
-
-from fractions import Fraction
 
 myFraction = Fraction(1, 4)
 print(myFraction + 1)
@@ -2161,8 +2072,6 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # LP5.  p. 155.
 
-import math
-
 print(math.pi, math.e)
 print(math.sin(2 * math.pi / 180))
 print(math.sqrt(144), math.sqrt(2))
@@ -2225,16 +2134,12 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # LP5.  p. 156.
 
-import random
-
 print(random.randint(1, 10))
 print(random.randint(1, 10))
 
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # LP5.  p. 156.
-
-import random
 
 suits = ["hearts", "clubs", "diamonds", "spades"]
 random.shuffle(suits)
@@ -2252,15 +2157,11 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # LP5.  p. 158.
 
-import decimal
-
 print(decimal.Decimal.from_float(1.25))
 
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # LP5.  p. 158.
-
-from decimal import Decimal
 
 print(Decimal("0.1") + Decimal("0.1") + Decimal("0.1") - Decimal("0.3"))
 print(Decimal("0.1") + Decimal("0.10") + Decimal("0.10") - Decimal("0.30"))
@@ -2268,8 +2169,6 @@ print(Decimal("0.1") + Decimal("0.10") + Decimal("0.10") - Decimal("0.30"))
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # LP5.  p. 159.
-
-import decimal
 
 print(decimal.Decimal(1) / decimal.Decimal(7))  # Default: 28 digits.
 decimal.getcontext().prec = 4
@@ -2289,8 +2188,6 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # LP5.  p. 160.
 
-from fractions import Fraction
-
 x = Fraction(1, 3)
 y = Fraction(4, 6)
 
@@ -2308,13 +2205,11 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # LP5.  P. 162.
 
-import fractions
-
-print(fractions.Fraction("0.25"))
+print(Fraction("0.25"))
 myDecimal = 0.25
-print(fractions.Fraction(*myDecimal.as_integer_ratio()))
-print(fractions.Fraction(*(0.25).as_integer_ratio()))
-myFraction = fractions.Fraction(4 / 3)
+print(Fraction(*myDecimal.as_integer_ratio()))
+print(Fraction(*(0.25).as_integer_ratio()))
+myFraction = Fraction(4 / 3)
 print(myFraction.limit_denominator(3))
 
 print(decimal.Decimal(str(1 / 3)) + decimal.Decimal(str(6 / 12)))
@@ -2399,8 +2294,6 @@ print(copyOfCopyOfMySet)
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
 # LP5.  p. 183.
-
-import copy
 
 mySet = [1, 2, (1, 2, [1, 2, (1, 2, [1, 2])])]
 
@@ -2525,7 +2418,7 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # UNKNOWN
 
-print(log2(1024))
+print(math.log2(1024))
 
 print(2 ** 31)
 
@@ -2668,7 +2561,7 @@ print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n
 
 # UNKNOWN
 
-print(platform.version(), platform.release(), platform.python_version())
+print(platform.version(), platform.release(), platform.python_version(),)
 
 print("\n", "-" * 4, " ", getframeinfo(currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
@@ -2685,8 +2578,6 @@ print((99999999999999999999999).bit_length() + 1)
 
 print(complex(2 + -3j) * 3)
 print(2 + -3j * 3)
-
-import cmath
 
 print(cmath.cos(complex(2, -3)))
 
