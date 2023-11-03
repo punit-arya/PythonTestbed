@@ -2,7 +2,7 @@
 <project version="4">
   <component name="Black">
     <option name="pathToExecutable" value="/usr/local/bin/black" />
-    <option name="sdkUUID" value="666a4b39-cfcb-417b-af4b-bc3ca496a4ad" />
+    <option name="sdkName" value="Python 3.10" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10" project-jdk-type="Python SDK" />
   <component name="PyCharmProfessionalAdvertiser">
