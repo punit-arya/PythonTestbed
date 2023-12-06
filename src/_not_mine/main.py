@@ -101,7 +101,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # TUTORIAL.
 
 print("C:\some\name")
-print(r"C:\some\name")
+print(r"C:\some\name")	# Note the ~r~ before the quote
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
@@ -111,7 +111,7 @@ print("""\
 Usage: thingy [OPTIONS]
 		-h				Display this usage message
 		-H	hostname	Hostname to connect to
-""")  # If we don't escape a newline here, it become embedded in the string.
+""")  # If we don't escape the newline there, it become embedded in the string.
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 
