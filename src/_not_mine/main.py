@@ -16,6 +16,7 @@ import cmath
 import collections
 import config
 import copy
+import csv
 import datetime
 import decimal
 import doctest
@@ -59,6 +60,7 @@ import urllib.request
 import weakref
 import zipfile
 import zlib
+
 
 # # TUTORIAL.
 #
@@ -1581,42 +1583,42 @@ import zlib
 #
 # # TUTORIAL.
 #
-# with open("/home/punit/doc/_OOS/Hacking/_CEH/Hacker School/metasploitable-linux-2.0.0.zip", "rb",) as f:
-# 	data = f.read()
+# with open("/home/punit/src/_not_mine/PythonTestbed/var/in.zip", "rb") as f:
+#     data = f.read()
 #
 # start = 0
 # for i in range(3):
-# 	start += 14
-# 	fields = struct.unpack("<IIIHH", data[start : start + 16])
-# 	crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
+#     start += 14
+#     fields = struct.unpack("<IIIHH", data[start : start + 16])
+#     crc32, comp_size, uncomp_size, filenamesize, extra_size = fields
 #
-# 	start += 16
-# 	filename = data[start : start + filenamesize]
-# 	start += filenamesize
-# 	extra = data[start : start + extra_size]
-# 	print("Header ", i + 1, ":", sep = "", end = "")
-# 	print(filename, hex(crc32), comp_size, uncomp_size)
+#     start += 16
+#     filename = data[start : start + filenamesize]
+#     start += filenamesize
+#     extra = data[start : start + extra_size]
+#     print("Header ", i + 1, ":", sep="", end="")
+#     print(filename, hex(crc32), comp_size, uncomp_size)
 #
-# 	start += extra_size + comp_size
+#     start += extra_size + comp_size
 #
-# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
 # # TUTORIAL.
 #
 # class AsyncZip(threading.Thread):  # Like Java, we need to create a class that will create a thread object.
+#     def __init__(self, infile, outfile):
+#         threading.Thread.__init__(self)  # This line should be there for every thread class in its ~init~.  Doesn't work.
+#         self.infile = infile  # Initialise other fields of your thread class.
+#         self.outfile = outfile
 #
-# 	def __init__(self, infile, outfile):
-# 		threading.Thread.__init__(self)  # This line should be there for every thread class in its 'init'.  Doesn't work.
-# 		self.infile = infile  # Initialise other fields of your thread class.
-# 		self.outfile = outfile
+#     def run(self):  # Define the operations to be done by the thread.
+#         f = zipfile.ZipFile(self.outfile, "w", zipfile.ZIP_DEFLATED)  # Operation step number one.
+#         f.write(self.infile)
+#         f.close()
+#         print("Finished backgound zip of: ", self.infile)  # This thread is run in background (~background thread~).
 #
-# 	def run(self):  # Define the operations to be done by the thread.
-# 		f = zipfile.ZipFile(self.outfile, "w", zipfile.ZIP_DEFLATED)  # Operation step number one.
-# 		f.write(self.infile)
-# 		f.close()
-# 		print("Finished backgound zip of: ", self.infile)  # This thread is run in background (background thread).
 #
-# background = AsyncZip("../../var/in.txt", "../../var/in.zip")  # Create your thread.
+# background = AsyncZip("../../var/in.txt", "../../var/in1.zip")  # Create your thread.
 # background.start()  # Start the execution of your thread.
 # print("The main program continues to run in foreground.")  # This is main thread, running simultaneously.
 #
@@ -2245,13 +2247,14 @@ import zlib
 # # FAQ.
 #
 # oneDimList = [1] * 2
-# print(oneDimList)
+# print("oneDimList1: ", oneDimList)
 # oneDimList1 = [None] * 2
-# print(oneDimList1)
+# print("oneDimList1: ", oneDimList1)
 # multiDimList = [[None] * 2] * 3
-# print(multiDimList)
+# print("multiDimList: ", multiDimList)
+# print("multiDimList[0][0]: ", multiDimList[0][0])
 # multiDimList[0][0] = 0
-# print(multiDimList)
+# print("multiDimList: ", multiDimList)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -2788,7 +2791,7 @@ import zlib
 #
 # # LP.
 #
-# packed = struct.pack(">i10sh", 7, b"WOMAN", 8)  # Create packed binary data.
+# packed = struct.pack(">i9sh", 7, b"MANNA DEY", 8)  # Create packed binary data.
 # print(packed)
 # myFile = open("/home/punit/src/_not_mine/PythonTestbed/var/bytestring.bin", "wb")  # Open binary output file.
 # myFile.write(packed)
@@ -3315,11 +3318,172 @@ import zlib
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
-# LP.
-
-
-print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
-
+# # LP.
+#
+# cSVFile = csv.reader(open("../../var/in.csv"))
+# for row in cSVFile:
+#     print(row)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# binFile = open("../../var/out.bin", "wb")
+# binData = struct.pack(">i4sh", -2147483647, b"pyth", -32768)
+# print("binData: ", binData)
+# print("binFile.write: ", binFile.write(binData))
+# binFile.close()
+#
+# binFile = open("../../var/out.bin", "rb")
+# binData = binFile.read()
+# print("binData: ", binData)
+# unpackedData = struct.unpack(">i4sh", binData)
+# print("unpackedData: ", unpackedData)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # MINE.
+#
+# s = "abc"
+# b = s
+# s += "d"
+# print(s)
+# print(b)
+#
+# # LP.
+#
+# list1 = [0, 1]
+# list2OfList1 = [-1, list1, 2]
+# dict1OfList2OfList1 = {"a": 1, "reference": list2OfList1, "b": 2}
+# print("list1: ", list1)
+# print("list2OfList1: ", list2OfList1)
+# print("dict1OfList2OfList1: ", dict1OfList2OfList1)
+# list1.append(0.5)
+# print("list1: ", list1)
+# print("list2OfList1: ", list2OfList1)
+# print("dict1OfList2OfList1: ", dict1OfList2OfList1)
+#
+# tuple1 = 0, 1
+# list1OfTuple1 = [0, tuple1, 1]
+# dict1OfList1OfTuple1 = {"a": 1, "reference": list1OfTuple1, "b": 2}
+# print("tuple1: ", tuple1)
+# print("list1OfTuple1: ", list1OfTuple1)
+# print("dict1OfList1OfTuple1: ", dict1OfList1OfTuple1)
+# tuple1 = 0, 0.5, 1
+# print("tuple1: ", tuple1)
+# print("list1OfTuple1: ", list1OfTuple1)
+# print("dict1OfList1OfTuple1: ", dict1OfList1OfTuple1)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print(bool(0.0))
+# print(bool({}))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print(type([1]) == type([]))
+# print(list == type([]))
+# print(isinstance([1], list))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print(type(lambda arg1: arg1 * 2))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list1 = [0, 1, 2]
+# list2 = list1 * 4
+# print("list2: ", list2)
+# list3 = [list1] * 4
+# print("list3: ", list3)
+# list1[1] = 0.5
+# print("list2: ", list2)
+# print("list3: ", list3)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list4 = [0, 1, 2]
+# list5 = [list4] * 4
+# list6 = [list(list4)] * 4
+# print("list4: ", list4)
+# print("list5: ", list5)
+# print("list6: ", list6)
+# list4[1] = 0.5
+# print("list4: ", list4)
+# print("list5: ", list5)
+# print("list6: ", list6)
+# list6[2][1] = 0.25
+# print("list6: ", list6)
+# list7 = [list(list4) for i in range(4)]
+# print("list7: ", list7)
+# list4[1] = 0.0625
+# list7[2][1] = 0.125
+# print("list7: ", list7)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# cyclicalList = ["grail"]
+# cyclicalList.append(cyclicalList)
+# print(cyclicalList)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# l = [0, 0xA, 0b10, "d"]
+# print("l: ", l)
+# print("l[3:1]: ", l[3:1])
+# l[3:1] = "?"
+# print("l: ", l)
+# print("l[10:-10]: ", l[10:-10])
+# l[10:] = "V"
+# print("l: ", l)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# dict1 = {}
+# dict1[1] = "a"
+# print("dict1: ", dict1)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# s = "spam"
+# print("s[0][0][0][0][0]: ", s[0][0][0][0][0])
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# s = ["s", "p", "a", "m"]
+# print("s[0][0][0][0][0]: ", s[0][0][0][0][0])
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# s = "spam"
+# print("s: ", s)
+# s = s[0:1] + "l" + s[2:4]
+# print("s: ", s)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
 # # UNKNOWN
 #
 # print(math.log2(1024))
