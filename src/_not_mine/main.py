@@ -18,6 +18,7 @@ import config
 import copy
 import csv
 import datetime
+import dbm
 import decimal
 import doctest
 import email.mime.text
@@ -60,7 +61,6 @@ import urllib.request
 import weakref
 import zipfile
 import zlib
-
 
 # # TUTORIAL.
 #
@@ -509,7 +509,7 @@ import zlib
 # # TUTORIAL.
 #
 # pairs = [(1, "one"), (2, "two"), (3, "three"), (4, "four"),]  # Two-dimensional array: four rows, two columns.
-# pairs.sort(key = lambda pair: pair[1])  # 'sort' takes no arguments, or one argument which should be a lambda function.  This lambda function should return the key.  The elements of the 'pairs' array is passed as an argument to the lambda function that is known as 'pair' inside the lambda function.  IOW, the key argument can take a lambda function which returns a key.  Key can be a subscript if each element is an array or dot-notation attribute access if each element is an object (this will mean that the list is a colleciton of objects).
+# pairs.sort(key = lambda pair: pair[1])  # 'sort' takes no arguments, or one argument which should be a lambda function.  This lambda function should return the key.  The elements of the 'pairs' array is passed as an argument to the lambda function that is known as 'pair' inside the lambda function.  IOW, the key argument can take a lambda function which returns a key.  Key can be a subscript if each element is an array or dot-notation attribute access if each element is an object (this will mean that the list is a collection of objects).
 # print(pairs)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -600,7 +600,7 @@ import zlib
 # for i in range(3):
 # 	for j in range(4):
 # 		for k in range(5):
-# 			print("i, j, k: ", i, j, k)
+# 			print("i, j, k:", i, j, k)
 # print(i, j, k)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -852,8 +852,8 @@ import zlib
 #
 # # TUTORIAL.
 #
-# print("dir(fibo): ", dir(fibo))
-# print("dir(sys): ", dir(sys))
+# print("dir(fibo):", dir(fibo))
+# print("dir(sys):", dir(sys))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -948,9 +948,9 @@ import zlib
 # print("The value of PI is approximately %5.3f." % math.pi)
 #
 # f = open("../../var/in.txt", "r")
-# print("1: ", f.read())
-# print("2: ", f.read())
-# print("3: ", f.readline())
+# print("1:", f.read())
+# print("2:", f.read())
+# print("3:", f.readline())
 # f.close()
 #
 # f = open("../../var/in.txt", "r")
@@ -961,7 +961,7 @@ import zlib
 # f.write("This is a test\n")
 # value = ("the answer", 42)
 # s = str(value)
-# print("s: ", s)
+# print("s:", s)
 # f.write(s)
 # f.close()
 #
@@ -969,8 +969,8 @@ import zlib
 # print(f.write(b"0123456789abcdef"))
 # print(f.seek(5))
 # print(f.read(1))
-# print("seek: ", f.seek(-3, 2))
-# print("read: ", f.read(1))
+# print("seek:", f.seek(-3, 2))
+# print("read:", f.read(1))
 # f.close()
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -1071,11 +1071,11 @@ import zlib
 # except Exception as exceptionInstance:
 # 	print(type(exceptionInstance))
 # 	print(exceptionInstance.args)
-# 	print("0: ", exceptionInstance.args[0])
-# 	print("1: ", exceptionInstance.args[1])
-# 	print("2: ", exceptionInstance.args[2])
+# 	print("0:", exceptionInstance.args[0])
+# 	print("1:", exceptionInstance.args[1])
+# 	print("2:", exceptionInstance.args[2])
 # 	print(exceptionInstance)  # Note that ~__str__~ may be overridden in exception subclasses.
-# 	print("str(exceptionInstance): ", str(exceptionInstance))
+# 	print("str(exceptionInstance):", str(exceptionInstance))
 # 	print(exceptionInstance.__str__())
 # 	x, y, z = exceptionInstance.args
 # 	print("x = ", x)
@@ -1106,9 +1106,9 @@ import zlib
 # 	# 	self.tup = tup
 #
 # 	def printMe(self):
-# 		print("Printing (tup): ", self.tup)
+# 		print("Printing (tup):", self.tup)
 # 		if self.dic is not None:
-# 			print("Printing (dic): ", self.dic)
+# 			print("Printing (dic):", self.dic)
 #
 # AnotherTuple(tup = (1, 2, 3), dic = {"a": 1, "b": 2}).printMe()
 # AnotherTuple(tup = (1, 2, 3, 4)).printMe()
@@ -1261,9 +1261,9 @@ import zlib
 # e = Dog("Buddy")
 # d.add_trick("roll over")
 # e.add_trick("play dead")
-# print("d.tricks: ", d.tricks)
-# print("e.tricks: ", e.tricks)
-# print("Dog.tricks: ", Dog.tricks)
+# print("d.tricks:", d.tricks)
+# print("e.tricks:", e.tricks)
+# print("Dog.tricks:", Dog.tricks)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -1379,14 +1379,14 @@ import zlib
 # print(os.getcwd())
 # os.chdir("../../var/log/")
 # # os.system("mkdir pythontestbed")
-# print("chdir: ", os.chdir("/home/punit/src/_not_mine/PythonTestbed/src/_not_mine"))
+# print("chdir:", os.chdir("/home/punit/src/_not_mine/PythonTestbed/src/_not_mine"))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
 # # TUTORIAL.
 #
-# print("dir(os): ", dir(os))  # Returns a list of all module functions.
-# print("help(os): ", help(os))  # Returns an extensive manual page created from the module's docstrings.
+# print("dir(os):", dir(os))  # Returns a list of all module functions.
+# print("help(os):", help(os))  # Returns an extensive manual page created from the module's docstrings.
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -1454,7 +1454,7 @@ import zlib
 # 		if "EST" in line or "EDT" in line:
 # 			print(line)
 # 		else:
-# 			print("line: ", line)
+# 			print("line:", line)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -1615,7 +1615,7 @@ import zlib
 #         f = zipfile.ZipFile(self.outfile, "w", zipfile.ZIP_DEFLATED)  # Operation step number one.
 #         f.write(self.infile)
 #         f.close()
-#         print("Finished backgound zip of: ", self.infile)  # This thread is run in background (~background thread~).
+#         print("Finished backgound zip of:", self.infile)  # This thread is run in background (~background thread~).
 #
 #
 # background = AsyncZip("../../var/in.txt", "../../var/in1.zip")  # Create your thread.
@@ -1924,13 +1924,13 @@ import zlib
 # # myDict = {'key1': 0, 'key2': 1}
 # myDict["key1"] = 0
 # print("myDict: 1:", foo(myDict))  # r.t.l. evaluation and printing.
-# print("myDict: 5: ", myDict)
+# print("myDict: 5:", myDict)
 # print("myDict: 1:", foo(myDict))  # r.t.l. evaluation and printing.
-# print("myDict: 5: ", myDict)
+# print("myDict: 5:", myDict)
 # print("myDict: 2:", foo())
-# print("myDict: 5: ", myDict)
+# print("myDict: 5:", myDict)
 # print("myDict: 3:", foo())
-# print("myDict: 5: ", myDict)
+# print("myDict: 5:", myDict)
 #
 # def add_element(element, myList = []):
 # 	myList.append(element)
@@ -2247,14 +2247,14 @@ import zlib
 # # FAQ.
 #
 # oneDimList = [1] * 2
-# print("oneDimList1: ", oneDimList)
+# print("oneDimList1:", oneDimList)
 # oneDimList1 = [None] * 2
-# print("oneDimList1: ", oneDimList1)
+# print("oneDimList1:", oneDimList1)
 # multiDimList = [[None] * 2] * 3
-# print("multiDimList: ", multiDimList)
-# print("multiDimList[0][0]: ", multiDimList[0][0])
+# print("multiDimList:", multiDimList)
+# print("multiDimList[0][0]:", multiDimList[0][0])
 # multiDimList[0][0] = 0
-# print("multiDimList: ", multiDimList)
+# print("multiDimList:", multiDimList)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -2325,9 +2325,9 @@ import zlib
 # wives = ["eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen"]
 # children = ["sixteen", "seventeen", "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty",]
 # families = zip(husbands, wives, children)
-# print("Families: ", families)
+# print("Families:", families)
 # familiesSortedByHusbands = sorted(families)
-# print("sortedFamilies: ", familiesSortedByHusbands)
+# print("sortedFamilies:", familiesSortedByHusbands)
 # sortedHusbands = [i[0] for i in familiesSortedByHusbands]
 # print(sortedHusbands)
 # sortedWives = [i[1] for i in familiesSortedByHusbands]
@@ -2337,7 +2337,7 @@ import zlib
 # wivesAnotherWay = []
 # for wife in familiesSortedByHusbands:
 # 	wivesAnotherWay.append(wife[1])
-# print("wivesAnotherWay: ", wivesAnotherWay)
+# print("wivesAnotherWay:", wivesAnotherWay)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -2350,17 +2350,17 @@ import zlib
 # 		myClass.classVariableObjectsCount += 1
 #
 # 	def printCount(self):
-# 		print("myClass.classVariable: ", myClass.classVariableObjectsCount)
-# 		print("self.classVariable: ", self.classVariableObjectsCount)
+# 		print("myClass.classVariable:", myClass.classVariableObjectsCount)
+# 		print("self.classVariable:", self.classVariableObjectsCount)
 #
-# print("myClass.classVariableObjectsCount: ", myClass.classVariableObjectsCount)
+# print("myClass.classVariableObjectsCount:", myClass.classVariableObjectsCount)
 # myObject1 = myClass()
 # print("printCount:")
 # myObject1.printCount()
-# print("myClass.classVariableObjectsCount: ", myClass.classVariableObjectsCount)
+# print("myClass.classVariableObjectsCount:", myClass.classVariableObjectsCount)
 # print("Creating object 2:")
 # myObject2 = myClass()
-# print("myClass.classVariableObjectsCount: ", myClass.classVariableObjectsCount)
+# print("myClass.classVariableObjectsCount:", myClass.classVariableObjectsCount)
 # print("printCount:")
 # myObject2.printCount()
 #
@@ -2368,23 +2368,23 @@ import zlib
 #
 # # FAQ.
 #
-# print("0: ", id(0))
-# print("0: ", id(0))
-# print("0: ", id(0))
-# print("1: ", id(1))
-# print("0: ", id(0))
-# print("1: ", id(1))
-# print("2: ", id(2))
-# print("0: ", id(0))
-# print("1: ", id(1))
+# print("0:", id(0))
+# print("0:", id(0))
+# print("0:", id(0))
+# print("1:", id(1))
+# print("0:", id(0))
+# print("1:", id(1))
+# print("2:", id(2))
+# print("0:", id(0))
+# print("1:", id(1))
 # a = 0
 # b = 1
 # c = 2
 # d = 3
-# print("a: ", id(a))
-# print("b: ", id(b))
-# print("c: ", id(c))
-# print("d: ", id(d))
+# print("a:", id(a))
+# print("b:", id(b))
+# print("c:", id(c))
+# print("d:", id(d))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -2396,7 +2396,7 @@ import zlib
 #
 # # FAQ.
 #
-# print("moduleFoo.moduleFooVar: ", moduleFoo.moduleFooVar)
+# print("moduleFoo.moduleFooVar:", moduleFoo.moduleFooVar)
 # # print('moduleBarVar: ', moduleBar.moduleBarVar)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -2410,23 +2410,23 @@ import zlib
 #
 # print("os:")
 # for key, value in inspect.getmembers(os):
-# 	print("KEY: ", key)
-# 	print("VALUE: ", value, end = "\n\n")
+# 	print("KEY:", key)
+# 	print("VALUE:", value, end = "\n\n")
 #
 # print("os.path:")
 # for key, value in inspect.getmembers(os.path):
-# 	print("KEY: ", key)
-# 	print("VALUE: ", value, end = "\n\n")
+# 	print("KEY:", key)
+# 	print("VALUE:", value, end = "\n\n")
 #
 # print("os.path.samestat:")
 # for key, value in inspect.getmembers(os.path.samestat):
-# 	print("KEY: ", key)
-# 	print("VALUE: ", value, end = "\n\n")
+# 	print("KEY:", key)
+# 	print("VALUE:", value, end = "\n\n")
 #
 # print("os.path.genericpath.samestat:")
 # for key, value in inspect.getmembers(os.path.genericpath.samestat):
-# 	print("KEY: ", key)
-# 	print("VALUE: ", value, end = "\n\n")
+# 	print("KEY:", key)
+# 	print("VALUE:", value, end = "\n\n")
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -2485,7 +2485,7 @@ import zlib
 # myList.append(myList)
 # print(myList)
 # for i in range(len(myList)):
-# 	print(i, ": ", myList[i], sep = "")
+# 	print(i, ":", myList[i], sep = "")
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -2564,10 +2564,10 @@ import zlib
 #
 # with open("/home/punit/src/_not_mine/PythonTestbed/var/randEight.txt", "w+b") as f:
 # 	randomEight = random.randbytes(8)
-# 	print("randomEight: ", randomEight)
+# 	print("randomEight:", randomEight)
 # 	f.write(randomEight)
 # 	s1, s2, l = struct.unpack("<hhl", randomEight)
-# 	print("s1: ", s1, "s2: ", s2, "l: ", l)
+# 	print("s1:", s1, "s2:", s2, "l:", l)
 # 	l1 = -2147483648
 # 	l2 = -1
 # 	l3 = 1
@@ -2576,7 +2576,7 @@ import zlib
 # 	f.write(fourLongs)
 # 	f.seek(-16, os.SEEK_CUR)
 # 	readLongs = f.read(16)
-# 	print("readLongs: ", readLongs)
+# 	print("readLongs:", readLongs)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -2586,8 +2586,8 @@ import zlib
 # x = 1
 #
 # y = 2
-# print("main: x: ", x)
-# print("main: y: ", y)
+# print("main: x:", x)
+# print("main: y:", y)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
@@ -2734,6 +2734,373 @@ import zlib
 #
 # # LP.
 #
+# print(list(map(ord, "spam")))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print([1, 2] + list("34"))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print(list(map(abs, [-1, -2, 0, 1, 2])))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list9 = ["a", "b", "c", "d", "e", "f", "g", "h"]
+# print("list9:", list9)
+# list9[2:5] = list9[3:6]  # Overlapping works fine because first fetching is done, then deletion.
+# print("list9:", list9)
+# list9[1:1] = [6, 7]
+# print("list9:", list9)
+# list10 = [1]
+# list10[:0] = [2, 3, 4]
+# print("list10:", list10)
+# list10[len(list10) :] = [5, 6, 7]
+# print("list10:", list10)
+#
+# list11 = ["a", "b", "c", "d", "e", "f", "g", "h"]
+# print("list11:", list11)
+# list11[len(list11) :] = ["i"]  # Is same as:
+# print("list11:", list11)
+# list11.append("i")  # And:
+# print("list11:", list11)
+# list11.insert(len(list11), "i")
+# print("list11:", list11)
+#
+# list11[:0] = ["0"]  # Preprending.  Same as:
+# print("list11:", list11)
+# list11.insert(0, "0")
+# print("list11:", list11)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list12 = ["abc", "ABD", "aBe"]
+# list12.sort(key=str.lower)
+# print("list12:", list12)
+#
+# list12 = ["abc", "ABD", "aBe"]
+# list12.sort(key=str.lower, reverse=True)
+# print("list12:", list12)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list13 = ["spam", "eggs", "ham", "toast"]
+# del list13[1:]  # Delete entire section.  Same as:
+# print("list13:", list13)
+# list13 = ["spam", "eggs", "ham", "toast"]
+# list13[1:] = []
+# print("list13:", list13)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list14 = ["Already", "got", "one"]
+# list14[0] = []  # Does not delete.  Instead, puts a reference to an empty list at that index.
+# print("list14:", list14)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# dict1 = dict([("name", "Bob"), ("age", 40)])
+# dict2 = dict.fromkeys(["name", "age"])
+# print("dict1.items():", dict1.items())  # All key, value tuples.
+# print("'Name' in dict1:", "Name" in dict1)
+# print("dict1.update(dict2):", dict1.update(dict2))  # Merge by keys.
+# print("dict1.get('name', 'Punit'):", dict1.get("name", "Punit"))  # Fetch by key, if absent default (or 'None').
+# print("dict1.pop('age', '29''):", dict1.pop("age", "29"))  # Remove by key, same as above.
+# print("dict1.setdefault('name', 'Punit'):", dict1.setdefault("name", "Punit"))  # Fetch by key, if abset: set default, or 'None'.
+# print("dict1.popitem():", dict1.popitem())
+# print("dict1:", dict1)
+# print("dict2:", dict2)
+# dict1 = dict([("name", "Bob"), ("age", 40)])
+# del dict1["name"]  # Delete entries by key.
+# print("list(dict1.keys():", list(dict1.keys()))  # Dictionary views.
+# print("dict1.keys() & dict2.keys():", dict1.keys() & dict2.keys())
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# table = {"Holy Grail": "1975", "Life of Brian": "1979", "The Meaning of Life": "1983"}
+# print(list(table.items()))
+# print([title for (title, year) in table.items() if year == "1975"])
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# Matrix = {(2, 3, 4): 88, (7, 8, 9): 99}
+# x = 2
+# y = 3
+# z = 4
+# print("Matrix[(x, y, z)]:", Matrix[(x, y, z)])
+# origin = (7, 8, 9)
+# print("Matrix[origin]:", Matrix[origin])
+# print("Matrix:", Matrix)
+#
+# try:
+#     print(Matrix[(2, 3, 6)])
+# except KeyError:
+#     print(0)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print("list(zip(['a', 'b', 'c'], [1, 2, 3])):", list(zip(["a", "b", "c"], [1, 2, 3])))
+# dict11 = {k: v for (k, v) in zip(["a", "b", "c"], [1, 2, 3])}
+# print("dict11:", dict11)
+# k = dict11.keys()
+# print("k | {'x' : 4}:", k | {"x": 4})
+# v = dict11.values()
+# try:
+#     print("v | {'x' : 4}:", v | {"x": 4})
+# except TypeError:
+#     print("Value error.")
+# try:
+#     print("v | {'x' : 4}.values():", v | {"x": 4}.values())
+# except TypeError:
+#     print("Value error.")
+# print("k & {'c': 3}:", k & {"c": 3})
+# print("dict11.items() | dict11.keys():", dict11.items() | dict11.keys())
+# print('dict(dict11.items() | {("d", 4), ("e", 5)}):', dict(dict11.items() | {("d", 4), ("e", 5)}))
+# print('dict({("a", 1), ("b", 2)}):', dict({("a", 1), ("b", 2)}))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# dict12 = {"a": 1, "b": 2}
+# dict13 = {"a": 1, "c": 3}
+# print("sorted(dict12.items()) < sorted(dict13.items()):", sorted(dict12.items()) < sorted(dict13.items()))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# file = dbm.open("../../var/in.dbm", "c")
+# file["key"] = "Any Random String"
+# data = file["key"]
+# print("data:", data)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# import shelve
+#
+# file = shelve.open("../../var/in.shelve", "c")
+# file["key"] = {"a": 1, "b": 2, "c": 3}
+# data = file["key"]
+# print("data:", data)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print(dict.fromkeys("ab", 0))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# x = 1
+# y = 2
+# assert x > y, "x is smaller than y"
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# [a, b, c] = (1, 2, 3)
+# print("a: ", a)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# a, b, c = range(3)
+# print(a, b, c)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list15 = [3, 1, 4, 1, 5, 9]
+# while list15:
+#     head, list15 = list15[0], list15[1:]
+#     print("head: ", head)
+#     print("list15: ", list15)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# a, *b, c = "spam"
+# print("a:", a, "b:", b, "c:", c)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list16 = [3, 1, 4, 1, 5, 9]
+#
+# while list16:
+#     head, *list16 = list16
+#     print("head: ", head)
+#     print("list16: ", list16)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list17 = ["a", "b", "c", "d"]
+# a, b, c, *d = list17
+# print("a:", a, "b:", b, "c:", c, "d:", d)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list17 = ["a", "b", "c", "d"]
+# a, b, c, d, *e = list17
+# print("a:", a, "b:", b, "c:", c, "d:", d, "e:", e)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list17 = ["a", "b", "c", "d"]
+# a, b, *c, d, e = list17
+# print("a:", a, "b:", b, "c:", c, "d:", d, "e:", e)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list17 = []
+# list17 += "spam"  # Works.
+# print("list17:", list17)
+# list17.append("spam")  # Works.
+# print("list17:", list17)
+# list17.extend("spam")  # Works.
+# print("list17:", list17)
+# try:
+#     list17 = list17 + "spam"  # Doesn't.
+# except:
+#     print("Got TypeError.")
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print("a", file=sys.stderr)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print("A", file=open("../../var/out2.txt", "w"))
+# print("out2.txt:", open("../../var/out2.txt").read())
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# number10 = 0x16_FF_9A
+# string20 = "\u1f9e"
+# tuple12 = number10, string20
+# list32 = [number10, string20]
+# set20 = {number10, string20}
+# dict14 = {number10: string20}
+# print(number10, string20, tuple12, list32, set20, dict14, sep="")  # Is same as:
+# sys.stdout.write(str(number10) + str(string20) + str(tuple12) + str(list32) + str(set20) + str(dict14))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# sys.stdout = open("../../var/out3.txt", "a")
+# print("B")
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# std = sys.stdout
+# print("A")
+# sys.stdout = open("../../var/out4.txt", "a")
+# print("B")
+# sys.stdout = std
+# print("C")
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# s = """
+# A
+# B	# Comment not ignored.
+# C
+# """
+# print("s:", s, "len(s):", len(s))
+# s = "A" "B" "C"
+# print("s:", s)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print(1 and 1)
+# print("a" and 0)
+# print("a" and "0")
+# print("a" or "0")
+# print(("a", "1") and ("", 0))
+# print(("a", "1") and ("b", 1))
+# print(("a", "1") or ("b", 1))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# for x in (False, True):
+#     for y in (False, True):
+#         for z in (False, True):
+#             print("x:", x, "y:", y, "z:", z)
+#             a = (x and y) or z
+#             print("a:", a)
+#             a = y if x else z  # Always same as:
+#             print("a:", a)
+#             a = [z, y][bool(x)]  # This.
+#             print("a:", a)
+#             a = x or y or z or None
+#             print("a:", a)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list19 = ["a", 0, "b", [], "c", {}]
+# print(list(filter(bool, list19)))
+# print(any(list19), all(list19))
+# print(list(filter(str, list19)))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
 # tuple1 = 1, 2
 # tuple2 = 2, 3, 4
 # print(tuple1 + tuple2)
@@ -2741,11 +3108,11 @@ import zlib
 # tuple3 = "spam"
 # # print([c ** 2 for c in tuple3])	# Can't apply the exponentiation operator on a string.
 # tuple4 = "item1", 2, 3.0, ["four1", "four2"], "item1"
-# print("tuple4[1]: ", tuple4[1])
-# print("tuple4.index(2): ", tuple4.index(2))
-# print("tuple4.index(3, 1): ", tuple4.index(3, 1))
+# print("tuple4[1]:", tuple4[1])
+# print("tuple4.index(2):", tuple4.index(2))
+# print("tuple4.index(3, 1):", tuple4.index(3, 1))
 # print('tuple4.count("item1"): ', tuple4.count("item1"))
-# print("tuple4[3]: ", tuple4[3])
+# print("tuple4[3]:", tuple4[3])
 # myNamedTuple = collections.namedtuple("Employee", ["name", "designation"])
 # print(myNamedTuple)
 # print(myNamedTuple["Employee"])
@@ -2773,19 +3140,19 @@ import zlib
 # print(RecordDict["name"])
 # print(RecordDict["age"])
 # name1, age1, jobs1 = bob
-# print("jobs1: ", jobs1)
+# print("jobs1:", jobs1)
 #
 # for i in bob:  # Iteration context.
 #     print(i)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
-# LP.
+# # LP.
 #
 # binaryData = open("../../var/in.bin", "rb").read()
 # print(binaryData)
-# print("binaryData[4:7]: ", binaryData[4:7].decode())
-# print("str(binaryData): ", str(binaryData, "utf-8"))
+# print("binaryData[4:7]:", binaryData[4:7].decode())
+# print("str(binaryData):", str(binaryData, "utf-8"))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
@@ -3292,13 +3659,13 @@ import zlib
 #
 # f = open("../../var/in3.txt")
 # line = f.readline()
-# print("line: ", line)
+# print("line:", line)
 # objects = line.split("$")
-# print("objects: ", objects)
+# print("objects:", objects)
 # object1 = eval(objects[0])
-# print("object1: ", object1)
+# print("object1:", object1)
 # objectsRead = [eval(o) for o in objects]
-# print("objectsRead: ", objectsRead)
+# print("objectsRead:", objectsRead)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
@@ -3311,10 +3678,10 @@ import zlib
 #
 # myPickleFile = open("../../var/out.pkl", "rb")
 # unpickledObjects = pickle.load(myPickleFile)
-# print("unpickledObjects: ", unpickledObjects)
+# print("unpickledObjects:", unpickledObjects)
 # myPickleFile.close()
 #
-# print("Pickled Objects: ", open("../../var/out.pkl", "rb").read())
+# print("Pickled Objects:", open("../../var/out.pkl", "rb").read())
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
@@ -3330,15 +3697,15 @@ import zlib
 #
 # binFile = open("../../var/out.bin", "wb")
 # binData = struct.pack(">i4sh", -2147483647, b"pyth", -32768)
-# print("binData: ", binData)
-# print("binFile.write: ", binFile.write(binData))
+# print("binData:", binData)
+# print("binFile.write:", binFile.write(binData))
 # binFile.close()
 #
 # binFile = open("../../var/out.bin", "rb")
 # binData = binFile.read()
-# print("binData: ", binData)
+# print("binData:", binData)
 # unpackedData = struct.unpack(">i4sh", binData)
-# print("unpackedData: ", unpackedData)
+# print("unpackedData:", unpackedData)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
@@ -3355,24 +3722,24 @@ import zlib
 # list1 = [0, 1]
 # list2OfList1 = [-1, list1, 2]
 # dict1OfList2OfList1 = {"a": 1, "reference": list2OfList1, "b": 2}
-# print("list1: ", list1)
-# print("list2OfList1: ", list2OfList1)
-# print("dict1OfList2OfList1: ", dict1OfList2OfList1)
+# print("list1:", list1)
+# print("list2OfList1:", list2OfList1)
+# print("dict1OfList2OfList1:", dict1OfList2OfList1)
 # list1.append(0.5)
-# print("list1: ", list1)
-# print("list2OfList1: ", list2OfList1)
-# print("dict1OfList2OfList1: ", dict1OfList2OfList1)
+# print("list1:", list1)
+# print("list2OfList1:", list2OfList1)
+# print("dict1OfList2OfList1:", dict1OfList2OfList1)
 #
 # tuple1 = 0, 1
 # list1OfTuple1 = [0, tuple1, 1]
 # dict1OfList1OfTuple1 = {"a": 1, "reference": list1OfTuple1, "b": 2}
-# print("tuple1: ", tuple1)
-# print("list1OfTuple1: ", list1OfTuple1)
-# print("dict1OfList1OfTuple1: ", dict1OfList1OfTuple1)
+# print("tuple1:", tuple1)
+# print("list1OfTuple1:", list1OfTuple1)
+# print("dict1OfList1OfTuple1:", dict1OfList1OfTuple1)
 # tuple1 = 0, 0.5, 1
-# print("tuple1: ", tuple1)
-# print("list1OfTuple1: ", list1OfTuple1)
-# print("dict1OfList1OfTuple1: ", dict1OfList1OfTuple1)
+# print("tuple1:", tuple1)
+# print("list1OfTuple1:", list1OfTuple1)
+# print("dict1OfList1OfTuple1:", dict1OfList1OfTuple1)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
@@ -3401,12 +3768,12 @@ import zlib
 #
 # list1 = [0, 1, 2]
 # list2 = list1 * 4
-# print("list2: ", list2)
+# print("list2:", list2)
 # list3 = [list1] * 4
-# print("list3: ", list3)
+# print("list3:", list3)
 # list1[1] = 0.5
-# print("list2: ", list2)
-# print("list3: ", list3)
+# print("list2:", list2)
+# print("list3:", list3)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
@@ -3415,20 +3782,20 @@ import zlib
 # list4 = [0, 1, 2]
 # list5 = [list4] * 4
 # list6 = [list(list4)] * 4
-# print("list4: ", list4)
-# print("list5: ", list5)
-# print("list6: ", list6)
+# print("list4:", list4)
+# print("list5:", list5)
+# print("list6:", list6)
 # list4[1] = 0.5
-# print("list4: ", list4)
-# print("list5: ", list5)
-# print("list6: ", list6)
+# print("list4:", list4)
+# print("list5:", list5)
+# print("list6:", list6)
 # list6[2][1] = 0.25
-# print("list6: ", list6)
+# print("list6:", list6)
 # list7 = [list(list4) for i in range(4)]
-# print("list7: ", list7)
+# print("list7:", list7)
 # list4[1] = 0.0625
 # list7[2][1] = 0.125
-# print("list7: ", list7)
+# print("list7:", list7)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
@@ -3443,13 +3810,13 @@ import zlib
 # # LP.
 #
 # l = [0, 0xA, 0b10, "d"]
-# print("l: ", l)
-# print("l[3:1]: ", l[3:1])
+# print("l:", l)
+# print("l[3:1]:", l[3:1])
 # l[3:1] = "?"
-# print("l: ", l)
-# print("l[10:-10]: ", l[10:-10])
+# print("l:", l)
+# print("l[10:-10]:", l[10:-10])
 # l[10:] = "V"
-# print("l: ", l)
+# print("l:", l)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
@@ -3457,30 +3824,30 @@ import zlib
 #
 # dict1 = {}
 # dict1[1] = "a"
-# print("dict1: ", dict1)
+# print("dict1:", dict1)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
 # # LP.
 #
 # s = "spam"
-# print("s[0][0][0][0][0]: ", s[0][0][0][0][0])
+# print("s[0][0][0][0][0]:", s[0][0][0][0][0])
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
 # # LP.
 #
 # s = ["s", "p", "a", "m"]
-# print("s[0][0][0][0][0]: ", s[0][0][0][0][0])
+# print("s[0][0][0][0][0]:", s[0][0][0][0][0])
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
 # # LP.
 #
 # s = "spam"
-# print("s: ", s)
+# print("s:", s)
 # s = s[0:1] + "l" + s[2:4]
-# print("s: ", s)
+# print("s:", s)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
