@@ -20,9 +20,11 @@ import csv
 import datetime
 import dbm
 import decimal
+import docstrings
 import doctest
 import email.mime.text
 import fibo
+import first
 import fractions
 import functools
 import gc
@@ -61,6 +63,7 @@ import urllib.request
 import weakref
 import zipfile
 import zlib
+
 
 # # TUTORIAL.
 #
@@ -193,7 +196,7 @@ import zlib
 # cubes[3] = 64
 # print(cubes)
 # print(cubes.append(216))
-# cubes.append(7 ** 3)
+# cubes.append(7 ** 3)	# Add the cube of 7.
 # print(cubes)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -1965,15 +1968,17 @@ import zlib
 # # FAQ.
 #
 # def f(a, b):
-# 	print(a, b)
-# 	a += 1
-# 	b = b + 2
-# 	print(a, b)
-# 	return a, b
+#     print("a:", a, "b:", b)
+#     a += 1
+#     b = b + 2
+#     print("a:", a, "b:", b)
+#     return a, b
+#
 #
 # x, y = 0, 1
+# print("x:", x, "y:", y)
 # x, y = f(x, y)
-# print(x, y)
+# print("x:", x, "y:", y)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -2478,16 +2483,6 @@ import zlib
 # print(os.listdir("."))  # Returns all files in the current directory.
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
-#
-# # MINE.
-#
-# myList = [0, 1, "a"]
-# myList.append(myList)
-# print(myList)
-# for i in range(len(myList)):
-# 	print(i, ":", myList[i], sep = "")
-#
-# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
 # # FAQ.
 #
@@ -3101,6 +3096,139 @@ import zlib
 #
 # # LP.
 #
+# table = [("Bob", 120129, "DB Admin", "Calicut"), ("Alice", 108420, "Python Expert", "Kozhikode"), ("Carl", 109481, "AI Engineer", "Trivandrum")]
+# for name, iD, designation, location in table:
+#     print("ID:", iD)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# for (a, b), c in [([1, 2], 3), ["XY", 4]]:
+#     print("a:", a, "b:", b, "c:", c)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# items = ["aaa", 111, (4, 5), 2.01]
+# tests = [(4, 5), 3.14]
+#
+# for key in tests:
+#     for item in items:
+#         if item == key:
+#             print(key, "was found")
+#             break
+#     else:
+#         print(key, "not found!")
+#
+# # This is better because Python is doing all the work.
+#
+# for key in tests:
+#     if key in items:
+#         print(key, "was found")
+#     else:
+#         print(key, "not found!")
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# output = os.popen("ls")
+# print("readline:", output.readline())
+# output = os.popen("ls")
+# print("read(5):", output.read(5))
+# output = os.popen("ls")
+# print("readlines()[0]:", output.readlines()[0])
+# print("read()[:5]: ", os.popen("ls").read()[:5])
+#
+# print("Line iteration in for loop:")
+# for line in os.popen("ls"):
+#     print(line.rstrip())
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# file19 = open("../../var/in4.txt")
+# print(file19 is iter(file19) and iter(file19) is file19.__iter__())
+# print(file19.__next__())
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list20 = ["A", "B", "C", "D"]
+# list20.extend(open("../../var/in5.txt"))
+# print("list20:", list20)
+# list20.append(open("../../var/in5.txt"))
+# print("list20:", list20)
+# list20.append(list(open("../../var/in5.txt")))
+# print("list20:", list20)
+# print("list20[8]:", list20[8])
+# print("list(list20[8]):", list(list20[8]))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# x = (1, 2)
+# y = (3, 4)
+# print("list(zip(x, y)):", list(zip(x, y)))
+# a, b = zip(*zip(x, y))
+# print("a:", a, "b:", b)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# map1 = map(abs, [-1, 0, 1])
+# print("map1:", map1)
+# iterator1 = iter(map1)
+# print("type(map1):", type(map1))
+# print("type(iterator1):", type(iterator1))
+#
+# print("next(map1):", next(map1))
+# print("next(iterator1):", next(iterator1))
+#
+# for i in map1:
+#     print("i:", i)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print(len(dir(sys)))
+# print(len([d for d in dir(sys) if not d.startswith("_")]))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print(docstrings.__doc__)
+# print(docstrings.square.__doc__)
+# print(docstrings.Employee.__doc__)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# help("sys")  # If not imported.
+# help("email.message")
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print("help(docstrings.square):")
+# help(docstrings.square)
+# print("help(docstrings.Employee):")
+# help(docstrings.Employee)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
 # tuple1 = 1, 2
 # tuple2 = 2, 3, 4
 # print(tuple1 + tuple2)
@@ -3709,14 +3837,6 @@ import zlib
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
-# # MINE.
-#
-# s = "abc"
-# b = s
-# s += "d"
-# print(s)
-# print(b)
-#
 # # LP.
 #
 # list1 = [0, 1]
@@ -3850,6 +3970,246 @@ import zlib
 # print("s:", s)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print(zip is builtins.zip)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+#
+# # LP.
+#
+# # print(builtins is __builtin__)
+# print(builtins is __builtins__)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# try:
+#     print("x:", x)
+# except NameError:
+#     print("NameError raised.")
+#     pass
+#
+#
+# def f():
+#     global x
+#     x = 10
+#
+#
+# f()
+# print("x:", x)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print("main: first.x:", first.x)
+# first.x = 1
+# print("main: first.x:", first.x)
+#
+# import second
+#
+# print("main: first.x:", first.x)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+# var = 0
+#
+#
+# def local():
+#     var = 1
+#     print("local: var:", var)
+#
+#
+# def global1():
+#     global var
+#     print("global1: var:", var)
+#     var = 2
+#     print("global1: var:", var)
+#
+#
+# def global2():
+#     var = 3
+#
+#     import __main__
+#
+#     print("global2: __main__.var:", __main__.var)
+#     __main__.var = 4
+#     print("global2: __main__.var:", __main__.var)
+#
+#
+# def global3():
+#     var = 5
+#
+#     import sys
+#
+#     globals = sys.modules["__main__"]
+#     print("global3: globals.var:", globals.var)
+#     globals.var = 6
+#     print("global3: globals.var:", globals.var)
+#
+#
+# def test():
+#     print("test: var:", var)
+#     local()
+#     global1()
+#     global2()
+#     global3()
+#     print("test: var:", var)
+#
+#
+# test()
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# var = 0
+#
+#
+# def f1():
+#     var = 1
+#     print("f1: var:", var)
+#
+#     def f2():
+#         print("f2: var:", var)
+#
+#     print("f1: var:", var)
+#
+#     f2()
+#     print("f1: var:", var)
+#
+#
+# print("main: var:", var)
+# f1()
+# print("main: var:", var)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+#
+# def f1():
+#     var = 0
+#
+#     def f2():
+#         print("var:", var)
+#
+#     return f2
+#
+#
+# action = f1()
+# action()
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+# def returnClosure(b):
+#     def closure(e):
+#         return b**e
+#
+#     b = 3  # Return me powers of 3 instead.
+#
+#     return closure
+#
+#
+# myClosure = returnClosure(2)  # Return me powers of 2.
+# print("myClosure:", myClosure)
+# # myClosure: <function returnClosure.<locals>.closure at 0x7fb8391e8430>
+#
+# threePoweredThree = myClosure(3)  # A different power of 3 (cubed).
+# print("threePoweredThree:", threePoweredThree)
+# # threePoweredThree: 9
+#
+# threePoweredFour = myClosure(4)  # Another power of 3.
+# print("threePoweredFour:", threePoweredFour)
+# # threePoweredFour: 81
+#
+# threePoweredFive = myClosure(5)  # A different name and a different object.
+# print("threePoweredFive:", threePoweredFive)
+# # 243
+#
+# print("returnClosure(2) is returnClosure(3):", returnClosure(2) is returnClosure(3))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# def returnLambda(b):
+# 	return lambda e: b ** e
+#
+# myLambda = returnLambda(3)
+# print("myLambda:", myLambda)
+#
+# threePoweredThree = myLambda(3)
+# print("threePoweredThree:", threePoweredThree)
+#
+# threePoweredFour = myLambda(4)
+# print("threePoweredFour:", threePoweredFour)
+#
+# threePoweredFive = myLambda(5)
+# print("threePoweredFive:", threePoweredFive)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # LP.
+#
+# def f1():
+#     x = 0
+#     y = 10
+#
+#     def f2(x=x):
+#         x += 1
+#         nonlocal y
+#         y += 1
+#         print("f2: x:", x)
+#         print("f2: y:", y)
+#
+#     f2()
+#     f2()
+#
+#
+# f1()
+# f1()
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # LP.
+#
+# def f1():
+# 	x = 0
+#
+# 	f2(x)
+# 	f2(x)
+#
+# def f2(x):
+# 	x += 1
+# 	print("f2: x:", x)
+#
+# f1()
+# f1()
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # LP.
+#
+# def f1():
+# 	b = 2
+#
+# 	f2 = lambda e: b ** e
+#
+# 	return f2
+#
+# myLambda = f1()
+# print("myLambda(3):", myLambda(3))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
 # # UNKNOWN
 #
