@@ -235,7 +235,7 @@ import zlib
 #
 # a, b = 0, 1
 # while b < 1000:
-# 	print(b, end = ",")  # Don't append a newline to output, instead replace it with ','.'end' is a keyword.
+# 	print(b, end = ",")	# Don't append a newline to output, instead replace it with ','.  'end' is a keyword.
 # 	a, b = b, a + b
 # print()
 #
@@ -4108,7 +4108,7 @@ import zlib
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
-# LP.
+# # LP.
 #
 # def returnClosure(b):
 #     def closure(e):
@@ -4136,6 +4136,21 @@ import zlib
 # # 243
 #
 # print("returnClosure(2) is returnClosure(3):", returnClosure(2) is returnClosure(3))
+# print("returnClosure(2) is returnClosure(2):", returnClosure(2) is returnClosure(2))
+# myClosure1 = returnClosure(3)
+# myClosure2 = returnClosure(4)
+# print("myClosure1 is myClosure2:", myClosure1 is myClosure2)
+# print("myClosure1(2) is myClosure2(2):", myClosure1(2) is myClosure2(2))
+# print("myClosure1(3) is myClosure2(3):", myClosure1(3) is myClosure2(3))
+# print("myClosure1(4) is myClosure2(4):", myClosure1(4) is myClosure2(4))
+# print("myClosure1(5) is myClosure2(5):", myClosure1(5) is myClosure2(5))
+# print("myClosure1(4) is myClosure2(5):", myClosure1(4) is myClosure2(5))
+# print("myClosure1(6) is myClosure2(6):", myClosure1(6) is myClosure2(6))
+# print("myClosure1(7) is myClosure2(7):", myClosure1(7) is myClosure2(7))
+# print("myClosure1(8) is myClosure2(8):", myClosure1(8) is myClosure2(8))
+# print("myClosure1(9) is myClosure2(9):", myClosure1(9) is myClosure2(9))
+# print("myClosure1(6):", myClosure1(6))
+# print("myClosure2(6):", myClosure2(6))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
@@ -4211,6 +4226,103 @@ import zlib
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
+# # LP.
+#
+# print("h")
+# nonlocal a
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# def tester(start):
+# 	state = start
+#
+# 	def nested(label):
+# 		print(label, start)
+#
+# 	return nested
+#
+# f = tester(0)
+# print(f("spam"))
+# print(f("ham"))
+# g = tester(1)
+# print(g("spam"))
+# print(f is g)
+# print(tester(0) is tester(0))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # LP.
+#
+# def tester(start):
+# 	state = start
+#
+# 	def nested(label):
+# 		nonlocal state
+#
+# 		print(label, state)
+# 		state += 1
+#
+# 	return nested
+#
+# f = tester(0)
+# print(f("spam"))
+# print(f("ham"))
+# print(f("eggs"))
+# g = tester(42)
+# print(g("spam"))
+# print(g("eggs"))
+# print(f("bacon"))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# # LP.
+#
+# def tester(start):
+#
+# 	def nested(label):
+# 		print(label, nested.state)
+# 		nested.state += 1
+#
+# 	nested.state = start  # This statement attaches the attribute to the nested function.
+#
+# 	return nested  # Return the function object.
+#
+# f = tester(0)  # Assign the function object to ~f~.  This function object has the ~start~ state stored.
+# print(f("spam"))
+# print(f("ham"))
+# print(f.state)  # Access the function attribute.
+#
+# g = tester(42)  # Create another copy of the nested function.
+# print(g.state)
+# print(g.state)
+# g("Incrementing the state:")
+# print(g.state)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+#
+# LP.
+
+
+def customizeOpen(id):
+    originalOpen = builtins.open
+
+    def customOpen(*keyword_args, **positional_args):
+        print("Custom open call %r:" % id, keyword_args, positional_args)
+        return originalOpen(*keyword_args, **positional_args)
+
+    builtins.open = customOpen
+
+
+f = open("../../var/in6.txt")
+print("f:", f.read())
+customizeOpen("hell")
+f = open("../../var/in7.txt")
+f.read()
+
+print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+
 # # UNKNOWN
 #
 # print(math.log2(1024))
