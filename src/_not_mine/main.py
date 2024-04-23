@@ -15,6 +15,7 @@ import builtins
 import cmath
 import collections
 import config
+import contextlib
 import copy
 import csv
 import datetime
@@ -82,9 +83,9 @@ import zlib
 #
 # # TUTORIAL.
 #
-# print(-(3 ** 2))
+# print(-(3**2))
 # print((-3) ** 2)
-# print(5 ** 2)
+# print(5**2)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -408,25 +409,32 @@ import zlib
 #
 # # TUTORIAL.
 #
-# def f(a, L = []):
-# 	L.append(a)
-# 	return L
+# def f(number1, list30=[]):
+#     list30.append(number1)
+#     return list30
+#
+#
+# print(f(1))
+# print(f(2))
+# print(f(3, [4, 5]))
+# print(f(6, [7, 8]))
+# print(f(3, [4, 5]))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # TUTORIAL.
+#
+# def f(number2, list31=None):
+#     if list31 is None:
+#         list31 = []
+#     # def f(number2, list31=[]):
+#     list31.append(number2)
+#     return list31
+#
 #
 # print(f(1))
 # print(f(2))
 # print(f(3))
-#
-# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-#
-# # TUTORIAL.
-#
-# def f(a, L = None):
-# 	if L is None:
-# 		L = []
-# 	L.append(a)
-# 	return L
-#
-# print(f(1))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -470,11 +478,12 @@ import zlib
 #
 # # TUTORIAL.
 #
-# def concat(*args, sep = "/"):
-# 	return sep.join(args)
+# def concat(*args, sep="/"):
+#     return sep.join(args)
+#
 #
 # print(concat("earth", "mars", "venus"))
-# print(concat("earth", "mars", "venus", sep = "."))
+# print(concat("earth", "mars", "venus", sep="."))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -512,7 +521,7 @@ import zlib
 # # TUTORIAL.
 #
 # pairs = [(1, "one"), (2, "two"), (3, "three"), (4, "four"),]  # Two-dimensional array: four rows, two columns.
-# pairs.sort(key = lambda pair: pair[1])  # 'sort' takes no arguments, or one argument which should be a lambda function.  This lambda function should return the key.  The elements of the 'pairs' array is passed as an argument to the lambda function that is known as 'pair' inside the lambda function.  IOW, the key argument can take a lambda function which returns a key.  Key can be a subscript if each element is an array or dot-notation attribute access if each element is an object (this will mean that the list is a collection of objects).
+# pairs.sort(key = lambda pair: pair[1])  # 'sort' takes no arguments, or one argument which should be a lambda function.  This lambda function should return the key.  The elements of the 'pairs' array is passed as an argument to the lambda function that is known as 'pair' inside the lambda function.  In other words, the key argument can take a lambda function which returns a key.  Key can be a subscript if each element is an array or dot-notation attribute access if each element is an object (this will mean that the list is a collection of objects).
 # print(pairs)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -543,29 +552,34 @@ import zlib
 #
 # # TUTORIAL.
 #
-# a = [66.25, 333, 333, 1, 1234.5]
-# print(a.count(333), a.count(66.25), a.count("x"))
-# a.insert(2, -1)  # 'x' will be inserted at the index 'i'.  So, 'a.insert(len(a), x)' is same as 'a.append(x)'.
-# a.append(333)  # Equivalent to: 'a[len(a):] = [x]'
-# print(a)
-# print(a.index(333))  # Return the index of the item 'x'.
-# a.remove(333)  # Removes the first occurrence of 'x'.  Returns an error if item 'x' is not found.
-# print(a)
-# a.reverse()  # Reverse the elements of the list in place.
-# print(a)
-# a.sort()
-# print(a)
-# print(a.pop())  # If 'i' is not given, it removes and returns the last item in the list.
-# print(a)
+# list24 = [10, 11, 12, 13, 14, 10]
+# print("list24:", list24)
+# print("list24.count(10):", list24.count(10), "list24.count(14):", list24.count(14), "list24.count('x'):", list24.count("x"))
+# print("list24.insert(2, 11.5):", list24.insert(2, 11.5))  # 11.5 will be inserted at the index 2.  ~list24.insert(len(list24), element)~ is same as ~list24.append(element)~.
+# print("list24:", list24)
+# print("list24.append(15):", list24.append(15))  # Equivalent to: 'list24[len(list24):] = [element]'
+# print("list24:", list24)
+# print("list24.index(15):", list24.index(15))  # Return the index of the item 15.
+# print("list24.remove(15):", list24.remove(15))  # Removes the first occurrence of 15.  Returns an error if the element is not found.
+# print("list24:", list24)
+# print("list24.reverse():", list24.reverse())  # Reverse the elements of the list in place.
+# print("list24:", list24)
+# print("list24.sort():", list24.sort())
+# print("list24:", list24)
+# print("list24.pop():", list24.pop())  # If argument to ~pop~ is not given, it removes and returns the last item in the list.
+# print("list24:", list24)
+# print("list24.extend(list24):", list24.extend(list24))  # Equivalent to: list[len(list24):] = list25
+# print("list24:", list24)
+# print("list24.count(10):", list24.count(10))  # Return the number of times 10 appears in the list.
+# print("list24:", list24)
+# print("list24.sort(key=None, reverse=False):", list24.sort(key=None, reverse=False))  # Sort the items of the list in place.  See ~sorted()~ for explanation of the optional arguments.
+# print("list24.pop(2):", list24.pop(2))  # List passed instead of integer.
+# print("list24:", list24)
+# print("list24.clear():", list24.clear())  # Equivalent to ~del list24[:]~.
+# print("list24:", list24)
+# copyOfA = list24.copy()  # Return a shallow copy of the list.  Equivalent to ~list24[:]~.
 #
-# print(a.extend(a))  # Equivalent to: a[len(a):] = L
-# print(a.count(333))  # Return the number of times '333' appears in the list.
-# print(a.sort(key = None, reverse = False))  # Sort the items of the list in place.  See 'sorted()' for explanation of the optional arguments.
-# # print(a.pop([2]))	# List passed instead of integer.
-# a.clear()  # Equivalent to 'del a[:].
-# copyOfA = a.copy()  # Return a shallow copy of the list.  Equivalent to 'a[:]'.
-#
-# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
 # # TUTORIAL.
 #
@@ -1121,14 +1135,15 @@ import zlib
 # # TUTORIAL.
 #
 # def this_fails():
-# 	x = 1 / 0
+#     x = 1 / 0
+#
 #
 # try:
-# 	this_fails()
+#     this_fails()
 # except ZeroDivisionError as error:
-# 	print("Handling run-time error:", error)
+#     print("Handling run-time error:", error)
 #
-# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
 # # TUTORIAL.
 #
@@ -1345,14 +1360,16 @@ import zlib
 #
 # # TUTORIAL.
 #
+#
 # def reverse(data):
-# 	for index in range(len(data) - 1, -1, -1):
-# 		yield data[index]
+#     for index in range(len(data) - 1, -1, -1):
+#         yield data[index]
+#
 #
 # for char in reverse("golf"):
-# 	print(char)
+#     print(char)
 #
-# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
 # # TUTORIAL.
 #
@@ -1493,25 +1510,27 @@ import zlib
 # # TUTORIAL.
 #
 # def average(values):
-# 	"""Computes the arithmetic mean of a list of numbers.
+#     """Computes the arithmetic mean of a list of numbers.
 #
 #     >>> print(average([20, 30, 70]))
 #     40.0
 #     """
 #
-# 	return sum(values) / len(values)
+#     return sum(values) / len(values)
 #
-# doctest.testmod(verbose = False)  # Automatically validate the embedded tests.
+#
+# doctest.testmod(verbose=False)  # Automatically validate the embedded tests.
+#
 #
 # class TestMyAverageFunction(unittest.TestCase):
+#     def test_average(self):
+#         self.assertEqual(average([20, 30, 70]), 40.0)
+#         self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
+#         with self.assertRaises(ZeroDivisionError):
+#             average([])  # with self.assertRaises(TypeError):  # 	average([20, 30, 70])
 #
-# 	def test_average(self):
-# 		self.assertEqual(average([20, 30, 70]), 40.0)
-# 		self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
-# 		with self.assertRaises(ZeroDivisionError):
-# 			average([])  # with self.assertRaises(TypeError):  # 	average([20, 30, 70])
 #
-# # unittest.main(argv = ['0'])	# Calling from the command line invokes all tests.
+# unittest.main(argv=["0"])  # Calling from the command line invokes all tests.
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
@@ -1913,15 +1932,16 @@ import zlib
 #
 # print(config.x)
 #
-# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 #
 # # FAQ.
 #
-# def foo(myDict = {}):
-# 	myDict["key2"] = 1
-# 	print("myDict: 4:", myDict)
+# def foo(myDict={}):  # Reference is shared with subsequent invocations.
+#     myDict["key2"] = 1
+#     print("myDict: 4:", myDict)
 #
-# 	return myDict
+#     return myDict
+#
 #
 # myDict = {}
 # # myDict = {'key1': 0, 'key2': 1}
@@ -1935,10 +1955,12 @@ import zlib
 # print("myDict: 3:", foo())
 # print("myDict: 5:", myDict)
 #
-# def add_element(element, myList = []):
-# 	myList.append(element)
 #
-# 	return myList
+# def add_element(element, myList=[]):
+#     myList.append(element)
+#
+#     return myList
+#
 #
 # myList = [0, 1, 2]
 # print(add_element(3, myList))
@@ -2749,14 +2771,14 @@ import zlib
 #
 # list9 = ["a", "b", "c", "d", "e", "f", "g", "h"]
 # print("list9:", list9)
-# list9[2:5] = list9[3:6]  # Overlapping works fine because first fetching is done, then deletion.
+# list9[2 : 5] = list9[3 : 6]  # Overlapping works fine because first fetching is done, then deletion.
 # print("list9:", list9)
-# list9[1:1] = [6, 7]
+# list9[1 : 1] = ["x", "y"]
 # print("list9:", list9)
 # list10 = [1]
-# list10[:0] = [2, 3, 4]
+# list10[: 0] = [2, 3, 4]
 # print("list10:", list10)
-# list10[len(list10) :] = [5, 6, 7]
+# list10[len(list10):] = [5, 6, 7]
 # print("list10:", list10)
 #
 # list11 = ["a", "b", "c", "d", "e", "f", "g", "h"]
@@ -3226,6 +3248,33 @@ import zlib
 # help(docstrings.Employee)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# x = "old"
+#
+# def changer():
+# 	global x
+# 	x = "new"
+#
+# def outer():
+# 	x = "old"
+#
+# 	def changer():
+# 		nonlocal x
+# 		x = "new"
+#
+# print("x:", x)
+# changer()
+# print("x:", x)
+#
+# def squares(x):
+# 	for i in range(x):
+# 		yield i ** 2
+#
+# print(list(squares(5)))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
 # # LP.
 #
@@ -3788,11 +3837,13 @@ import zlib
 # f = open("../../var/in3.txt")
 # line = f.readline()
 # print("line:", line)
-# objects = line.split("$")
-# print("objects:", objects)
-# object1 = eval(objects[0])
+# listOfLines = line.split("$")
+# print("listOfLines:", listOfLines)
+# object1 = eval(listOfLines[0])
 # print("object1:", object1)
-# objectsRead = [eval(o) for o in objects]
+# object2 = eval(listOfLines[1])
+# print("object2:", object2)
+# objectsRead = [eval(line) for line in listOfLines]
 # print("objectsRead:", objectsRead)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
@@ -4279,20 +4330,20 @@ import zlib
 #
 # # LP.
 #
-# def tester(start):
+# def demoFunctionAttribute(myArgument1):
+#     def nestedFunction(myArgument2):
+#         print(myArgument2, nestedFunction.myAttribute)
+#         nestedFunction.myAttribute += 1
 #
-# 	def nested(label):
-# 		print(label, nested.state)
-# 		nested.state += 1
+#     nestedFunction.myAttribute = myArgument1  # This statement attaches the attribute to the nested function.
 #
-# 	nested.state = start  # This statement attaches the attribute to the nested function.
+#     return nestedFunction  # Return the function object.
 #
-# 	return nested  # Return the function object.
 #
-# f = tester(0)  # Assign the function object to ~f~.  This function object has the ~start~ state stored.
-# print(f("spam"))
-# print(f("ham"))
-# print(f.state)  # Access the function attribute.
+# myFunctionObject = demoFunctionAttribute(0)  # Assign the function object to ~f~.  This function object has the ~start~ state stored.
+# print(myFunctionObject("spam"))
+# print(myFunctionObject("ham"))
+# print(myFunctionObject.myAttribute)  # Access the function attribute.
 #
 # g = tester(42)  # Create another copy of the nested function.
 # print(g.state)
@@ -4302,24 +4353,548 @@ import zlib
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
+# # LP.
+#
+# def customizeOpen(customizationId):
+#     print("builtins.open:", builtins.open)
+#     originalOpen = builtins.open
+#
+#     def customOpen(*keywordArguments, **positionalArguments):
+#         print("Customizing ~open~ %r:" % customizationId, keywordArguments, positionalArguments)
+#         print("customOpen: originalOpen:", originalOpen, " customizationId:", customizationId)
+#         return originalOpen(*keywordArguments, **positionalArguments)
+#
+#     builtins.open = customOpen
+#
+#
+# f = open("../../var/in6.txt")
+# print("f:", f.read())
+# customizeOpen("hell2")
+# f = open("../../var/in7.txt")
+# print("f:", f.read())
+# customizeOpen("hell1")
+# f = open("../../var/in8.txt")
+# print("f:", f.read())
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+# class customizeOpen:
+#     def __init__(self, customizationId):
+#         self.id = customizationId
+#         self.originalOpen = builtins.open
+#         builtins.open = self
+#
+#     def __call__(self, *keywordArguments, **positionalArguments):
+#         print("Customizing ~open~ using classes.  ID: %r:" % self.id, keywordArguments, positionalArguments)
+#         print("customOpen: originalOpen:", self.originalOpen, " customizationId:", self.id)
+#         return self.originalOpen(*keywordArguments, **positionalArguments)
+#
+#
+# f = open("../../var/in6.txt")
+# print("f:", f.read())
+# customizeOpen("hell2")
+# f = open("../../var/in7.txt")
+# print("f:", f.read())
+# customizeOpen("hell1")
+# f = open("../../var/in8.txt")
+# print("f:", f.read())
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+# def changer(a, b):
+#     a = 2
+#     b[0] = "spam"
+#
+#
+# x = 1
+# l = [1, 2]
+# print("x:", x, "l:", l)
+# changer(x, l)
+# print("x:", x, "l:", l)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+#
+# def multiple(x, y):
+#     x = 2
+#     y = [3, 4]
+#
+#     return x, y
+#
+#
+# x = 1
+# l = [1, 2]
+# print("x:", x, "l:", l)
+# x, l = multiple(x, l)
+# print("x:", x, "l:", l)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# def function9(argument1, argument2):
+#     print("function9: argument1:", argument1, "argument2:", argument2)
+#
+#
+# def function10(argument1, argument2):
+#     print("function10: argument1:", argument1, "argument2:", argument2)
+#
+#
+# if sys.argv[4] == "function9":
+#     function, arguments = function9, (1, 2)
+# elif sys.argv[4] == "function10":
+#     function, arguments = function10, (3, 4)
+# else:
+#     function, arguments = (None,) * 2
+# print("function:", function, "arguments:", arguments)
+# if function is not None:
+#     function(*arguments)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+#
+# def keywordOnlyDemo(a, *b, c):
+#     print("a:", a, "b:", b, "c:", c)
+#
+#
+# keywordOnlyDemo(0, 1, 2, 3, c="value")
+# keywordOnlyDemo(0, c="value")
+# keywordOnlyDemo(0, 1, c=2)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+# def keywordOnlyDemo(a, *, b, c):
+#     print("a:", a, "b:", b, "c:", c)
+#
+#
+# keywordOnlyDemo(0, b=3, c="value")
+# try:
+#     keywordOnlyDemo(0, c="value")
+# except TypeError:
+#     pass
+# try:
+#     keywordOnlyDemo(0)
+# except TypeError:
+#     pass
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+#
+# def keywordOnlyArgumentsDemo(a, *, b=0, c=1, d=2):
+#     print("a:", a, "b:", b, "c:", c, "d:", d)
+#
+#
+# keywordOnlyArgumentsDemo(3, b=4)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+#
+# def argumentsOrderDemo(a, *b, c=0, **d):
+#     print("a:", a, "b:", b, "c:", c, "d:", d)
+#
+#
+# argumentsOrderDemo(0, 1, 2, c=3, x=4, y=5)
+# argumentsOrderDemo(0, 1, 2, x=4, y=5, c=3)
+# argumentsOrderDemo(0, 1, 2, x=4, c=3, y=5)
+#
+#
+# def argumentsOrderDemo(a, b=0, *c, **d):
+#     print("a:", a, "b:", b, "c:", c, "d:", d)
+#
+#
+# argumentsOrderDemo(0, 1, 2, c=3, x=4, y=5)
+#
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+#
+# def argumentsOrderDemo(a, *b, c=0, **d):
+#     print("a:", a, "b:", b, "c:", c, "d:", d)
+#
+#
+# argumentsOrderDemo(0, c=1, *(2, 3), x=4, y=5)
+# try:
+#     argumentsOrderDemo(0, c=1, 2, 3, x=4, y=5)
+# except SyntaxError:
+#     print("Syntax Error!")
+#
+# argumentsOrderDemo(0, *{1, 2, 2}, **dict(c=3, x=4, y=5))
+# try:
+#     argumentsOrderDemo(0, *{1, 2, 2}, **dict(x=4, y=5), c=3)
+# except SyntaxError:
+#     print("SyntaxError!")
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+#
+# def findMinimum1(*items):
+#     firstItem = items[0]
+#     for item in items[1:]:
+#         if item < firstItem:
+#             firstItem = item
+#     return firstItem
+#
+#
+# print("findMinimum1: Smallest item:", findMinimum1("b", "c", "a", "d"))
+#
+#
+# def findMinimum2(first, *rest):
+#     for item in rest:
+#         if item < first:
+#             first = item
+#     return first
+#
+#
+# print("findMinimum2: Smallest item:", findMinimum2(["b", "c"], ["a", "d"], ["a", "b"], ["a", "a", "b"], ["a", "a"], ["a", "a", "a"]))
+#
+#
+# def findMinimum3(*items):
+#     return sorted(list(items))[0]
+#
+#
+# print("findMinimum3: Smallest item:", findMinimum3(("b", "c"), ("a", "d"), ("a", "b"), ("a", "a", "b"), ("a", "a"), ("a", "a", "a")))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+# def findMinOrMax(minOrMax, firstItem, *RestItems):
+#     for item in RestItems:
+#         if minOrMax(item, firstItem):
+#             firstItem = item
+#     return firstItem
+#
+#
+# def findMinimum(item, firstItem):
+#     return item <= firstItem
+#
+#
+# def findMaximum(item, firstItem):
+#     return item >= firstItem
+#
+#
+# print('findMinOrMax(findMinimum, "b", "a", "d", "c"):', findMinOrMax(findMinimum, "b", "a", "d", "c"))
+# print('findMinOrMax(findMaximum, "b", "a", "d", "c"):', findMinOrMax(findMaximum, "b", "a", "d", "c"))
+#
+# print('findMinOrMax(eval(findMinimum.__name__), "b", "a", "d", "c"):', findMinOrMax(eval(findMinimum.__name__), "b", "a", "d", "c"))
+# print('findMinOrMax(eval(findMaximum.__name__), "b", "a", "d", "c"):', findMinOrMax(eval(findMaximum.__name__), "b", "a", "d", "c"))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+# def myPrint(*positionalArguments, **keywordArguments):
+#     sep = keywordArguments.pop("sep", " ")
+#     end = keywordArguments.pop("end", "\n")
+#     file = keywordArguments.pop("file", sys.stdout)
+#     if keywordArguments:
+#         try:
+#             raise TypeError("extra keywords: %s" % keywordArguments)
+#         except TypeError as e:
+#             print(sys.exc_info()[0].__name__ + ":", e, "\n")
+#     output = ""
+#     for i, argument in enumerate(positionalArguments):
+#         output += str(argument) + (sep if i != len(positionalArguments) - 1 else end)
+#     file.write(output)
+#
+#
+# print("myPrint(): Start.")
+# myPrint()
+# print("myPrint(): End.")
+# print()
+# myPrint(0, "a", (1, "b"))
+# print()
+# myPrint(0, "a", (1, "b"), sep2="invalid")
+# print()
+# myPrint(0, "a", (1, "b"), sep="  ")
+# print()
+# myPrint(0, "a", (1, "b"), end="$")
+# print()
+# myPrint(0, "a", (1, "b"), sep="|", end="$")
+# print()
+# myPrint(0, "a", (1, "b"), sep="|", end="$", file=sys.stderr)
+# print()
+# myPrint(0, "a", (1, "b"), sep="|", end="$", file=open("../../var/out5.txt", "w"))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+#
+# def summateRecursively(list40):
+#     if not list40:
+#         return 0
+#     else:
+#         return list40[0] + summateRecursively(list40[1:])
+#
+#
+# print(summateRecursively([0, 1, 2, 3, 4, 5]))
+# print(summateRecursively([0]))
+# print(summateRecursively([]))
+# print(summateRecursively(None))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+#
+# def summateRecursively(list41):
+#     return 0 if not list41 else list41[0] + summateRecursively(list41[1:])
+#
+#
+# print(summateRecursively([0, 1, 2, 3, 4, 5]))
+# print(summateRecursively([0]))
+# print(summateRecursively([]))
+# print(summateRecursively(None))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+#
+# def summateRecursively(list42):
+#     return list42[0] if len(list42) == 1 else list42[0] + summateRecursively(list42[1:])
+#
+#
+# print(summateRecursively([0, 1, 2, 3, 4, 5]))
+# print(summateRecursively([0]))
+# print(summateRecursively(["s", "p", "a", "m"]))
+# print(summateRecursively(["spam"]))
+# print(summateRecursively(["s"]))
+#
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+#
+# def summateRecursively(list43):
+#     first, *rest = list43
+#     return first if not rest else first + summateRecursively(rest)
+#
+#
+# print(summateRecursively([0, 1, 2, 3, 4, 5]))
+# print(summateRecursively([0]))
+# print(summateRecursively(["s", "p", "a", "m"]))
+# print(summateRecursively(["spam"]))
+# print(summateRecursively(["s"]))
+#
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+#
+# def indirectlySummateRecursively(list44):
+#     if not list44:
+#         return 0
+#     return nonEmpty(list44)
+#
+#
+# def nonEmpty(list44):
+#     return list44[0] + indirectlySummateRecursively(list44[1:])
+#
+#
+# print(indirectlySummateRecursively([0, 1, 2, 3, 4]))
+#
+# # LP.
+#
+# list45 = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+# sum = 0
+# while list45:
+#     sum += list45[0]
+#     list45 = list45[1:]
+# print("sum:", sum)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# LP.
+#
+# list46 = [1, [2, [3, 4], 5], 6, [7, 8], [9]]
+#
+#
+# def sumTree(list46):
+#     sum = 0
+#     for e in list46:
+#         if not isinstance(e, list):
+#             sum += e
+#         else:
+#             sum += sumTree(e)
+#     return sum
+#
+#
+# print("sumTree(list46):", sumTree(list46))
+# list46 = [1, [2, [3, [4, [5]]]]]  # Pathological case (right-heavy).
+# print("sumTree(list46):", sumTree(list46))
+# list46 = [[[[[1], 2], 3], 4], 5]  # Pathological case (left-heavy).
+# print("sumTree(list46):", sumTree(list46))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+#
+# # LP.
+#
+# list46 = [1, [2, [3, 4], 5], 6, [7, 8], [9]]
+# list46Sum = 0
+# list46Copy = list(list46)
+# while list46Copy:
+#     print("list46:", list46Copy)
+#     item = list46Copy.pop(0)
+#     if type(item) is not list:
+#         list46Sum += item
+#     else:
+#         list46Copy.extend(item)
+# print("list46:", list46)
+# print("list46Sum:", list46Sum)
+#
+# list46 = [1, [2, [3, 4], 5], 6, [7, 8], [9]]
+# list46Sum = 0
+# while list46:
+#     print("list46:", list46)
+#     item = list46.pop(0)
+#     if type(item) is not list:
+#         list46Sum += item
+#     else:
+#         list46.extend(item)
+# print("list46:", list46)
+# print("list46Sum:", list46Sum)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# list47 = [1, [2, [3, 4], 5], 6, [7, 8], [9]]
+# total = 0
+# while list47:
+#     print("list47:", list47)
+#     print("total:", total)
+#     element = list47.pop(0)
+#     if type(element) is not list:
+#         total += element
+#     else:
+#         list47[:0] = element
+# print("total:", total)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+# print("sys.getrecursionlimit():", sys.getrecursionlimit())
+# sys.setrecursionlimit(1048576)
+# print("sys.getrecursionlimit():", sys.getrecursionlimit())
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+#
+# def myFunction(number9):
+#     string40 = "spam"
+#     print("string40:", string40)
+#     return string40 * number9
+#
+#
+# print("myFunction.__code__:", myFunction.__code__)
+# print("dir(myFunction.__code__):", dir(myFunction.__code__))
+# print("myFunction.__code__.co_varnames:", myFunction.__code__.co_varnames)
+# print("myFunction.__code__.co_argcount:", myFunction.__code__.co_argcount)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+#
+# def decorator1(function100):
+#     print("decorator1:")
+#     return function100
+#
+#
+# @decorator1
+# def function100():
+#     print("function100:")
+#     pass
+#
+#
+# print("function100():", function100())
+#
+#
+# def decorator2(function100):
+#     print("decorator2:")
+#     return function100
+#
+#
+# @decorator2
+# def function101():
+#     print("function101:")
+#     pass
+#
+#
+# print("function101():", function101())
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
+# # LP.
+#
+#
+# def decorator(function102):
+#     print("decorator: function102:", function102)
+#
+#     def wrapper19(*args):
+#         print("wrapper19: args:", args)
+#         function102(*args)
+#
+#     return wrapper19
+#
+#
+# @decorator
+# def function103(arg1, arg2):
+#     print("function103: arg1:", arg1, "arg2:", arg2)
+#     args = arg1, arg2
+#     print("function103: args:", args)
+#
+#
+# function103(100, 101)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+#
 # LP.
 
 
-def customizeOpen(id):
-    originalOpen = builtins.open
+class decorator:
+    def __init__(self, function104):  # On ~@~ decoration.
+        print("__init__: function104:", function104)
+        self.function104 = function104
 
-    def customOpen(*keyword_args, **positional_args):
-        print("Custom open call %r:" % id, keyword_args, positional_args)
-        return originalOpen(*keyword_args, **positional_args)
+    def __call__(self, *args):  # On wrapped function call.
+        print("self.function104:", self.function104)
+        print("self.function104(1000, 1001):", self.function104(1000, 1001))
+        print("self.function104(*args):", self.function104(*args))
 
-    builtins.open = customOpen
+
+@decorator
+def function105(arg1, arg2):
+    print("function105: arg1:", arg1, "arg2: ", arg2)  # Passed to ~__init__~.
 
 
-f = open("../../var/in6.txt")
-print("f:", f.read())
-customizeOpen("hell")
-f = open("../../var/in7.txt")
-f.read()
+function105(100, 101)  # Passed to ~__call__~.
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 
