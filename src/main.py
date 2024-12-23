@@ -1,4 +1,4 @@
-"""Testbed."""
+"""Test bed."""
 
 # import curses
 # import curses.wrapper
@@ -138,11 +138,11 @@ import unittest
 
 # def diff_method():
 #     rpm_file = r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out"
-#     customer_rpms_file = r"D:\Users\punit.arya\src\PythonTestBed\var\customer.txt"
+#     demo_rpms_file = r"D:\Users\punit.arya\src\PythonTestBed\var\demo.txt"
 #     try:
 #         ps = subprocess.Popen(
 #             "diff " + rpm_file,
-#             " " + customer_rpms_file,
+#             " " + demo_rpms_file,
 #             text=True,
 #             shell=True,
 #             stdout=subprocess.PIPE,
@@ -160,18 +160,18 @@ import unittest
 #     with open(r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out") as f:
 #         standard_rpms = f.readlines()
 #
-#     with open(r"D:\Users\punit.arya\src\PythonTestBed\var\customer.txt") as f:
-#         customer_rpms = f.readlines()
+#     with open(r"D:\Users\punit.arya\src\PythonTestBed\var\demo.txt") as f:
+#         demo_rpms = f.readlines()
 #
 #     standard_rpms_set = set()
 #     for rpm in sorted(standard_rpms):	# Use a set comprehension instead.
 #         standard_rpms_set.add(rpm.strip())
 #
-#     customer_rpms_set = set()
-#     for rpm in sorted(customer_rpms):
-#         customer_rpms_set.add(rpm.strip())
+#     demo_rpms_set = set()
+#     for rpm in sorted(demo_rpms):
+#         demo_rpms_set.add(rpm.strip())
 #
-#     nonstandard_rpms_set = standard_rpms_set - customer_rpms_set
+#     nonstandard_rpms_set = standard_rpms_set - demo_rpms_set
 
     # for pkg in nonstandard_rpms_set:
     #     print(pkg)
@@ -250,5 +250,5 @@ def myPager(content: str, numberLines: int) -> None:
 			return
 
 if __name__ == "__main__":
-	with pathlib.Path.open(r"C:/Users/T0311408/src/PythonTestBed/var/customer.txt") as f:
+	with pathlib.Path.open(r"C:/Users/T0311408/src/PythonTestBed/var/demo.txt") as f:
 		myPager(f.read(), 100)
