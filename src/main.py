@@ -1,6 +1,16 @@
+"""Testbed."""
+
+# import curses
+# import curses.wrapper
+import datetime
+import os.path
+import pathlib
+import socket
+import subprocess
+import sys
+import timeit
 import inspect
 import math
-
 # import doctest
 import unittest
 
@@ -123,3 +133,121 @@ import unittest
 # print("list46Sum:", list46Sum)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+
+
+# def diff_method():
+#     rpm_file = r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out"
+#     customer_rpms_file = r"D:\Users\punit.arya\src\PythonTestBed\var\customer.txt"
+#     try:
+#         ps = subprocess.Popen(
+#             "diff " + rpm_file,
+#             " " + customer_rpms_file,
+#             text=True,
+#             shell=True,
+#             stdout=subprocess.PIPE,
+#             stderr=subprocess.PIPE,
+#         )
+#         out, err = ps.communicate()
+#         rc = ps.returncode
+#     except Exception as e:
+#         out, err = "", str(e)
+#         rc = -1
+#     return {"out": out.decode().strip(), "err": err.decode().strip(), "returncode": rc}
+#
+#
+# def set_method():
+#     with open(r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out") as f:
+#         standard_rpms = f.readlines()
+#
+#     with open(r"D:\Users\punit.arya\src\PythonTestBed\var\customer.txt") as f:
+#         customer_rpms = f.readlines()
+#
+#     standard_rpms_set = set()
+#     for rpm in sorted(standard_rpms):	# Use a set comprehension instead.
+#         standard_rpms_set.add(rpm.strip())
+#
+#     customer_rpms_set = set()
+#     for rpm in sorted(customer_rpms):
+#         customer_rpms_set.add(rpm.strip())
+#
+#     nonstandard_rpms_set = standard_rpms_set - customer_rpms_set
+
+    # for pkg in nonstandard_rpms_set:
+    #     print(pkg)
+
+
+# print(timeit.timeit("set_method()", setup="from __main__ import set_method", number=1))
+# print(
+#     timeit.timeit("diff_method()", setup="from __main__ import diff_method", number=1)
+# )
+
+
+# print("123456"[:-3])
+#
+# print(os.path.basename("/home/punit/doc/test"))
+# print(os.path.basename("/home/punit/doc/test/"))
+# print(os.path.dirname("/home/punit/doc/test"))
+# print(os.path.dirname("/home/punit/doc/test/"))
+#
+# # yearStart = "1 Jan 2024"
+# # dateFormat = "%b %m %Y"
+# print(datetime.datetime.now())
+#
+# mySet = set()
+# for i in range(1, 10):
+# 	mySet.add(i)
+# print(mySet)
+#
+# mySet = {i for i in range(1, 10)}
+# print(mySet)
+
+# print("argv:", os.path.join(os.path.dirname(sys.argv[0]), "..", "var", "all_rpms.txt"))
+
+# def conv(s, numRows):
+# 	pass
+
+# stdscr = curses.initscr()
+#
+# def main(stdscr):
+# 	stdscr.clear()
+#
+# 	for i in range(11):
+# 		v = i - 10
+# 		stdscr.addstr(i, 0, "10 divided by {} is {}".format(v, 10/v))
+#
+# 	stdscr.refresh()
+# 	stdscr.getkey()
+#
+# curses.wrapper(main)
+
+# s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# s.connect(("www.python.org", 80))
+# print("s:", s)
+
+# server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# server_socket.bind((socket.gethostname(), 61000))
+# # print("socket.hostname():", socket.gethostname())
+# server_socket.listen(5)
+# print("socket.gethostbyname('python.org'):", socket.gethostbyname("python.org"))
+# print("socket.gethostbyaddr('199.232.20.223'):", socket.gethostbyaddr("199.232.20.223"))
+# print("socket.gethostbyaddr('223.233.66.174'):", socket.gethostbyaddr("223.233.66.174"))
+# print("socket.gethostbyaddr('223.233.66.174'):", socket.gethostbyaddr("223.233.66.174")[0])
+
+
+print(sys.__doc__)
+
+
+def myPager(content: str, numberLines: int) -> None:
+	"""myPager: page me."""
+	lines = content.split(sep = "\n")
+	while lines:
+		page = lines[:numberLines]
+		for line in page:
+			print(line)
+		lines = lines[numberLines:]
+		if lines and input("More ? ") not in ["Y", "y"]:
+			return
+
+if __name__ == "__main__":
+	with pathlib.Path.open(r"C:/Users/T0311408/src/PythonTestBed/var/customer.txt") as f:
+		myPager(f.read(), 100)
