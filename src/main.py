@@ -1,8 +1,6 @@
 import inspect
 import math
-
-# import doctest
-import unittest
+# import doctestimport unittest
 
 # myList = [0, 1, "a"]
 # myList.append(myList)
@@ -38,8 +36,7 @@ import unittest
 #
 #     return closure
 #
-#
-# myClosure = encloseClosure()
+## myClosure = encloseClosure()
 # myClosure()
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
@@ -53,8 +50,7 @@ import unittest
 #     print("dictionary1:", dictionary1)
 #     print()
 #
-#
-# tuple2 = 1, 2
+## tuple2 = 1, 2
 # dictionary2 = {"default1": 4, "default2": "b"}
 # argumentsExample(5, 6)
 # argumentsExample(5, 6, default1=7)
@@ -65,14 +61,11 @@ import unittest
 # argumentsExample(1, 2, 3, "4", 5, 6)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
-
-
 # def isPrime(n):
 #     """
 #     Determine if a number is prime.
 #     :param n:
-#     :return:
-#
+#     :return:#
 #     >>> isPrime(13)
 #     True
 #     >>> isPrime(14)
@@ -90,8 +83,7 @@ import unittest
 #         i += dx
 #     return True
 #
-#
-# print(isPrime(13))
+## print(isPrime(13))
 # print(isPrime(133013))
 # print(isPrime(133001))
 # doctest.testmod()
@@ -101,15 +93,13 @@ import unittest
 # def isInteger(n):
 #     return int(n) == n
 #
-#
-# class UnitTestDemo(unittest.TestCase):
+## class UnitTestDemo(unittest.TestCase):
 #     def testIsInteger(self):
 #         self.assertTrue(isInteger(20))
 #         self.assertIsNot(isInteger(20.1), True)
 #         self.assertEqual(isInteger(3.1), False)
 #
-#
-# unittest.main(argv=["0"])
+## unittest.main(argv=["0"])
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
