@@ -1,23 +1,17 @@
 """Test bed."""
 
-# import curses
-# import curses.wrapper
+import curses
 import datetime
+import doctest
 import inspect
 import math
-<<<<<<< HEAD
-# import doctestimport unittest
-=======
 import os.path
 import pathlib
 import socket
 import subprocess
 import sys
 import timeit
-
-# import doctest
 import unittest
->>>>>>> 3b88eaa7c9d995f8fb0be47ccde29d2198e4bafa
 
 # myList = [0, 1, "a"]
 # myList.append(myList)
@@ -131,7 +125,6 @@ import unittest
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 
-
 # def diff_method():
 #     rpm_file = r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out"
 #     demo_rpms_file = r"D:\Users\punit.arya\src\PythonTestBed\var\demo.txt"
@@ -169,15 +162,13 @@ import unittest
 #
 #     nonstandard_rpms_set = standard_rpms_set - demo_rpms_set
 
-    # for pkg in nonstandard_rpms_set:
-    #     print(pkg)
-
+# for pkg in nonstandard_rpms_set:
+#     print(pkg)
 
 # print(timeit.timeit("set_method()", setup="from __main__ import set_method", number=1))
 # print(
 #     timeit.timeit("diff_method()", setup="from __main__ import diff_method", number=1)
 # )
-
 
 # print("123456"[:-3])
 #
@@ -231,11 +222,9 @@ import unittest
 # print("socket.gethostbyaddr('223.233.66.174'):", socket.gethostbyaddr("223.233.66.174")[0])
 
 
-print(sys.__doc__)
-
-
 def myPager(content: str, numberLines: int) -> None:
 	"""myPager: page me."""
+
 	lines = content.split(sep = "\n")
 	while lines:
 		page = lines[:numberLines]
@@ -245,6 +234,8 @@ def myPager(content: str, numberLines: int) -> None:
 		if lines and input("More ? ") not in ["Y", "y"]:
 			return
 
+
 if __name__ == "__main__":
-	with pathlib.Path.open(r"C:/Users/T0311408/src/PythonTestBed/var/demo.txt") as f:
+	# with pathlib.Path.open(r"C:/Users/T0311408/src/PythonTestBed/var/demo.txt") as f:
+	with pathlib.Path.open(r"/home/punit/src/_not_mine/PythonTestbed/var/demo.txt") as f:
 		myPager(f.read(), 100)
