@@ -1,4 +1,4 @@
-"""Test bed."""
+"""PythonTestBed."""
 
 import curses
 import datetime
@@ -124,62 +124,74 @@ import unittest
 # print("list46Sum:", list46Sum)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
-
+#
+#
 # def diff_method():
-#     rpm_file = r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out"
-#     demo_rpms_file = r"D:\Users\punit.arya\src\PythonTestBed\var\demo.txt"
-#     try:
-#         ps = subprocess.Popen(
-#             "diff " + rpm_file,
-#             " " + demo_rpms_file,
-#             text=True,
-#             shell=True,
-#             stdout=subprocess.PIPE,
-#             stderr=subprocess.PIPE,
-#         )
-#         out, err = ps.communicate()
-#         rc = ps.returncode
-#     except Exception as e:
-#         out, err = "", str(e)
-#         rc = -1
-#     return {"out": out.decode().strip(), "err": err.decode().strip(), "returncode": rc}
+# 	# rpm_file = r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out"
+# 	rpm_file = "/home/punit/src/_not_mine/PythonTestbed/var/rpm.out"
+# 	# demo_rpms_file = r"D:\Users\punit.arya\src\PythonTestBed\var\demo.txt"
+# 	demo_rpms_file = "/home/punit/src/_not_mine/PythonTestbed/var/demo.txt"
+# 	try:
+# 		ps = subprocess.Popen("diff " + rpm_file, " " + demo_rpms_file, text = True, shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE,)
+# 		out, err = ps.communicate()
+# 		rc = ps.returncode
+# 	except Exception as e:
+# 		out, err = "", str(e)
+# 		rc = -1
+# 	return {"out": out.strip(), "err": err.strip(), "returncode": rc}
 #
 #
 # def set_method():
-#     with open(r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out") as f:
-#         standard_rpms = f.readlines()
+# 	# with open(r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out") as f:
+# 	with open("/home/punit/src/_not_mine/PythonTestbed/var/rpm.out") as f:
+# 		standard_rpms = f.readlines()
 #
-#     with open(r"D:\Users\punit.arya\src\PythonTestBed\var\demo.txt") as f:
-#         demo_rpms = f.readlines()
+# 	# with open(r"D:\Users\punit.arya\src\PythonTestBed\var\demo.txt") as f:
+# 	with open("/home/punit/src/_not_mine/PythonTestbed/var/demo.txt") as f:
+# 		demo_rpms = f.readlines()
 #
-#     standard_rpms_set = set()
-#     for rpm in sorted(standard_rpms):	# Use a set comprehension instead.
-#         standard_rpms_set.add(rpm.strip())
+# 	# standard_rpms_set = set()
+# 	# for rpm in sorted(standard_rpms):	# Use a set comprehension instead.
+# 	#     standard_rpms_set.add(rpm.strip())
+# 	standard_rpms_set = set(standard_rpms)
+# 	# print("standard_rpms_set:", standard_rpms)
+# 	# demo_rpms_set = set()
+# 	# for rpm in sorted(demo_rpms):
+# 	# 	demo_rpms_set.add(rpm.strip())
+# 	demo_rpms_set = set(demo_rpms)
+# 	# print("demo_rpms_set:", demo_rpms)
 #
-#     demo_rpms_set = set()
-#     for rpm in sorted(demo_rpms):
-#         demo_rpms_set.add(rpm.strip())
+# 	nonstandard_rpms_set = standard_rpms_set - demo_rpms_set
 #
-#     nonstandard_rpms_set = standard_rpms_set - demo_rpms_set
+# 	print("nonstandard_rpms_set:")
+# 	for pkg in nonstandard_rpms_set:
+# 		print(pkg.strip())
+#
+#
+# set_method()
+#
+# # print(timeit.timeit("set_method()", setup = "from __main__ import set_method", number = 1))
+# # print(timeit.timeit("diff_method()", setup = "from __main__ import diff_method", number = 1))
+# print(timeit.timeit("set_method()", setup = "from __main__ import set_method", number = 1))
+# print(timeit.timeit("diff_method()", setup = "from __main__ import diff_method", number = 1))
 
-# for pkg in nonstandard_rpms_set:
-#     print(pkg)
+# print("1234567"[:-4])
+# print("1234567"[-1:-4:-1])
+# print("1234567"[-3:])
 
-# print(timeit.timeit("set_method()", setup="from __main__ import set_method", number=1))
-# print(
-#     timeit.timeit("diff_method()", setup="from __main__ import diff_method", number=1)
-# )
-
-# print("123456"[:-3])
-#
 # print(os.path.basename("/home/punit/doc/test"))
 # print(os.path.basename("/home/punit/doc/test/"))
 # print(os.path.dirname("/home/punit/doc/test"))
 # print(os.path.dirname("/home/punit/doc/test/"))
-#
-# # yearStart = "1 Jan 2024"
-# # dateFormat = "%b %m %Y"
+# print(pathlib.Path("/home/punit/doc/test").name)
+# print(pathlib.Path("/home/punit/doc/test/").name)
+# print(pathlib.Path("/home/punit/doc/test").parent)
+# print(pathlib.Path("/home/punit/doc/test/").parent)
+
+# yearStart = "1 Jan 2024 5:30 pm"
+# dateFormat = "%d %b %Y %H:%M %p"
 # print(datetime.datetime.now())
+# print(datetime.datetime.strptime(yearStart, dateFormat).strftime("%Y %H"))
 #
 # mySet = set()
 # for i in range(1, 10):
@@ -188,25 +200,29 @@ import unittest
 #
 # mySet = {i for i in range(1, 10)}
 # print(mySet)
-
+#
 # print("argv:", os.path.join(os.path.dirname(sys.argv[0]), "..", "var", "all_rpms.txt"))
 
-# def conv(s, numRows):
-# 	pass
 
-# stdscr = curses.initscr()
-#
-# def main(stdscr):
-# 	stdscr.clear()
-#
-# 	for i in range(11):
-# 		v = i - 10
-# 		stdscr.addstr(i, 0, "10 divided by {} is {}".format(v, 10/v))
-#
-# 	stdscr.refresh()
-# 	stdscr.getkey()
-#
-# curses.wrapper(main)
+def conv(s, numRows):
+	...
+
+
+stdscr = curses.initscr()
+
+
+def main(stdscr):
+	stdscr.clear()
+
+	for i in range(1, 11):
+		v = i - 10
+		stdscr.addstr(i, 0, "10 divided by {} is {}".format(v, 10 / v))
+
+	stdscr.refresh()
+	stdscr.getkey()
+
+
+curses.wrapper(main)
 
 # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # s.connect(("www.python.org", 80))
@@ -221,21 +237,20 @@ import unittest
 # print("socket.gethostbyaddr('223.233.66.174'):", socket.gethostbyaddr("223.233.66.174"))
 # print("socket.gethostbyaddr('223.233.66.174'):", socket.gethostbyaddr("223.233.66.174")[0])
 
-
-def myPager(content: str, numberLines: int) -> None:
-	"""myPager: page me."""
-
-	lines = content.split(sep = "\n")
-	while lines:
-		page = lines[:numberLines]
-		for line in page:
-			print(line)
-		lines = lines[numberLines:]
-		if lines and input("More ? ") not in ["Y", "y"]:
-			return
-
-
-if __name__ == "__main__":
-	# with pathlib.Path.open(r"C:/Users/T0311408/src/PythonTestBed/var/demo.txt") as f:
-	with pathlib.Path.open(r"/home/punit/src/_not_mine/PythonTestbed/var/demo.txt") as f:
-		myPager(f.read(), 100)
+# def myPager(content: str, numberLines: int) -> None:
+# 	"""myPager: page me."""
+#
+# 	lines = content.split(sep = "\n")
+# 	while lines:
+# 		page = lines[:numberLines]
+# 		for line in page:
+# 			print(line)
+# 		lines = lines[numberLines:]
+# 		if lines and input("More ? ") not in ["Y", "y"]:
+# 			return
+#
+#
+# if __name__ == "__main__":
+# 	# with pathlib.Path.open(r"C:/Users/T0311408/src/PythonTestBed/var/demo.txt") as f:
+# 	with pathlib.Path.open(r"/home/punit/src/_not_mine/PythonTestbed/var/demo.txt") as f:
+# 		myPager(f.read(), 100)

@@ -16,3 +16,5 @@ azure
 basesystem
 bash
 bc
+yum
+xz
