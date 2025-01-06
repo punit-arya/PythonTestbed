@@ -1,9 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-PythonTestbed: Python testbed.
-"""
+"""PythonTestbed: Python test bed."""
 
 import CircularImport
 import MyModule
@@ -47,7 +45,7 @@ import py_compile
 import queue
 import random
 import re
-import readline
+# import readline
 import reprlib
 import shutil
 import site
@@ -1522,17 +1520,20 @@ import zlib
 # doctest.testmod(verbose=False)  # Automatically validate the embedded tests.
 #
 #
-# class TestMyAverageFunction(unittest.TestCase):
-#     def test_average(self):
-#         self.assertEqual(average([20, 30, 70]), 40.0)
-#         self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
-#         with self.assertRaises(ZeroDivisionError):
-#             average([])  # with self.assertRaises(TypeError):  # 	average([20, 30, 70])
-#
-#
-# unittest.main(argv=["0"])  # Calling from the command line invokes all tests.
-#
-# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
+class TestMyAverageFunction(unittest.TestCase):
+    def average(values):
+        return sum(values) / len(values)
+
+    def test_average(self):
+        self.assertEqual(self.average([20, 30, 70]), 40.0)
+        self.assertEqual(round(self.average([1, 5, 7]), 1), 4.3)
+        with self.assertRaises(ZeroDivisionError):
+            self.average([])  # with self.assertRaises(TypeError):  # 	average([20, 30, 70])
+
+
+unittest.main(argv=["0"])  # Calling from the command line invokes all tests.
+
+print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep = "")
 #
 # # TUTORIAL.
 #
@@ -4878,25 +4879,25 @@ import zlib
 # LP.
 
 
-class decorator:
-    def __init__(self, function104):  # On ~@~ decoration.
-        print("__init__: function104:", function104)
-        self.function104 = function104
-
-    def __call__(self, *args):  # On wrapped function call.
-        print("self.function104:", self.function104)
-        print("self.function104(1000, 1001):", self.function104(1000, 1001))
-        print("self.function104(*args):", self.function104(*args))
-
-
-@decorator
-def function105(arg1, arg2):
-    print("function105: arg1:", arg1, "arg2: ", arg2)  # Passed to ~__init__~.
-
-
-function105(100, 101)  # Passed to ~__call__~.
-
-print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
+# class decorator:
+#     def __init__(self, function104):  # On ~@~ decoration.
+#         print("__init__: function104:", function104)
+#         self.function104 = function104
+#
+#     def __call__(self, *args):  # On wrapped function call.
+#         print("self.function104:", self.function104)
+#         print("self.function104(1000, 1001):", self.function104(1000, 1001))
+#         print("self.function104(*args):", self.function104(*args))
+#
+#
+# @decorator
+# def function105(arg1, arg2):
+#     print("function105: arg1:", arg1, "arg2: ", arg2)  # Passed to ~__init__~.
+#
+#
+# function105(100, 101)  # Passed to ~__call__~.
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 
 # # UNKNOWN
 #

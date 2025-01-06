@@ -1,4 +1,4 @@
-"""Test bed."""
+"""Test Bed."""
 
 # import curses
 # import curses.wrapper
@@ -136,26 +136,19 @@ import unittest
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, "\n", sep="")
 
 
-# def diff_method():
-#     rpm_file = r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out"
-#     demo_rpms_file = r"D:\Users\punit.arya\src\PythonTestBed\var\demo.txt"
-#     try:
-#         ps = subprocess.Popen(
-#             "diff " + rpm_file,
-#             " " + demo_rpms_file,
-#             text=True,
-#             shell=True,
-#             stdout=subprocess.PIPE,
-#             stderr=subprocess.PIPE,
-#         )
-#         out, err = ps.communicate()
-#         rc = ps.returncode
-#     except Exception as e:
-#         out, err = "", str(e)
-#         rc = -1
-#     return {"out": out.decode().strip(), "err": err.decode().strip(), "returncode": rc}
-#
-#
+def diff_method():
+    rpm_file = r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out"
+    demo_rpms_file = r"D:\Users\punit.arya\src\PythonTestBed\var\demo.txt"
+    try:
+        ps = subprocess.Popen("diff " + rpm_file," " + demo_rpms_file,text=True,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        out, err = ps.communicate()
+        rc = ps.returncode
+    except Exception as e:
+        out, err = "", str(e)
+        rc = -1
+    return {"out": out.decode().strip(), "err": err.decode().strip(), "returncode": rc}
+
+
 # def set_method():
 #     with open(r"D:\Users\punit.arya\src\PythonTestBed\var\rpm.out") as f:
 #         standard_rpms = f.readlines()
@@ -235,20 +228,17 @@ import unittest
 # print("socket.gethostbyaddr('223.233.66.174'):", socket.gethostbyaddr("223.233.66.174")[0])
 
 
-print(sys.__doc__)
-
-
 def myPager(content: str, numberLines: int) -> None:
-	"""myPager: page me."""
-	lines = content.split(sep = "\n")
-	while lines:
-		page = lines[:numberLines]
-		for line in page:
-			print(line)
-		lines = lines[numberLines:]
-		if lines and input("More ? ") not in ["Y", "y"]:
-			return
+    """myPager: page me."""
+    lines = content.split(sep = "\n")
+    while lines:
+        page = lines[:numberLines]
+        for line in page:
+            print(line)
+        lines = lines[numberLines:]
+        if lines and input("More ? ") not in ["Y", "y"]:
+            return
 
 if __name__ == "__main__":
-	with pathlib.Path.open(r"C:/Users/T0311408/src/PythonTestBed/var/demo.txt") as f:
-		myPager(f.read(), 100)
+    with pathlib.Path.open(r"C:/Users/T0311408/src/PythonTestBed/var/demo.txt") as f:
+        myPager(f.read(), 100)
