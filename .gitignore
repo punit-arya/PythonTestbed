@@ -1,6 +1,9 @@
 ### Python template
 
 *~
+bin
+lib64
+pyvenv.cfg
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
