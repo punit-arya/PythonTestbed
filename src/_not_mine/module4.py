@@ -1,4 +1,5 @@
-# from moduleBar import moduleBarVar
-import moduleBar
+# from module5 import module5Var
+import module5
 
-moduleFooVar = 0
+
+module4Var = 0

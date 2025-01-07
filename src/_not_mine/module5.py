@@ -1,2 +1,2 @@
-# from moduleFoo import moduleFooVar
-import moduleFoo
+# from module4 import module4Var
+import module4
