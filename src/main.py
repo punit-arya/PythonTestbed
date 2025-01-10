@@ -250,11 +250,11 @@ socket2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 socket2.bind((socket.gethostname(), 61000))
 print("socket.gethostname():", socket.gethostname())
 socket2.listen(5)
-print("socket.gethostbyname(\"python.org\"):", socket.gethostbyname("python.org"))
+print('socket.gethostbyname("python.org"):', socket.gethostbyname("python.org"))
 with contextlib.suppress(socket.herror):
-	print("socket.gethostbyaddr(\"199.232.20.223\"):", socket.gethostbyaddr("199.232.20.223"))
-print("socket.gethostbyaddr(\"223.233.66.174\"):", socket.gethostbyaddr("223.233.66.174"))
-print("socket.gethostbyaddr(\"223.233.66.174\"):", socket.gethostbyaddr("223.233.66.174")[0])
+	print('socket.gethostbyaddr("199.232.20.223"):', socket.gethostbyaddr("199.232.20.223"))
+print('socket.gethostbyaddr("223.233.66.174"):', socket.gethostbyaddr("223.233.66.174"))
+print('socket.gethostbyaddr("223.233.66.174"):', socket.gethostbyaddr("223.233.66.174")[0])
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -290,3 +290,5 @@ function1("a")
 function1(2.3)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+print([1, 2, 3, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7])

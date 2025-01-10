@@ -43,6 +43,7 @@ import random
 import re
 import readline
 import reprlib
+import shelve
 import shutil
 import site
 import statistics
@@ -69,6 +70,9 @@ import module2
 import module3
 import module4
 import module5
+import second
+
+import __main__
 
 # TUTORIAL.
 
@@ -104,8 +108,8 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # TUTORIAL.
 
-s = "First line.\nSecond line."
-print(s)
+string1 = "First line.\nSecond line."
+print(string1)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -168,17 +172,17 @@ print(word[42:])
 # word[0] = "J"
 print("J" + word[1:])
 
-word1 = [[0, 1], [2, 3], [4, 5]]
-print(word1[1])
-word1[1] = [10, 11]
-print(word1[1])
+word = [[0, 1], [2, 3], [4, 5]]
+print(word[1])
+word[1] = [10, 11]
+print(word[1])
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # TUTORIAL.
 
-s = "supercalifragilisticexpialidocious"
-print(len(s))
+string2 = "supercalifragilisticexpialidocious"
+print(len(string2))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -218,43 +222,45 @@ letters[:] = []
 print(letters)
 letters = ["a", "b", "c", "d"]
 print(len(letters))
-a = ["a", "b", "c"]
-n = [1, 2, 3]
-x = [a, n]
-print(x)
-print(x[0])
-print(x[0][1])
+list1 = ["a", "b", "c"]
+list2 = [1, 2, 3]
+list3 = [list1, list2]
+print(list3)
+print(list3[0])
+print(list3[0][1])
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # TUTORIAL.
 
-a, b = 0, 1
-while b < 10:
-	print(b)
-	a, b = b, a + b
+maxNumber = 1
+number1, number2 = 0, 1
+while number2 < maxNumber:
+	print(number2)
+	number1, number2 = number2, number1 + number2
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # TUTORIAL.
 
-a, b = 0, 1
-while b < 1000:
-	print(b, end = ",")  # Don't append a newline to output, instead replace it with ",".  "end" is a keyword.
-	a, b = b, a + b
+number1, number2 = 0, 1
+maxNumber = 1000
+while number2 < maxNumber:
+	print(number2, end = ",")  # Don't append a newline to output, instead replace it with ",".  "end" is a keyword.
+	number1, number2 = number2, number1 + number2
 print()
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # TUTORIAL.
 
-x = int(input("Integer ? "))
-if x < 0:
-	x = 0
+number3 = int(input("Integer ? "))
+if number3 < 0:
+	number3 = 0
 	print("Negative changed to zero.")
-elif x == 0:
+elif number3 == 0:
 	print("Zero.")
-elif x == 1:
+elif number3 == 1:
 	print("Single.")
 else:
 	print("More")
@@ -264,12 +270,13 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # TUTORIAL.
 
 words = ["cat", "window", "defenestrate"]
-for w in words:  # "for" iterates over the items of any sequence (a list or a string).This form can not modify the items.
-	print(w, len(w))
+for word in words:  # "for" iterates over the items of any sequence (a list or a string).This form can not modify the items.
+	print(word, len(word))
 
-for w in words[:]:  # Makes a copy of "words" to enable modification.
-	if len(w) > 6:
-		words.insert(0, w)
+length = 6
+for word in words[:]:  # Makes a copy of "words" to enable modification.
+	if len(word) > length:
+		words.insert(0, word)
 print(words)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
@@ -283,9 +290,9 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # TUTORIAL.
 
-a = ["Mary", "had", "a", "little", "lamb"]
-for i in range(len(a)):  # Use "enumerate()" function instead.
-	print(i, a[i])
+list3 = ["Mary", "had", "a", "little", "lamb"]
+for i in range(len(list3)):  # Use "enumerate()" function instead.
+	print(i, list3[i])
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -362,8 +369,8 @@ def fib(number1: int) -> None:
 
 fib(2000)
 print(fib)
-f = fib
-print(f(100))
+function1 = fib
+print(function1(100))
 fib(0)
 print(fib(0))
 
@@ -415,7 +422,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 i = 5
 
 
-def f(arg = i):
+def f(arg: any = i) -> None:
 	print(arg)
 
 
@@ -427,7 +434,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # TUTORIAL.
 
 
-def f(number1, list30 = []):
+def f(number1: int, list30: list = []) -> list:
 	list30.append(number1)
 	return list30
 
@@ -443,7 +450,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # TUTORIAL.
 
 
-def f(number2, list31 = None):
+def f(number2: int, list31: list | None = None) -> None:
 	if list31 is None:
 		list31 = []
 	# def f(number2, list31=[]):
@@ -461,10 +468,10 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 
 # "parrot" accepts one positional argument (the value of this argument is taken from the module1 argument in the function call) and three keyword (or optional) arguments.
-def parrot(voltage, state = "a stiff", action = "voom", type = "Norwegian Blue"):
+def parrot(voltage: int, state: str = "a stiff", action: str = "voom", type1: str = "Norwegian Blue") -> None:
 	print("-- This parrot wouldn't", action, end = " ")
 	print("if you put", voltage, "volts through it.")
-	print("-- Lovely plumage, the", type)
+	print("-- Lovely plumage, the", type1)
 	print("-- It's", state, "!")
 
 
@@ -502,7 +509,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # TUTORIAL.
 
 
-def concat(*args, sep = "/"):
+def concat(*args: typing.Iterable, sep: str = "/") -> None:
 	return sep.join(args)
 
 
@@ -697,7 +704,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # TUTORIAL.
 
-matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12],]
+matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
 print(matrix)
 print([[row[i] for row in matrix] for i in range(4)])
 transposed = []
@@ -707,8 +714,9 @@ print(transposed)
 transposed = []
 for i in range(4):
 	transposed_row = []
-	for row in matrix:
-		transposed_row.append(row[i])
+	# for row in matrix:
+	# 	transposed_row.append(row[i])
+	[transposed_row.append(row[i]) for row in matrix]
 	transposed.append(transposed_row)
 print(transposed)
 print(list(zip(*matrix)))  # Better than listcomp.
@@ -817,7 +825,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 questions = ["name", "quest", "favorite color"]
 answers = ["lancelot", "the holy grail", "blue"]
 for q, a in zip(questions, answers):
-	print("What is your {}?  It is {}.".format(q, a))
+	print(f"What is your {q}?  It is {a}.")
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -840,9 +848,10 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 raw_data = [56.2, float("NaN"), 51.7, 55.3, 52.5, float("NaN"), 47.8]
 filtered_data = []
-for value in raw_data:
-	if not math.isnan(value):
-		filtered_data.append(value)
+# for value in raw_data:
+# 	if not math.isnan(value):
+# 		filtered_data.append(value)
+filtered_data = [filtered_data.append(value) for value in raw_data if not math.isnan(value)]
 print(filtered_data)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
@@ -1072,7 +1081,7 @@ class DError(CError):
 
 try:
 	for MyClass in [BError, CError, DError]:
-		raise MyClass()
+		raise MyClass
 except DError:
 	print("DError")
 except CError:
@@ -2038,9 +2047,9 @@ def foo(myDict: dict = {}):  # Reference is shared with subsequent invocations.
 myDict = {}
 # myDict = {"key1": 0, "key2": 1}
 myDict["key1"] = 0
-print("myDict: 1:", foo(myDict))  # r.t.l. evaluation and printing.
+print("myDict: 1:", foo(myDict))  # r.t.longInt. evaluation and printing.
 print("myDict: 5:", myDict)
-print("myDict: 1:", foo(myDict))  # r.t.l. evaluation and printing.
+print("myDict: 1:", foo(myDict))  # r.t.longInt. evaluation and printing.
 print("myDict: 5:", myDict)
 print("myDict: 2:", foo())
 print("myDict: 5:", myDict)
@@ -2167,7 +2176,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 class Linear:
 
-	def __init__(self, a: float, b: float) -> None :
+	def __init__(self, a: float, b: float) -> None:
 		self.a, self.b = a, b
 
 	def __call__(self, x: float) -> float:
@@ -2647,12 +2656,12 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # FAQ.
 
 
-def threadTask(threadName, threadNum):
+def threadTask(threadName: str, threadNum: int) -> None:
 	time.sleep(1)
 	print("Entering thread:", threadNum)
 	# print("Entering sleep:", threadNum)
 	# print("Exiting sleep:", threadNum)
-	for i in range(threadNum):
+	for _ in range(threadNum):
 		print(threadName, threadNum)
 	print("Exiting thread:", threadNum)
 
@@ -2706,12 +2715,12 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # FAQ.
 
-with open("/home/punit/src/_not_mine/PythonTestBed/var/randEight.txt", "w+b") as f:
+with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/randEight.txt", "w+b") as f:
 	randomEight = random.randbytes(8)
 	print("randomEight:", randomEight)
 	f.write(randomEight)
-	s1, s2, l = struct.unpack("<hhl", randomEight)
-	print("s1:", s1, "s2:", s2, "l:", l)
+	s1, s2, longInt = struct.unpack("<hhl", randomEight)
+	print("s1:", s1, "s2:", s2, "longInt:", longInt)
 	l1 = -2147483648
 	l2 = -1
 	l3 = 1
@@ -3043,8 +3052,6 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-import shelve
-
 file40 = shelve.open("../../var/in.shelve", "c")
 file40["key"] = {"a": 1, "b": 2, "c": 3}
 data = file40["key"]
@@ -3143,7 +3150,7 @@ list17.extend("spam")  # Works.
 print("list17:", list17)
 try:
 	list17 = list17 + "spam"  # Doesn't.
-except:
+except TypeError:
 	print("Got TypeError.")
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
@@ -3156,8 +3163,11 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-print("A", file = open("../../var/out2.txt", "w"))
-print("out2.txt:", open("../../var/out2.txt").read())
+with pathlib.Path.open("../../var/out2.txt", "w") as file110:
+	print("A", file = file110)
+
+with pathlib.Path.open("../../var/out2.txt") as file111:
+	print("out2.txt:", file111.read())
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -3176,8 +3186,8 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-sys.stdout = open("../../var/out3.txt", "a")
-print("B")
+with pathlib.Path.open("../../var/out3.txt", "a") as sys.stdout:
+	print("B")
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -3185,10 +3195,10 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 std = sys.stdout
 print("A")
-sys.stdout = open("../../var/out4.txt", "a")
-print("B")
-sys.stdout = std
-print("C")
+with pathlib.Path.open("../../var/out4.txt", "a") as sys.stdout:
+	print("B")
+	sys.stdout = std
+	print("C")
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -3246,8 +3256,8 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 table = [("Bob", 120129, "DB Admin", "Calicut"), ("Alice", 108420, "Python Expert", "Kozhikode"), ("Carl", 109481, "AI Engineer", "Trivandrum")]
-for name, iD, designation, location in table:
-	print("ID:", iD)
+for _, iden, _, _ in table:
+	print("ID:", iden)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -3283,36 +3293,39 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-output = os.popen("ls")
+output = os.popen("/usr/bin/ls")
 print("readline:", output.readline())
-output = os.popen("ls")
+output = os.popen("/usr/bin/ls")
 print("read(5):", output.read(5))
-output = os.popen("ls")
+output = os.popen("/usr/bin/ls")
 print("readlines()[0]:", output.readlines()[0])
-print("read()[:5]:", os.popen("ls").read()[:5])
+print("read()[:5]:", os.popen("/usr/bin/ls").read()[:5])
 
 print("Line iteration in for loop:")
-for line in os.popen("ls"):
+for line in os.popen("/usr/bin/ls"):
 	print(line.rstrip())
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # LP.
 
-file19 = open("../../var/in4.txt")
-print(file19 is iter(file19) and iter(file19) is file19.__iter__())
-print(file19.__next__())
+with pathlib.Path.open("../../var/in4.txt") as file19:
+	print(file19 is iter(file19) and iter(file19) is file19.__iter__())
+	print(file19.__next__())
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # LP.
 
 list20 = ["A", "B", "C", "D"]
-list20.extend(open("../../var/in5.txt"))
+file112 = pathlib.Path.open("../../var/in5.txt")
+list20.extend(file112)
 print("list20:", list20)
-list20.append(open("../../var/in5.txt"))
+file113 = pathlib.Path.open("../../var/in5.txt")
+list20.append(file113)
 print("list20:", list20)
-list20.append(list(open("../../var/in5.txt")))
+file114 = pathlib.Path.open("../../var/in5.txt")
+list20.append(list(file114))
 print("list20:", list20)
 print("list20[8]:", list20[8])
 print("list(list20[8]):", list(list20[8]))
@@ -3439,7 +3452,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-RecordClass = collections.namedtuple("RecordClass", ["name", "age", "jobs"])  # Create the class.
+RecordClass = typing.NamedTuple("RecordClass", ["name", "age", "jobs"])  # Create the class.
 bob = RecordClass("Bob", age = 30, jobs = ["dev", "mgr"])
 print(bob)
 print(bob[0], bob[2])
@@ -3469,11 +3482,11 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 packed = struct.pack(">i9sh", 7, b"MANNA DEY", 8)  # Create packed binary data.
 print(packed)
-myFile = open("/home/punit/src/_not_mine/PythonTestBed/var/bytestring.bin", "wb")  # Open binary output file.
+myFile = pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/bytestring.bin", "wb")  # Open binary output file.
 myFile.write(packed)
 myFile.close()
 
-readString = open("/home/punit/src/_not_mine/PythonTestBed/var/bytestring.bin", "rb").read()
+readString = pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/bytestring.bin", "rb").read()
 print(readString)
 print(readString[4:8])
 print(len(readString))
@@ -3488,10 +3501,10 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 S = "sp\xc4m"
 print(S)
 
-with open("../../var/unicode_data.txt", "w", encoding = "utf-8") as file60:
+with pathlib.Path.open("../../var/unicode_data.txt", "w", encoding = "utf-8") as file60:
 	file60.write(S)
 
-text = open("../../var/unicode_data.txt", encoding = "utf-8").read()
+text = pathlib.Path.open("../../var/unicode_data.txt", encoding = "utf-8").read()
 print(text)
 print(len(text))
 
@@ -3660,7 +3673,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 print("{0:0}, {1:x}, {2:b}".format(64, 64, 64))  # Returns digits not strings.
-print("%o, %x, %x, %X" % (64, 64, 255, 255))
+print(f"%o, %x, %x, %X" % (64, 64, 255, 255))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -3683,7 +3696,7 @@ print(min(3, 1, 2, 4), max(3, 1, 2, 4))
 print(math.floor(2.567), math.floor(-2.567))
 print(math.trunc(2.567), math.trunc(-2.567))
 print(round(2.567), round(2.467), round(2.567, 2))
-print("%.1f" % 2.567, "{0:.2f}".format(2.567))
+print(f"{2.567:.1f}", f"{2.567:.2f}")
 print((1 / 3.0), round(1 / 3.0, 2), ("%.2f" % (1 / 3.0)))
 print(math.sqrt(144))
 print(144 ** 0.5)
@@ -3723,14 +3736,14 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 myCode = "print(oct(8))"
-eval(myCode)
+ast.literal_eval(myCode)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # LP.
 
-print("{0:o}, {1:x}, {2:b}".format(16, 16, 16))
-print("%o, %x, %X" % (15, 15, 15))
+print("{16:o}, {16:x}, {16:b}")
+print(f"{15:o}, {15:x}, {15:X}")
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -3927,7 +3940,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-print("knight\'s", 'knight"s')
+print("knight's", 'knight"s')
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -3955,10 +3968,10 @@ print(D.get("toast", 88))
 
 # LP.
 
-allTheFile = open("../../var/in.txt", encoding = "utf-8")
+allTheFile = pathlib.Path.open("../../var/in.txt", encoding = "utf-8")
 print(len(allTheFile.read()))
 
-for line in open("../../var/in.txt"):
+for line in pathlib.Path.open("../../var/in.txt"):
 	print(line.rstrip())
 
 	words = line.split()
@@ -3968,57 +3981,58 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-f = open("../../var/in3.txt")
-line = f.readline()
-print("line:", line)
-listOfLines = line.split("$")
-print("listOfLines:", listOfLines)
-object1 = eval(listOfLines[0])
-print("object1:", object1)
-object2 = eval(listOfLines[1])
-print("object2:", object2)
-objectsRead = [eval(line) for line in listOfLines]
-print("objectsRead:", objectsRead)
+with pathlib.Path.open("../../var/in3.txt") as f:
+	line = f.readline()
+	print("line:", line)
+	listOfLines = line.split("$")
+	print("listOfLines:", listOfLines)
+	object1 = ast.literal_eval(listOfLines[0])
+	print("object1:", object1)
+	object2 = ast.literal_eval(listOfLines[1])
+	print("object2:", object2)
+	objectsRead = [ast.literal_eval(line) for line in listOfLines]
+	print("objectsRead:", objectsRead)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # LP.
 
 myDict = {"a": 1, "0x29cc": "⧌", "0x29c9": "⧉", "0x29c6": "⧆", "0x29c1": "⧁"}
-myPickleFile = open("../../var/out.pkl", "wb")
-pickle.dump(myDict, myPickleFile)
-myPickleFile.close()
+with pathlib.Path.open("../../var/out.pkl", "wb") as myPickleFile:
+	pickle.dump(myDict, myPickleFile)
+	myPickleFile.close()
 
-myPickleFile = open("../../var/out.pkl", "rb")
-unpickledObjects = pickle.load(myPickleFile)
-print("unpickledObjects:", unpickledObjects)
-myPickleFile.close()
+with pathlib.Path.open("../../var/out.pkl", "rb") as myPickleFile:
+	unpickledObjects = pickle.load(myPickleFile)
+	print("unpickledObjects:", unpickledObjects)
+	myPickleFile.close()
 
-print("Pickled Objects:", open("../../var/out.pkl", "rb").read())
-
-print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
-
-# LP.
-
-cSVFile = csv.reader(open("../../var/in.csv"))
-for row in cSVFile:
-	print(row)
+with pathlib.Path.open("../../var/out.pkl", "rb") as file129:
+	print("Pickled Objects:", file129.read())
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # LP.
 
-binFile = open("../../var/out.bin", "wb")
-binData = struct.pack(">i4sh", -2147483647, b"pyth", -32768)
-print("binData:", binData)
-print("binFile.write:", binFile.write(binData))
-binFile.close()
+with pathlib.Path.open("../../var/in.csv") as file133:
+	cSVFile = csv.reader(file133)
+	for row in cSVFile:
+		print(row)
 
-binFile = open("../../var/out.bin", "rb")
-binData = binFile.read()
-print("binData:", binData)
-unpackedData = struct.unpack(">i4sh", binData)
-print("unpackedData:", unpackedData)
+print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# LP.
+
+with pathlib.Path.open("../../var/out.bin", "wb") as binFile:
+	binData = struct.pack(">i4sh", -2147483647, b"pyth", -32768)
+	print("binData:", binData)
+	print("binFile.write:", binFile.write(binData))
+
+with pathlib.Path.open("../../var/out.bin", "rb") as binaryFile:
+	binData = binFile.read()
+	print("binData:", binData)
+	unpackedData = struct.unpack(">i4sh", binData)
+	print("unpackedData:", unpackedData)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -4058,7 +4072,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 print(type([1]) == type([]))
-print(list == type([]))
+print(list is type([]))
 print(isinstance([1], list))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
@@ -4096,7 +4110,7 @@ print("list5:", list5)
 print("list6:", list6)
 list6[2][1] = 0.25
 print("list6:", list6)
-list7 = [list(list4) for i in range(4)]
+list7 = [list(list4) for _ in range(4)]
 print("list7:", list7)
 list4[1] = 0.0625
 list7[2][1] = 0.125
@@ -4114,14 +4128,14 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-l = [0, 0xA, 0b10, "d"]
-print("l:", l)
-print("l[3:1]:", l[3:1])
-l[3:1] = "?"
-print("l:", l)
-print("l[10:-10]:", l[10:-10])
-l[10:] = "V"
-print("l:", l)
+longInt = [0, 0xA, 0b10, "d"]
+print("longInt:", longInt)
+print("longInt[3:1]:", longInt[3:1])
+longInt[3:1] = "?"
+print("longInt:", longInt)
+print("longInt[10:-10]:", longInt[10:-10])
+longInt[10:] = "V"
+print("longInt:", longInt)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -4151,7 +4165,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 s = "spam"
 print("s:", s)
-s = s[0:1] + "l" + s[2:4]
+s = s[0:1] + "longInt" + s[2:4]
 print("s:", s)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
@@ -4175,10 +4189,9 @@ try:
 	print("x:", x)
 except NameError:
 	print("NameError raised.")
-	pass
 
 
-def f():
+def f() -> None:
 	global x
 	x = 10
 
@@ -4194,8 +4207,6 @@ print("main: module1.x:", module1.x)
 module1.x = 1
 print("main: module1.x:", module1.x)
 
-import second
-
 print("main: module1.x:", module1.x)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
@@ -4205,32 +4216,28 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 var = 0
 
 
-def local():
+def local() -> None:
 	var = 1
 	print("local: var:", var)
 
 
-def global1():
+def global1() -> None:
 	global var
 	print("global1: var:", var)
 	var = 2
 	print("global1: var:", var)
 
 
-def global2():
+def global2() -> None:
 	var = 3
-
-	import __main__
 
 	print("global2: __main__.var:", __main__.var)
 	__main__.var = 4
 	print("global2: __main__.var:", __main__.var)
 
 
-def global3():
+def global3() -> None:
 	var = 5
-
-	import sys
 
 	globals = sys.modules["__main__"]
 	print("global3: globals.var:", globals.var)
@@ -4238,7 +4245,7 @@ def global3():
 	print("global3: globals.var:", globals.var)
 
 
-def test():
+def test() -> None:
 	print("test: var:", var)
 	local()
 	global1()
@@ -4256,11 +4263,11 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 var = 0
 
 
-def f1():
+def f1() -> None:
 	var = 1
 	print("f1: var:", var)
 
-	def f2():
+	def f2() -> None:
 		print("f2: var:", var)
 
 	print("f1: var:", var)
@@ -4278,10 +4285,10 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def f1():
+def f1() -> None:
 	var = 0
 
-	def f2():
+	def f2() -> None:
 		print("var:", var)
 
 	return f2
@@ -4295,9 +4302,9 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def returnClosure(b):
+def returnClosure(b: int) -> callable:
 
-	def closure(e):
+	def closure(e: int) -> callable:
 		return b ** e
 
 	b = 3  # Return me powers of 3 instead.
@@ -4343,7 +4350,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def returnLambda(b):
+def returnLambda(b: float) -> callable:
 	return lambda e: b ** e
 
 
@@ -4364,11 +4371,11 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def f1():
+def f1() -> None:
 	x = 0
 	y = 10
 
-	def f2(x = x):
+	def f2(x: any = x) -> None:
 		x += 1
 		nonlocal y
 		y += 1
@@ -4387,14 +4394,14 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def f1():
+def f1() -> None:
 	x = 0
 
 	f2(x)
 	f2(x)
 
 
-def f2(x):
+def f2(x: int) -> None:
 	x += 1
 	print("f2: x:", x)
 
@@ -4505,76 +4512,76 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def customizeOpen(customizationId):
+def CustomizedOpen(customizationId: int) -> callable:
 	print("builtins.open:", builtins.open)
 	originalOpen = builtins.open
 
-	def customOpen(*keywordArguments, **positionalArguments):
-		print("Customizing ~open~ %r:" % customizationId, keywordArguments, positionalArguments)
+	def customOpen(*keywordArguments: typing.Iterable, **positionalArguments: typing.Iterable) -> callable:
+		print(f"Customizing ~open~ %{customizationId:r}:", keywordArguments, positionalArguments)
 		print("customOpen: originalOpen:", originalOpen, " customizationId:", customizationId)
 		return originalOpen(*keywordArguments, **positionalArguments)
 
 	builtins.open = customOpen
 
 
-f = open("../../var/in6.txt")
-print("f:", f.read())
-customizeOpen("hell2")
-f = open("../../var/in7.txt")
-print("f:", f.read())
-customizeOpen("hell1")
-f = open("../../var/in8.txt")
-print("f:", f.read())
+with pathlib.Path.open("../../var/in6.txt") as f:
+	print("f:", f.read())
+CustomizedOpen("hell2")
+with pathlib.Path.open("../../var/in7.txt") as f:
+	print("f:", f.read())
+CustomizedOpen("hell1")
+with pathlib.Path.open("../../var/in8.txt") as f:
+	print("f:", f.read())
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # LP.
 
 
-class customizeOpen:
+class CustomizedOpen:
 
-	def __init__(self, customizationId):
+	def __init__(self, customizationId: int) -> None:
 		self.id = customizationId
 		self.originalOpen = builtins.open
 		builtins.open = self
 
-	def __call__(self, *keywordArguments, **positionalArguments):
-		print("Customizing ~open~ using classes.  ID: %r:" % self.id, keywordArguments, positionalArguments)
+	def __call__(self, *keywordArguments: typing.Iterable, **positionalArguments: typing.Iterable) -> callable:
+		print(f"Customizing ~open~ using classes.  ID: {self.id:r}:", keywordArguments, positionalArguments)
 		print("customOpen: originalOpen:", self.originalOpen, " customizationId:", self.id)
 		return self.originalOpen(*keywordArguments, **positionalArguments)
 
 
-f = open("../../var/in6.txt")
-print("f:", f.read())
-customizeOpen("hell2")
-f = open("../../var/in7.txt")
-print("f:", f.read())
-customizeOpen("hell1")
-f = open("../../var/in8.txt")
-print("f:", f.read())
+with pathlib.Path.open("../../var/in6.txt") as f:
+	print("f:", f.read())
+CustomizedOpen("hell2")
+with pathlib.Path.open("../../var/in7.txt") as f:
+	print("f:", f.read())
+CustomizedOpen("hell1")
+with pathlib.Path.open("../../var/in8.txt") as f:
+	print("f:", f.read())
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # LP.
 
 
-def changer(a, b):
+def changer(a: int, b: list) -> None:
 	a = 2
 	b[0] = "spam"
 
 
 x = 1
-l = [1, 2]
-print("x:", x, "l:", l)
-changer(x, l)
-print("x:", x, "l:", l)
+longInt = [1, 2]
+print("x:", x, "longInt:", longInt)
+changer(x, longInt)
+print("x:", x, "longInt:", longInt)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # LP.
 
 
-def multiple(x, y):
+def multiple(x: int, y: int) -> tuple:
 	x = 2
 	y = [3, 4]
 
@@ -4582,21 +4589,21 @@ def multiple(x, y):
 
 
 x = 1
-l = [1, 2]
-print("x:", x, "l:", l)
-x, l = multiple(x, l)
-print("x:", x, "l:", l)
+longInt = [1, 2]
+print("x:", x, "longInt:", longInt)
+x, longInt = multiple(x, longInt)
+print("x:", x, "longInt:", longInt)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # LP.
 
 
-def function9(argument1, argument2):
+def function9(argument1: any, argument2: any) -> None:
 	print("function9: argument1:", argument1, "argument2:", argument2)
 
 
-def function10(argument1, argument2):
+def function10(argument1: any, argument2: any) -> None:
 	print("function10: argument1:", argument1, "argument2:", argument2)
 
 
@@ -4615,7 +4622,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def keywordOnlyDemo(a, *b, c):
+def keywordOnlyDemo(a: any, *b: typing.Iterable, c: any) -> None:
 	print("a:", a, "b:", b, "c:", c)
 
 
@@ -4628,7 +4635,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def keywordOnlyDemo(a, *, b, c):
+def keywordOnlyDemo(a: any, *, b: any, c: any) -> None:
 	print("a:", a, "b:", b, "c:", c)
 
 
@@ -4704,7 +4711,7 @@ def findMinimum1(*items: any) -> any:
 print("findMinimum1: Smallest item:", findMinimum1("b", "c", "a", "d"))
 
 
-def findMinimum2(module1, *rest):
+def findMinimum2(module1: any, *rest: typing.Iterable) -> any:
 	for item in rest:
 		module1 = min(item, module1)
 	return module1
@@ -4713,7 +4720,7 @@ def findMinimum2(module1, *rest):
 print("findMinimum2: Smallest item:", findMinimum2(["b", "c"], ["a", "d"], ["a", "b"], ["a", "a", "b"], ["a", "a"], ["a", "a", "a"]))
 
 
-def findMinimum3(*items: any):
+def findMinimum3(*items: any) -> typing.Iterable:
 	return sorted(items)[0]
 
 
@@ -4742,8 +4749,8 @@ def findMaximum(item: any, firstItem: any) -> None:
 print("findMinOrMax(findMinimum, \"b\", \"a\", \"d\", \"c\"):", findMinOrMax(findMinimum, "b", "a", "d", "c"))
 print("findMinOrMax(findMaximum, \"b\", \"a\", \"d\", \"c\"):", findMinOrMax(findMaximum, "b", "a", "d", "c"))
 
-print("findMinOrMax(eval(findMinimum.__name__), \"b\", \"a\", \"d\", \"c\"):", findMinOrMax(eval(findMinimum.__name__), "b", "a", "d", "c"))
-print("findMinOrMax(eval(findMaximum.__name__), \"b\", \"a\", \"d\", \"c\"):", findMinOrMax(eval(findMaximum.__name__), "b", "a", "d", "c"))
+print("findMinOrMax(eval(findMinimum.__name__), \"b\", \"a\", \"d\", \"c\"):", findMinOrMax(ast.literal_eval(findMinimum.__name__), "b", "a", "d", "c"))
+print("findMinOrMax(eval(findMaximum.__name__), \"b\", \"a\", \"d\", \"c\"):", findMinOrMax(ast.literal_eval(findMaximum.__name__), "b", "a", "d", "c"))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -4755,9 +4762,13 @@ def myPrint(*positionalArguments: typing.Iterable, **keywordArguments: typing.It
 	end = keywordArguments.pop("end", "\n")
 	file = keywordArguments.pop("file", sys.stdout)
 	if keywordArguments:
+
+		def raiseTypeError(errorMessage: str) -> None:
+			raise TypeError(errorMessage)
+
 		try:
 			errorMessage = f"extra keywords: {keywordArguments}"
-			raise TypeError(errorMessage)
+			raiseTypeError(errorMessage)
 		except TypeError as e:
 			print(sys.exc_info()[0].__name__ + ":", e, "\n")
 	output = ""
@@ -4982,7 +4993,7 @@ def function100() -> None:
 print("function100():", function100())
 
 
-def decorator2(function100: callable):
+def decorator2(function100: callable) -> callable:
 	print("decorator2:")
 	return function100
 
@@ -4999,7 +5010,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def decorator1(function102: callable):
+def decorator1(function102: callable) -> callable:
 	print("decorator: function102:", function102)
 
 	def wrapper19(*args: typing.Iterable) -> None:
@@ -5010,7 +5021,7 @@ def decorator1(function102: callable):
 
 
 @decorator1
-def function103(arg1: any, arg2: any):
+def function103(arg1: any, arg2: any) -> None:
 	print("function103: arg1:", arg1, "arg2:", arg2)
 	args = arg1, arg2
 	print("function103: args:", args)
@@ -5079,7 +5090,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 def counter(myId: int, count: int) -> None:
 	for i in range(count):
-		print("Thread ID: %s.  i: %s." % (myId, i))
+		print(f"Thread ID: {myId}.  i: {i}.")
 		time.sleep(2)
 
 
@@ -5176,11 +5187,11 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # UNKNOWN
 
-print("%s, %s, and %s, ma'am" % ("wham", "bang", "thank you"))
+print(f"{'wham'}, {'bang'}, and {'thank you'}, ma'am")
 print("{}, {}, and {}, ma'am".format("wham", "bang", "thank you"))
 
-print("{:,.2f} and {:+04d}".format(3000.14159, 3))
-print("%+04d and %.3f" % (3, 30.300999))
+print(f"{3000.14159:,.2f} and {3:+04d}")
+print(f"{3:+04d} and {30.300999:.3f}")
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -5201,13 +5212,14 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # UNKNOWN
 
-print("%e" % 31415.926)
+print(f"{31415.926:e}")
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # UNKNOWN
 
-print("Yes" if 1.1 + 2.3 == 3.3 else "No")
+number192 = 3.3
+print("Yes" if number192 == 1.1 + 2.3 else "No")
 print((99999999999999999999999).bit_length() + 1)
 
 print(complex(2 + -3j) * 3)
@@ -5368,21 +5380,23 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # UNKNOWN
 
 pprint.pprint([[[["test", "ok", "4", "3"]], [["test", "1", "2", "1"]]]], width = 1)
-listed = [[[["test", "ok", "4", "3"]], [["test", "1", "2", "1"]]]]
-[print(a) for a in listed]
-for x in listed:
+list400 = [[[["test", "ok", "4", "3"]], [["test", "1", "2", "1"]]]]
+[print(a) for a in list400]
+for x in list400:
 	print(" ".join(map(str, x)))
 
 
-def f(listed: list) -> list:
-	yield from listed
+def f(list400: list) -> list:
+	yield from list400
 
 
-for x in f(listed):
+for x in f(list400):
 	print(*x)
 
-print("\n".join(" ".join(map(str, list101)) for list101 in listed))
-for _ in listed:
-	print(*[e[0] for e in listed])
+print("\n".join(" ".join(map(str, list401)) for list401 in list400))
+for _ in list400:
+	print(*[e[0] for e in list400])
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+a = 2
