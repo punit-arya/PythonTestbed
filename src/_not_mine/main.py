@@ -172,10 +172,10 @@ print(word[42:])
 # word[0] = "J"
 print("J" + word[1:])
 
-word = [[0, 1], [2, 3], [4, 5]]
-print(word[1])
-word[1] = [10, 11]
-print(word[1])
+list1 = [[0, 1], [2, 3], [4, 5]]
+print(list1[1])
+list1[1] = [10, 11]
+print(list1[1])
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -770,7 +770,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # TUTORIAL.
 
-basket = {"apple", "orange", "apple", "pear", "orange", "banana"}
+basket = {"apple", "orange", "apple", "pear", "banana"}
 print(basket)
 print("orange" in basket)
 print("crabgrass" in basket)
@@ -858,8 +858,8 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # TUTORIAL.
 
-string1, string2, string3 = "", "Trondheim", "Hammer Dance"
-non_null = string1 or string2 or string3
+string2, string3, string4 = "", "Trondheim", "Hammer Dance"
+non_null = string2 or string3 or string4
 print(non_null)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
@@ -868,7 +868,10 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 print((1, 2, 3) < (1, 2, 4))
 print([1, 2, 3] < [1, 2, 4])
-print("ABC" < "C" < "Pascal" < "Python")
+string4 = "C"
+string5 = "Pascal"
+string6 = "Python"
+print("ABC" < string4 < string5 < string6)
 print((1, 2, 3, 4) < (1, 2, 4))
 print((1, 2) < (1, 2, -1))
 print((1, 2, 3) == (1.0, 2.0, 3.0))
@@ -930,7 +933,7 @@ print(str(1.1))
 print(str("ab"))
 print(str((1, 2, 3)))
 print(str([1, 2, 3]))
-print(str({1, 2, 3, 1}))
+print(str({1, 2, 3}))
 print(str({"a": 1, "b": 2}))
 print(repr(1))
 print(repr(1.0))
@@ -938,7 +941,7 @@ print(repr(1.1))
 print(repr("ab"))
 print(repr((1, 2, 3)))
 print(repr([1, 2, 3]))
-print(repr({1, 2, 3, 1}))
+print(repr({1, 2, 3}))
 print(repr({"a": 1, "b": 2}))
 s = "Hello, world!"
 print(repr(s))
@@ -1300,7 +1303,8 @@ class MyClass:
 
 x = MyClass()
 x.counter = 1
-while x.counter < 10:
+number4 = 10
+while x.counter < number4:
 	x.counter = x.counter * 2
 print(x.counter)
 del x.counter
@@ -1600,10 +1604,12 @@ doctest.testmod(verbose = False)  # Automatically validate the embedded tests.
 class TestMyAverageFunction(unittest.TestCase):
 
 	def test_average(self) -> None:
+		number4 = 40.0
 		# self.assertEqual(average([20, 30, 70]), 40.0)
-		assert average([20, 30, 70]) == 40.0
+		assert average([20, 30, 70]) == number4
+		number5 = 4.3
 		# self.assertEqual(round(average([1, 5, 7]), 1), 4.3)
-		assert round(average([1, 5, 7]), 1) == 4.3
+		assert round(average([1, 5, 7]), 1) == number5
 		# with self.assertRaises(ZeroDivisionError):
 		with self.pytest.Raises(ZeroDivisionError):
 			average([])  # with self.assertRaises(TypeError):  # 	average([20, 30, 70])
@@ -1824,7 +1830,8 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # TUTORIAL.
 
-print(0.1 + 0.1 + 0.1 == 0.3)
+number5 = 0.3
+print(number5 == 0.1 + 0.1 + 0.1)
 
 print(round(0.1, 1) + round(0.1, 1) + round(0.1, 1) == round(0.3, 1))
 
@@ -1877,7 +1884,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # if os.path.isfile(".pythonrc.py"):
 if pathlib.Path.is_file(".pythonrc.py"):
-	with open(".pythonrc.py").read() as file_content:
+	with pathlib.Path.open(".pythonrc.py").read() as file_content:
 		exec(file_content)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
@@ -2037,7 +2044,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # FAQ.
 
 
-def foo(myDict: dict = {}):  # Reference is shared with subsequent invocations.
+def foo(myDict: dict = {}) -> dict:  # Reference is shared with subsequent invocations.
 	myDict["key2"] = 1
 	print("myDict: 4:", myDict)
 
@@ -2057,7 +2064,7 @@ print("myDict: 3:", foo())
 print("myDict: 5:", myDict)
 
 
-def add_element(element, myList = []):
+def add_element(element: any, myList: list = []) -> list:
 	myList.append(element)
 
 	return myList
@@ -2144,7 +2151,7 @@ class CallByReference:
 			setattr(self, key, value)
 
 
-def f(args: dict):
+def f(args: dict) -> None:
 	args.a = "1"
 	args.b += 1
 
@@ -2228,9 +2235,10 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # FAQ.
 
-print("a" in "b", "a")
-print(("a" in "b"), "a")
-print("a" in ("b", "a"))
+string7 = "a"
+print(string7 in "b", string7)
+print((string7 in "b"), string7)
+print(string7 in ("b", string7))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -2238,7 +2246,8 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 print(list(filter(None, map(lambda y: y * functools.reduce(lambda x, y: x * y != 0, map(lambda x, y = y: y % x, range(2, int(pow(y, 0.5) + 1))), 1), range(2, 1000)))))
 print(list(map(lambda x, f = lambda x, f: (f(x - 1, f) + f(x - 2, f)) if x > 1 else 1: f(x, f), range(10))))
-print((lambda Ru, Ro, Iu, Io, IM, Sx, Sy: functools.reduce(lambda x, y: x + y, map(lambda y, Iu = Iu, Io = Io, Ru = Ru, Ro = Ro, Sy = Sy, L = lambda yc, Iu = Iu, Io = Io, Ru = Ru, Ro = Ro, i = IM, Sx = Sx, Sy = Sy: functools.reduce(lambda x, y: x + y, map(lambda x, xc = Ru, yc = yc, Ru = Ru, Ro = Ro, i = i, Sx = Sx, F = lambda xc, yc, x, y, k, f = lambda xc, yc, x, y, k, f: (k <= 0) or (x * x + y * y >= 4.0) or 1 + f(xc, yc, x * x - y * y + xc, 2.0 * x * y + yc, k - 1, f): f(xc, yc, x, y, k, f): chr(64 + F(Ru + x * (Ro - Ru) / Sx, yc, 0, 0, i)), range(Sx))): L(Iu + y * (Io - Iu) / Sy), range(Sy))))(-2.1, 0.7, -1.2, 1.2, 30, 80, 5))  # Mandelbrot set.
+number12 = 4.0
+print((lambda Ru, Ro, Iu, Io, IM, Sx, Sy: functools.reduce(lambda x, y: x + y, map(lambda y, Iu = Iu, Io = Io, Ru = Ru, Ro = Ro, Sy = Sy, L = lambda yc, Iu = Iu, Io = Io, Ru = Ru, Ro = Ro, i = IM, Sx = Sx, Sy = Sy: functools.reduce(lambda x, y: x + y, map(lambda x, xc = Ru, yc = yc, Ru = Ru, Ro = Ro, i = i, Sx = Sx, F = lambda xc, yc, x, y, k, f = lambda xc, yc, x, y, k, f: (k <= 0) or (x * x + y * y >= number12) or 1 + f(xc, yc, x * x - y * y + xc, 2.0 * x * y + yc, k - 1, f): f(xc, yc, x, y, k, f): chr(64 + F(Ru + x * (Ro - Ru) / Sx, yc, 0, 0, i)), range(Sx))): L(Iu + y * (Io - Iu) / Sy), range(Sy))))(-2.1, 0.7, -1.2, 1.2, 30, 80, 5))  # Mandelbrot set.
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -2251,7 +2260,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # FAQ.
 
 print(f"{'144':04d}")
-print("{:04x}".format(16))
+print(f"{16:04x}")
 # print("{:.3f}".format(1.0 / 3.0))
 print(f"{1.0/3.0:.3f}")
 
@@ -2345,7 +2354,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 myString = "test\r\n"
 print(myString.rstrip("\r\n"))
 
-lines = "line\r\n" "\r\n" "\r\n"
+lines = "line\r\n\r\n\r\n"
 print(lines.rstrip("\n\r"))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
@@ -2683,7 +2692,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 """
 
 
-def worker():
+def worker() -> None:
 	print("Running Worker:", threading.current_thread().name)
 	time.sleep(0.1)
 	while True:
@@ -2977,7 +2986,7 @@ print("dict1.setdefault(\"name\", \"Punit\"):", dict1.setdefault("name", "Punit"
 print("dict1.popitem():", dict1.popitem())
 print("dict1:", dict1)
 print("dict2:", dict2)
-dict1 = dict([("name", "Bob"), ("age", 40)])
+dict1 = {"name": "Bob", "age": 40}
 del dict1["name"]  # Delete entries by key.
 print("list(dict1.keys():", list(dict1.keys()))  # Dictionary views.
 print("dict1.keys() & dict2.keys():", dict1.keys() & dict2.keys())
@@ -3210,7 +3219,7 @@ B	# Comment not ignored.
 C
 """
 print("s:", s, "len(s):", len(s))
-s = "A" "B" "C"
+s = "ABC"
 print("s:", s)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
@@ -3394,15 +3403,15 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 x = "old"
 
 
-def changer():
+def changer() -> None:
 	global x
 	x = "new"
 
 
-def outer():
+def outer() -> None:
 	x = "old"
 
-	def changer():
+	def changer() -> None:
 		nonlocal x
 		x = "new"
 
@@ -3412,7 +3421,7 @@ changer()
 print("x:", x)
 
 
-def squares(x):
+def squares(x: int) -> int:
 	for i in range(x):
 		yield i ** 2
 
@@ -3471,10 +3480,11 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-binaryData = open("../../var/in.bin", "rb").read()
-print(binaryData)
-print("binaryData[4:7]:", binaryData[4:7].decode())
-print("str(binaryData):", str(binaryData, "utf-8"))
+with pathlib.Path.open("../../var/in.bin", "rb") as binaryFile:
+	binaryData = binaryFile.read()
+	print(binaryData)
+	print("binaryData[4:7]:", binaryData[4:7].decode())
+	print("str(binaryData):", str(binaryData, "utf-8"))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -3508,9 +3518,10 @@ text = pathlib.Path.open("../../var/unicode_data.txt", encoding = "utf-8").read(
 print(text)
 print(len(text))
 
-raw = open("../../var/unicode_data.txt", "rb").read()
-print(raw)
-print(len(raw))
+with pathlib.Path.open("../../var/unicode_data.txt", "rb") as file84:
+	raw = file84.read()
+	print(raw)
+	print(len(raw))
 
 print(text.encode("utf-8"))
 print(raw.decode("utf-8"))
@@ -3528,7 +3539,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-mySet = set(str("woman"))
+mySet = set("woman")
 mySet1 = set("man")
 print(mySet)
 print(mySet & mySet1)
@@ -3542,7 +3553,8 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 print(list(set("woman")))
 
 print(set("spam") == set("asmp"))  # Order-neutral equality test.
-print("p" in set("spam"), "p" in "spam", "ham" in ["eggs", "spam", "ham"])
+string8 = "p"
+print(string8 in set("spam"), string8 in "spam", "ham" in ["eggs", "spam", "ham"])
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -3581,9 +3593,9 @@ print(type(type(L)))
 if type(L) == type([]):  # Type testing.
 	print("yes")
 print(type("a"))
-print(type(type("a")))
+print(type(str))
 myList = []
-if type(myList) == list:
+if type(myList) is list:
 	print("type function output matches type name (as keyword)")
 if isinstance(myList, list):  # OO test.
 	print("isInstance working")
@@ -3595,14 +3607,14 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 class Lovers:
 
-	def __init__(self, name, salary):  # Initialize when created.
+	def __init__(self, name: str, salary: float) -> None:  # Initialize when created.
 		self.name = name
 		self.salary = salary
 
-	def giveHike(self, percent):
+	def giveHike(self, percent: float) -> None:
 		self.salary += self.salary * percent / 100
 
-	def getLastName(self):
+	def getLastName(self) -> str:
 		return self.name.split()[-1]
 
 
@@ -3639,15 +3651,19 @@ print(X < Y < Z)  # Range test.
 print(X < Y and Y < Z)
 print(X < Y > Z)
 print(X < Y and Y > Z)
-print(1 < 2 < 3.0 < 4)
-print(1 > 2 > 3.0 > 4)
-print(1 == 2 < 3)
+number7 = 2
+number8 = 3.0
+number9 = 4
+print(1 < number7 < number8 < number9)
+print(1 > number7 > number8 > number9)
+print(1 == number7 < number8)
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # LP.
 
-print(1.1 + 2.2 == 3.3)
+number11 = 3.3
+print(number11 == 1.1 + 2.2)
 print(1.1 + 2.2)
 print(int(1.1 + 2.2) == int(3.3))
 
@@ -3672,8 +3688,8 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-print("{0:0}, {1:x}, {2:b}".format(64, 64, 64))  # Returns digits not strings.
-print(f"%o, %x, %x, %X" % (64, 64, 255, 255))
+print(f"{64:0}, {64:O}, {64:o}, {64:X}, {64:x}, {64:b}")  # Returns digits not strings.
+print("%o, %x, %x, %X" % (64, 64, 255, 255))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -3788,7 +3804,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 print(decimal.Decimal(1) / decimal.Decimal(7))  # Default: 28 digits.
 decimal.getcontext().prec = 4
 print(decimal.Decimal(1) / decimal.Decimal(7))
-print(decimal.Decimal(0.1) + decimal.Decimal(0.1) + decimal.Decimal(0.1) - decimal.Decimal(0.3))
+print(decimal.Decimal(0.1) + decimal.Decimal("0.1") + decimal.Decimal("0.1") - decimal.Decimal("0.3"))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -3887,9 +3903,10 @@ managers = {"tom", "sue"}
 print(engineers > managers)
 print((managers | engineers) - (managers ^ engineers))  # Intersection.
 
-print(type(True))
-print(isinstance(True, int))
-print(True == 1)
+print(type(name = True))
+print(isinstance(int, obj = True))
+number6 = 1
+print(number6 == True)
 print(True is 1)
 print(True + 4)
 
@@ -3897,7 +3914,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # LP.
 
-mySet = {1, 2, 3, 3}
+mySet = {1, 2, 3}
 print(mySet)
 
 copyOfMySet = mySet.copy()
@@ -4414,12 +4431,10 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def f1():
+def f1() -> callable:
 	b = 2
 
-	f2 = lambda e: b ** e
-
-	return f2
+	return lambda e: b ** e
 
 
 myLambda = f1()
@@ -4437,10 +4452,10 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def tester(start):
+def tester(start: int) -> callable:
 	state = start
 
-	def nested(label):
+	def nested(label: str) -> None:
 		print(label, start)
 
 	return nested
@@ -4459,10 +4474,10 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def tester(start):
+def tester(start: int) -> callable:
 	state = start
 
-	def nested(label):
+	def nested(label: str) -> None:
 		nonlocal state
 
 		print(label, state)
@@ -4485,9 +4500,9 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 # LP.
 
 
-def demoFunctionAttribute(myArgument1):
+def demoFunctionAttribute(myArgument1: any) -> callable:
 
-	def nestedFunction(myArgument2):
+	def nestedFunction(myArgument2: any) -> None:
 		print(myArgument2, nestedFunction.myAttribute)
 		nestedFunction.myAttribute += 1
 
@@ -4690,9 +4705,9 @@ try:
 except SyntaxError:
 	print("SyntaxError raised.")
 
-argumentsOrderDemo(0, *{1, 2, 2}, **dict(c = 3, x = 4, y = 5))
+argumentsOrderDemo(0, *{1, 2}, **{c: 3, x: 4, y: 5})
 try:
-	argumentsOrderDemo(0, *{1, 2, 2}, **dict(x = 4, y = 5), c = 3)
+	argumentsOrderDemo(0, *{1, 2}, **{x: 4, y: 5}, c = 3)
 except SyntaxError:
 	print("SyntaxError raised.")
 
@@ -5036,11 +5051,11 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 class Decorator1:
 
-	def __init__(self, function104: callable):  # On ~@~ decoration.
+	def __init__(self, function104: callable) -> None:  # On ~@~ decoration.
 		print("__init__: function104:", function104)
 		self.function104 = function104
 
-	def __call__(self, *args: typing.Iterable):  # On wrapped function call.
+	def __call__(self, *args: typing.Iterable) -> None:  # On wrapped function call.
 		print("self.function104:", self.function104)
 		print("self.function104(1000, 1001):", self.function104(1000, 1001))
 		print("self.function104(*args):", self.function104(*args))
@@ -5206,7 +5221,7 @@ print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, "
 
 # UNKNOWN
 
-print(platform.version(), platform.release(), platform.python_version(),)
+print(platform.version(), platform.release(), platform.python_version())
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -5273,7 +5288,7 @@ myList = [1, 2, 3, 4, 5, 4, 3, 2]
 myList = list(set(myList))
 
 print(myList)
-print(set([1, 3, 5]) - set([1, 2, 3, 4, 5]))
+print(set([1, 3, 5]) - {1, 2, 3, 4, 5})
 
 print(set(dir(str)) - set(dir(bytes)))
 
