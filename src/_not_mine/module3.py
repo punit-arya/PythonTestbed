@@ -1,3 +1,3 @@
-import config
+import module6
 
-config.x = 1
+module6.number1 = 1

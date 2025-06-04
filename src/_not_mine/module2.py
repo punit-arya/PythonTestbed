@@ -1,7 +1,7 @@
-class MyClass:
+class Class1:
 
-	def __init__(self, x):
-		self.x = x
+    def __init__(self, member):
+        self.member = member
 
-	def getX(self):
-		return self.x
+    def getMember(self):
+        return self.member
