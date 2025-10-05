@@ -1,22 +1,15 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# 200 /home/punit/src/_not_mine/PythonTestBed/var/in.txt /home/punit/src/_not_mine/PythonTest1Bed/var/in.txt function41
-
-"""PythonTestBed: Python test bed."""
-
-from __future__ import annotations
-import __future__
+from __future__ import annotations, division
 
 import _thread
 import array
 import ast
-import tkinter
 import bisect
 import builtins
 import cmath
 import collections
-import contextlib
 import copy
 import csv
 import datetime
@@ -25,7 +18,6 @@ import decimal
 import doctest
 import email.mime.text
 import fractions
-import operator
 import functools
 import gc
 import glob
@@ -37,10 +29,11 @@ import json
 import locale
 import logging
 import math
-import platform
+import operator
 import os
 import pathlib
 import pickle
+import platform
 import pprint
 import py_compile
 import queue
@@ -59,6 +52,7 @@ import textwrap
 import threading
 import time
 import timeit
+import tkinter as tk
 import typing
 import unittest
 import urllib.request
@@ -66,6 +60,7 @@ import weakref
 import zipfile
 import zlib
 
+import __main__
 import circularImport
 import docstrings
 import module1
@@ -79,9 +74,11 @@ import module6
 import module7
 import moduleFib
 
-import __main__
+# 200 /home/punit/src/_not_mine/PythonTestBed/var/in.txt /home/punit/src/_not_mine/PythonTest1Bed/var/in.txt function41
 
-# # TUTORIAL.
+"""PythonTestBed: Python test bed."""
+
+# # TUTORIAL
 #
 # the_world_is_flat = True
 # if the_world_is_flat:
@@ -89,14 +86,14 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(17 / 3)
 # print(17 // 3)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(-(3 ** 2))
 # print((-3) ** 2)
@@ -104,7 +101,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print("doesn't")
 # print("doesn't")
@@ -113,21 +110,21 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # string1 = "First line.\nSecond line."
 # print(string1)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print("C:\some\name")
 # print(r"C:\some\name")  # Note the "r" before the quote
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print("""\
 # Usage: thingy [OPTIONS]
@@ -137,7 +134,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(3 * "un" + "ium")
 #
@@ -146,7 +143,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # prefix = "Py"
 # # print(prefix "thon")
@@ -154,40 +151,43 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(prefix + "thon")
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # string2 = "Put several strings within parentheses " "to have them joined together."
 # print(string2)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # string3 = "Python"
 # print(string3[0])
 # print(string3[-1])
 # print(string3[-2])
 # print(string3[-6])
-# print(string3[:2] + string3[2:])
-# print(string3[:2])
-# print(string3[0:2])
-# print(string3[4:])
-# print(string3[-2:])
-# print(string3[-2:-4])
-# print(string3[-4:-2])
-# print(string3[-4:-2:-1])
-# print(string3[-2:-4:-1])
-# print(string3[4:42])
-# print(string3[42:])
-# with contextlib.suppress(TypeError):
+# print(string3[: 2] + string3[2 :])
+# print(string3[: 2])
+# print(string3[0 : 2])
+# print(string3[4 :])
+# print(string3[-2 :])
+# print(string3[-2 :-4])
+# print(string3[-4 :-2])
+# print(string3[-4 :-2 :-1])
+# print(string3[-2 :-4 :-1])
+# print(string3[4 : 42])
+# print(string3[42 :])
+#
+# try:
 # 	string3[0] = "J"
-# print("J" + string3[1:])
+# 	print("J" + string3[1 :])
+# except TypeError as ex:
+# 	print(sys.exc_info()[0].__name__ + ":", ex, "\n")
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
@@ -200,27 +200,27 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # string4 = "supercalifragilisticexpialidocious"
 # print(len(string4))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # squares = [1, 4, 9, 16, 25]
 # print(squares)
 # print(squares[0])
 # print(squares[-1])
-# print(squares[-3:])
+# print(squares[-3 :])
 # print(squares[:])
 # squares = squares + [36, 49, 64, 81, 100]
 # print(squares)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # cubes = [1, 8, 27, 65, 125]
 # cubes[3] = 64
@@ -231,13 +231,13 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # letters = ["a", "b", "c", "d", "e", "f", "g"]
 # print(letters)
-# letters[2:5] = ["C", "Class3", "E"]
+# letters[2 : 5] = ["C", "Class3", "E"]
 # print(letters)
-# letters[2:5] = []
+# letters[2 : 5] = []
 # print(letters)
 # letters[:] = []
 # print(letters)
@@ -252,7 +252,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # maxNumber = 1
 # number1, number2 = 0, 1
@@ -262,7 +262,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # number3, number4 = 0, 1
 # maxNumber = 1000
@@ -273,7 +273,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # number5 = int(input("Integer ? "))
 # if number5 < 0:
@@ -288,7 +288,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # words = ["cat", "window", "defenestrate"]
 # for word in words:  # "for" iterates over the items of any sequence (a list or a string).  This form can not modify the items.
@@ -302,14 +302,14 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # for i in range(5):
 # 	print(i)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # list5 = ["Mary", "had", "a", "little", "lamb"]
 # for i in range(len(list5)):  # Use "enumerate()" function instead.
@@ -317,19 +317,19 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(range(10))  # "range(0, 10)" Doesn't work because "range" doesn't return a list.  Instead, it returns an iterator object to save space.
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(list(range(5)))  # Creates list from iterables.
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # for i in range(2, 10):
 # 	for j in range(2, i):
@@ -341,7 +341,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # for i in range(2, 10):
 # 	if i % 2 == 0:
@@ -351,14 +351,14 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # # while True:
 # # 	pass
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # class Class1:
@@ -367,7 +367,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def initlog(*args: None) -> None:
@@ -376,7 +376,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def fib(number6: int) -> None:
@@ -398,18 +398,18 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def fib1(number7: int) -> int:
 # 	"""Return a list containing the Fibonacci series up to "number7"."""
 #
-# 	result = []
+# 	retval = []
 # 	a, b = 0, 1
 # 	while a < number7:
-# 		result.append(a)
+# 		retval.append(a)
 # 		a, b = b, a + b
-# 	return result
+# 	return retval
 #
 #
 # function2 = fib1(100)
@@ -417,7 +417,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def ask_ok(prompt: str, retries: int = 4, reminder: str = "Please try again!") -> bool:
@@ -440,7 +440,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # number8 = 5
 #
@@ -454,7 +454,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def function4(number9: int, list6: list = []) -> list:
@@ -470,7 +470,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def function5(number10: int, list7: list | None = None) -> None:
@@ -492,7 +492,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # # "parrot" accepts one positional argument (the value of this argument is taken from the first argument in the function call) and three keyword (or optional) arguments.
 #
@@ -517,7 +517,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def cheeseshop(kind: str, *args: tuple, **keywords: dict) -> None:
@@ -535,7 +535,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def concat(*args: typing.Iterable, sep: str = "/") -> None:
@@ -547,7 +547,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(list(range(3, 6)))
 # args = [3, 6]
@@ -555,7 +555,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def parrot(voltage: str, state: str = "a stiff", action: str = "voom") -> None:
@@ -569,7 +569,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def make_incrementor(addend: int) -> None:
@@ -582,7 +582,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # pairs = [(1, "one"), (2, "two"), (3, "three"), (4, "four")]  # Two-dimensional array: four rows, two columns.
 # pairs.sort(key = lambda pair: pair[1])  # "sort" takes no arguments, or one argument which should be a lambda function.  This lambda function should return the "key".  The elements of the "pairs" array is passed as an argument to the lambda function that is known as "pair" inside the lambda function.  In other words, the "key" argument can take a lambda function which returns a "key".  "key" can be a subscript if each element is an array or dot-notation attribute access if each element is an object (this will mean that the list is a collection of objects).
@@ -590,7 +590,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def function6() -> None:
@@ -603,7 +603,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def function7(ham: str, eggs: str = "eggs") -> str:
@@ -616,7 +616,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # list9 = [10, 11, 12, 13, 14, 10]
 # print("list9:", list9)
@@ -647,7 +647,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # stack1 = [3, 4, 5]
 # stack1.append(6)
@@ -661,7 +661,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # queue1 = collections.deque(["Eric", "John", "Michael"])
 # queue1.append("Terry")
@@ -672,7 +672,7 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # squares1 = []
 # for i in range(10):
@@ -688,21 +688,22 @@ import __main__
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
-squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehension.
+# squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehension.
+#
 # print(squares2)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # squares3 = [i ** 2 for i in range(10)]
 # print(squares3)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print([(i, j) for i in [1, 2, 3] for j in [3, 1, 4] if i != j])  # Equivalent to:
 #
@@ -715,7 +716,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # vector1 = [-4, -2, 0, 2, 4]
 # print([co * 2 for co in vector1])
@@ -731,7 +732,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
 # print(matrix)
@@ -752,12 +753,12 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # list8 = [-1, 1, 66.25, 333, 333, 1234.5]
 # del list8[0]
 # print(list8)
-# del list8[2:4]
+# del list8[2 : 4]
 # print(list8)
 # del list8[:]
 # print(list8)
@@ -765,7 +766,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # tuple1 = 12345, 54321, "hello!"
 # print(tuple1[0])
@@ -778,7 +779,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # emptyTuple = ()
 # singleton = ("hello",)
@@ -788,7 +789,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # tuple4 = 12345, 54321, "hello!"  # Packing a tuple.
 # print(tuple4)
@@ -797,7 +798,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # basket = {"apple", "orange", "apple", "pear", "banana"}
 # print(basket)
@@ -815,7 +816,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # tel = {"jack": 4098, "sape": 4139}
 # tel["guido"] = 4127
@@ -834,7 +835,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # knights = {"gallahad": "the pure", "robin": "the brave"}
 # for k, v in knights.items():
@@ -842,14 +843,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # for i, e in enumerate(["tic", "tac", "toe"]):
 # 	print(i, e)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # questions = ["name", "quest", "favorite color"]
 # answers = ["lancelot", "the holy grail", "blue"]
@@ -858,14 +859,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # for i in reversed(range(1, 10, 2)):
 # 	print(i)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # basket = ["apple", "orange", "apple", "pear", "orange", "banana"]
 # for m in sorted(set(basket)):  # "sorted" takes any sequence and returns a new list.
@@ -873,7 +874,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # rawData = [56.2, float("NaN"), 51.7, 55.3, 52.5, float("NaN"), 47.8]
 # filteredData = []
@@ -885,7 +886,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # string5, string6, string7 = "", "Trondheim", "Hammer Dance"
 # nonNull = string5 or string6 or string7
@@ -893,7 +894,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print((1, 2, 3) < (1, 2, 4))
 # print([1, 2, 3] < [1, 2, 4])
@@ -910,7 +911,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(moduleFib.fib(1000))
 # print(moduleFib.fib1(100))
@@ -920,14 +921,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # if __name__ == "__main__":
 # 	print(fib(int(sys.argv[1])))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # # print(sys.ps1)
 # # print(sys.ps2)
@@ -938,14 +939,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print("dir(moduleFib):", dir(moduleFib))
 # print("dir(sys):", dir(sys))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # list9 = [1, 2, 3, 4, 5]
 # fib2 = moduleFib.fib
@@ -955,7 +956,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(str(1))
 # print(str(1.0))
@@ -987,7 +988,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # for i in range(1, 11):
 # 	print(repr(i).rjust(2), repr(i * i).rjust(3), end = " ")
@@ -998,7 +999,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print("12".zfill(5))
 # print("-3.14".zfill(7))
@@ -1016,7 +1017,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(f"Value of PI is approximately {math.pi:.3f}.")
 #
@@ -1032,7 +1033,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(f"The value of PI is approximately {math.pi:5.3f}.")
 #
@@ -1064,7 +1065,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/in.txt") as file5:
 # 	contents1 = file5.read()
@@ -1072,7 +1073,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(json.dumps([1, "simple", "list"]))
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/out1.txt", "w") as file6:
@@ -1084,7 +1085,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # while True:
 # 	try:
@@ -1097,7 +1098,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # class Error1(Exception):
@@ -1124,7 +1125,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # while True:
 # 	try:
@@ -1142,10 +1143,10 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # try:
-# 	for a in sys.argv[2:]:
+# 	for a in sys.argv[2 :]:
 # 		file9 = pathlib.Path.open(a)
 # except OSError:
 # 	print("can not open", a)
@@ -1155,7 +1156,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # try:
 # 	message = "spam", "eggs", "thisIsATuple"
@@ -1178,7 +1179,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # def tupleReversor(tuple5: tuple) -> None:
 # 	reversedTuple = ()
-# 	for it in tuple5[-1::-1]:
+# 	for it in tuple5[-1 ::-1]:
 # 		reversedTuple += (it,)
 # 	reversedTuple += (5,)
 # 	reversedTuple += (6,)
@@ -1212,7 +1213,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def this_fails() -> None:
@@ -1226,7 +1227,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def raiseError(message: str) -> None:
@@ -1242,7 +1243,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # try:
 # 	# raise KeyboardInterrupt
@@ -1252,7 +1253,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def divide(dividend: int, divisor: int) -> None:
@@ -1275,7 +1276,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def scope_test() -> None:
@@ -1304,7 +1305,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # class Complex:
@@ -1319,7 +1320,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # class Class3:
@@ -1345,7 +1346,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # class Dog:
@@ -1364,7 +1365,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # class AnotherDog:
@@ -1388,7 +1389,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # class YetAnotherDog:
@@ -1410,7 +1411,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # for e in [1, 2, 3]:
 # 	print(e)
@@ -1426,7 +1427,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # string15 = "abc"
 # iterator1 = iter(string15)
@@ -1441,7 +1442,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # class Reverse:
@@ -1468,7 +1469,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def reverse(string16: str) -> str:
@@ -1481,7 +1482,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(sum(i * i for i in range(10)))
 # vector2 = [10, 20, 30]
@@ -1490,21 +1491,21 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # sineTable = {i: math.sin(i * math.pi / 180) for i in range(91)}
 # print(sineTable)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # string17 = "golf"
 # print(list(string17[i] for i in range(len(string17) - 1, -1, -1)))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(pathlib.Path.cwd())
 # os.chdir("/home/punit/src/_not_mine/PythonTestBed/var/log/")
@@ -1513,14 +1514,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print("dir(os):", dir(os))  # Returns a list of all module functions.
 # print("help(os):", help(os))  # Returns an extensive manual page created from the module's docstrings.
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(pathlib.Path.cwd())
 # shutil.copyfile("/home/punit/src/_not_mine/PythonTestBed/var/in.txt", "/home/punit/src/_not_mine/PythonTestBed/var/copy_of_in.txt")
@@ -1528,21 +1529,21 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # # print(glob.glob("*.py"))
 # print(pathlib.Path.glob(pathlib.Path("/home/punit/src/_not_mine/PythonTestBed"), "*.py"))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(sys.argv)
 # sys.stderr.write("Warning, log file not found starting a new one\n")
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(re.findall(r"\bf[a-z]*", "which foot or hand fell fastest"))
 # print(re.sub(r"(\b[a-z]+) \1", r"\1", "cat in the the hat"))
@@ -1551,14 +1552,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(math.cos(math.pi / 4))
 # print(math.log(1024 / 2))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(random.choice(["apple", "pear", "banana"]))
 # print(random.sample(range(100), 10))
@@ -1567,7 +1568,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # values1 = [2.75, 1.75, 1.25, 0.25, 0.5, 1.25, 3.5]
 #
@@ -1578,7 +1579,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # try:
 # 	# with urlopen("https://www.usno.navy.mil/USNO/time/display-clocks/simpletime") as response:
@@ -1594,7 +1595,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # now = datetime.datetime.now(tz = datetime.timezone(datetime.timedelta(hours = 5.5))).date()
 # print(now)
@@ -1605,7 +1606,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # bytes11 = b"which witch has which witch's wrist watch"
 # print(len(bytes11))
@@ -1616,14 +1617,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(timeit.Timer("t = a; a = b; b = t", "a = 1; b = 2").timeit())
 # print(timeit.Timer("a, b = b, a", "a = 1; b = 2").timeit())
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # def average(values2: list) -> float:
@@ -1660,13 +1661,13 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(reprlib.repr(set("supercalifragilisticexpialidocious")))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # tuple8 = [[[["black", "cyan"], "white", ["green", "red"]], [["magenta", "yellow"], "blue"]]]
 #
@@ -1683,14 +1684,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # docString1 = """The wrap() method is just like fill() except that it returns a list of strings instead of one big string with newlines to separate the wrapped lines."""
 # print(textwrap.fill(docString1, width = 40))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # locale.setlocale(locale.LC_ALL, "en_US.utf-8")
 # conventions = locale.localeconv()
@@ -1701,7 +1702,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # string19 = string.Template("${village} folk send $$10 to $cause.")
 # print(string19.substitute(village = "Nottingham", cause = "the ditch fund"))
@@ -1716,7 +1717,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # photoFiles = ["img_1074.jpg", "img_1076.jpg", "img_1077.jpg"]
 #
@@ -1736,7 +1737,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/in.zip", "rb") as file11:
 # 	bytes6 = file11.read()
@@ -1744,20 +1745,20 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # start = 0
 # for i in range(3):
 # 	start += 14
-# 	tuple24 = struct.unpack("<IIIHH", bytes6[start:start + 16])
+# 	tuple24 = struct.unpack("<IIIHH", bytes6[start : start + 16])
 # 	crc32, compressedSize, uncompressedSize, fileSize, extraSize = tuple24
 #
 # 	start += 16
-# 	fileName = bytes6[start:start + fileSize]
+# 	fileName = bytes6[start : start + fileSize]
 # 	start += fileSize
-# 	extra = bytes6[start:start + extraSize]
+# 	extra = bytes6[start : start + extraSize]
 # 	print("Header ", i + 1, ":", sep = "", end = "")
 # 	print(fileName, hex(crc32), compressedSize, uncompressedSize)
 # 	start += extraSize + compressedSize
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # class AsyncZip(threading.Thread):  # Like Java, we need to create a class that will create a thread object.
@@ -1783,7 +1784,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # logging.debug("Debugging information")
 # logging.info("Informational message")
@@ -1793,7 +1794,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 #
 # class Class3:
@@ -1808,22 +1809,22 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # object3 = Class3(10)
 # weakDict1 = weakref.WeakValueDictionary()
 # weakDict1["primary"] = object3
-# print("weakDict1[\"primary\"]:", weakDict1["primary"])
+# print('weakDict1["primary"]:', weakDict1["primary"])
 # del object3
 # gc.collect()
 # # print("weakDict1[\"primary\"]:", weakDict1["primary"])
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # array1 = array.array("H", [4000, 10, 700, 22222])  # "H" is typecode for 2-byte unsigned binary number, thus 2 bytes per entry.
 # print("sum:", sum(array1))
-# print("array1[1:3]:", array1[1:3])
+# print("array1[1:3]:", array1[1 : 3])
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # deque1 = collections.deque(["task1", "task2", "task3"])
 # deque1.append("task4")
@@ -1831,7 +1832,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # scores = [(100, "perl"), (200, "tcl"), (400, "lua"), (500, "python")]
 # bisect.insort(scores, (300, "ruby"))
@@ -1839,7 +1840,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # list13 = [1, 3, 5, 7, 9, 2, 4, 6, 8, 0]
 # heapq.heapify(list13)
@@ -1848,7 +1849,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(round(decimal.Decimal("0.70") * decimal.Decimal("1.05"), 2))
 # print(round(0.70 * 1.05, 2))
@@ -1863,7 +1864,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(format(math.pi, ".12g"))
 # print(format(math.pi, ".2f"))
@@ -1871,7 +1872,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # number19 = 0.3
 # print(number19 == 0.1 + 0.1 + 0.1)
@@ -1882,7 +1883,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # number20 = 3.14159
 # print(number20.as_integer_ratio())  # Much more exact than smaller numbers for lossless recreation of original numbers.
@@ -1892,7 +1893,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(sum([0.1] * 10) == 1.0)
 #
@@ -1900,13 +1901,13 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # print(2 ** 52 <= 2 ** 56 // 10 < 2 ** 53)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # TUTORIAL.
+# # TUTORIAL
 #
 # quotient1, remainder1 = divmod(2 ** 56, 10)
 # print(remainder1)
@@ -1925,7 +1926,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # # TUTORIAL
 #
-# fileName = os.environ.get('PYTHONSTARTUP')
+# fileName = os.environ.get("PYTHONSTARTUP")
 # if fileName is not None:
 # 	# if os.path.isfile(".pythonrc.py"):
 # 	if pathlib.Path.is_file(fileName):
@@ -1955,7 +1956,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # # GLOSSARY
 #
-# print(__future__.division)
+# print(division)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
@@ -2534,7 +2535,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # list29.sort(key = lambda s: s[1])
 # print(list29)
 # list30 = ["18606", "18335", "19569", "13421", "11918", "12281", "19255", "10575", "14923", "12813"]
-# list30.sort(key = lambda s: s[1:3])
+# list30.sort(key = lambda s: s[1 : 3])
 # print(list30)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
@@ -2797,7 +2798,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # circularImportExample = 10
 # x = 1
@@ -2807,7 +2808,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(sys.get_int_max_str_digits())
 # sys.set_int_max_str_digits(100000)
@@ -2816,7 +2817,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # string27 = "shrubbery"
 # list31 = list(string27)
@@ -2826,7 +2827,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # byteArray1 = bytearray(b"spam")
 # byteArray1.extend(b"eggs")
@@ -2835,7 +2836,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # string28 = "spam"
 # print(string28.find("pa"))
@@ -2844,14 +2845,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # string29 = "aaa,bbb,ccccc,dd"
 # print(string29.split(","))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # string30 = "spam"
 # print(string30 + "NI!")
@@ -2859,19 +2860,19 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(help(str.replace))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print("sp\xc4\u00c4\U000000c4m")
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # match = re.match("Hello[ \t]*(.*)world", "Hello		Python world")
 # print(match.group(1))
@@ -2885,7 +2886,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list33 = [1, 2]
 # print(list33 + [3])
@@ -2918,7 +2919,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # dict5 = {"key1": "value1", "key2": "value2", "key3": "value3"}
 # print(dict5["key1"] + str(1))
@@ -2938,7 +2939,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # Class7 = {"a": 1, "b": 2, "c": 3}
 # value = Class7.get("x", 0)
@@ -2948,34 +2949,34 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(list(map(ord, "spam")))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print([1, 2] + list("34"))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(list(map(abs, [-1, -2, 0, 1, 2])))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list34 = ["a", "b", "c", "d", "e", "f", "g", "h"]
 # print("list34:", list34)
-# list34[2:5] = list34[3:6]  # Overlapping works fine because first fetching is done, then deletion.
+# list34[2 : 5] = list34[3 : 6]  # Overlapping works fine because first fetching is done, then deletion.
 # print("list34:", list34)
-# list34[1:1] = ["x", "y"]
+# list34[1 : 1] = ["x", "y"]
 # print("list34:", list34)
 # list35 = [1]
-# list35[:0] = [2, 3, 4]
+# list35[: 0] = [2, 3, 4]
 # print("list35:", list35)
 # list35[len(list35):] = [5, 6, 7]
 # print("list35:", list35)
@@ -2989,14 +2990,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # list36.insert(len(list36), "i")
 # print("list36:", list36)
 #
-# list36[:0] = ["0"]  # Prepending.  Same as:
+# list36[: 0] = ["0"]  # Prepending.  Same as:
 # print("list36:", list36)
 # list36.insert(0, "0")
 # print("list36:", list36)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list37 = ["abc", "ABD", "aBe"]
 # list37.sort(key = str.lower)
@@ -3008,18 +3009,18 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list39 = ["spam", "eggs", "ham", "toast"]
-# del list39[1:]  # Delete entire section.  Same as:
+# del list39[1 :]  # Delete entire section.  Same as:
 # print("list39:", list39)
 # list40 = ["spam", "eggs", "ham", "toast"]
-# list40[1:] = []
+# list40[1 :] = []
 # print("list40:", list40)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list41 = ["Already", "got", "one"]
 # list41[0] = []  # Does not delete.  Instead, puts a reference to an empty list at that index.
@@ -3027,7 +3028,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # dict8 = dict([("name", "Bob"), ("age", 40)])
 # dict9 = dict.fromkeys(["name", "age"])
@@ -3047,7 +3048,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # table4 = {"Holy Grail": "1975", "Life of Brian": "1979", "The Meaning of Life": "1983"}
 # print(list(table4.items()))
@@ -3055,7 +3056,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # matrix = {(2, 3, 4): 88, (7, 8, 9): 99}
 # x = 2
@@ -3073,7 +3074,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print('list(zip(["a", "b", "c"], [1, 2, 3])):', list(zip(["a", "b", "c"], [1, 2, 3])))
 # dict11 = {k: v for (k, v) in zip(["a", "b", "c"], [1, 2, 3])}
@@ -3096,7 +3097,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # dict12 = {"a": 1, "b": 2}
 # dict13 = {"a": 1, "c": 3}
@@ -3104,7 +3105,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # dbFile = dbm.open("/home/punit/src/_not_mine/PythonTestBed/var/in.dbm", "c")
 # dbFile["key"] = "Any Random String"
@@ -3113,7 +3114,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # shelf = shelve.open("/home/punit/src/_not_mine/PythonTestBed/var/in.shelve", "c")
 # shelf["key"] = {"a": 1, "b": 2, "c": 3}
@@ -3122,13 +3123,13 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(dict.fromkeys("a", 0))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # x = 1
 # y = 2
@@ -3139,38 +3140,38 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # sys.exit()
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # [a, b, c] = (1, 2, 3)
 # print("a:", a)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # a, b, c = range(3)
 # print(a, b, c)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list41 = [3, 1, 4, 1, 5, 9]
 # while list41:
-# 	head, list41 = list41[0], list41[1:]
+# 	head, list41 = list41[0], list41[1 :]
 # 	print("head:", head)
 # 	print("list41:", list41)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # a, *b, c = "spam"
 # print("a:", a, "b:", b, "c:", c)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list42 = [3, 1, 4, 1, 5, 9]
 #
@@ -3181,7 +3182,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list43 = ["a", "b", "c", "d"]
 # a, b, c, *d = list43
@@ -3189,7 +3190,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list44 = ["a", "b", "c", "d"]
 # a, b, c, d, *e = list44
@@ -3197,7 +3198,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list45 = ["a", "b", "c", "d"]
 # a, b, *c, d, e = list45
@@ -3205,7 +3206,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list46 = []
 # list46 += "spam"  # Works.
@@ -3221,13 +3222,13 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print("a", file = sys.stderr)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/out2.txt", "w") as file17:
 # 	print("A", file = file17)
@@ -3237,7 +3238,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # number36 = 0x16_FF_9A
 # string31 = "\u1f9e"
@@ -3250,7 +3251,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # stream1 = sys.stdout
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/out3.txt", "a") as sys.stdout:
@@ -3259,7 +3260,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # stream2 = sys.stdout
 # print("A")
@@ -3270,7 +3271,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # string32 = """
 # A
@@ -3283,7 +3284,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(1 and 1)
 # print("a" and 0)
@@ -3295,7 +3296,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # for it1 in (False, True):
 # 	for it2 in (False, True):
@@ -3312,7 +3313,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list47 = ["a", 0, "b", [], "c", {}]
 # print(list(filter(bool, list47)))
@@ -3321,7 +3322,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # table5 = [("Bob", 120129, "DB Admin", "Calicut"), ("Alice", 108420, "Python Expert", "Kozhikode"), ("Carl", 109481, "AI Engineer", "Trivandrum")]
 # for _, iden, _, _ in table5:
@@ -3329,14 +3330,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # for (a, b), c in [([1, 2], 3), ["XY", 4]]:
 # 	print("a:", a, "b:", b, "c:", c)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list49 = ["aaa", 111, (4, 5), 2.01]
 # list50 = [(4, 5), 3.14]
@@ -3359,7 +3360,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # output = os.popen("/usr/bin/ls")
 # print("readline:", output.readline())
@@ -3367,7 +3368,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # print("read(5):", output.read(5))
 # output = os.popen("/usr/bin/ls")
 # print("readlines()[0]:", output.readlines()[0])
-# print("read()[:5]:", os.popen("/usr/bin/ls").read()[:5])
+# print("read()[:5]:", os.popen("/usr/bin/ls").read()[: 5])
 #
 # print("Line iteration in for loop:")
 # for l in os.popen("/usr/bin/ls"):
@@ -3375,7 +3376,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/in4.txt") as file19:
 # 	print(file19 is iter(file19) and iter(file19) is file19.__iter__())
@@ -3383,7 +3384,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list51 = ["A", "B", "C", "Class3"]
 # file20 = pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/in5.txt")
@@ -3400,7 +3401,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # tuple15 = (1, 2)
 # tuple16 = (3, 4)
@@ -3410,7 +3411,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # map1 = map(abs, [-1, 0, 1])
 # print("map1:", map1)
@@ -3426,14 +3427,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(len(dir(sys)))
 # print(len([s for s in dir(sys) if not s.startswith("_")]))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(docstrings.__doc__)
 # print(docstrings.square.__doc__)
@@ -3441,14 +3442,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # help("sys")  # If not imported.
 # help("email.message")
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print("help(docstrings.square):")
 # help(docstrings.square)
@@ -3457,7 +3458,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # var101 = "old"
 #
@@ -3489,7 +3490,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # tuple19 = 1, 2
 # tuple20 = 2, 3, 4
@@ -3509,7 +3510,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # tuple23 = (1, [2, 3], 4)
 # # tuple23[1] = [2]
@@ -3518,7 +3519,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # namedTuple4 = collections.namedtuple("namedTuple4", ["name", "age", "jobs"])  # Create the class.
 # bob = namedTuple4("Bob", age = 30, jobs = ["dev", "mgr"])
@@ -3545,17 +3546,17 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/in.bin", "rb") as file21:
 # 	bytes8 = file21.read()
 # 	print(bytes8)
-# 	print("bytes8[4:7]:", bytes8[4:7].decode())
+# 	print("bytes8[4:7]:", bytes8[4 : 7].decode())
 # 	print("str(bytes8):", str(bytes8, "utf-8"))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # bytes5 = struct.pack(">i9sh", 7, b"MANNA DEY", 8)  # Create bytes5 binary data.
 # print(bytes5)
@@ -3566,7 +3567,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/bytestring.bin", "rb") as file23:
 # 	bytes9 = file23.read()
 # 	print(bytes9)
-# 	print(bytes9[4:8])
+# 	print(bytes9[4 : 8])
 # 	print(len(bytes9))
 # 	print(list(bytes9))
 # 	print("Read:" + bytes9.decode())
@@ -3574,7 +3575,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # string33 = "sp\xc4m"
 # print(string33)
@@ -3597,14 +3598,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # 	print(string44)
 # 	print(len(string44))
 #
-# print("string34.encode(\"utf-8\"):", string34.encode("utf-8"))
-# print("bytes7.decode(\"utf-8\"):", bytes7.decode("utf-8"))
-# print("string34.encode(\"utf-16\"):", string34.encode("utf-16"))
-# print("string44.decode(\"utf-16\"):", string44.decode("utf-16"))
+# print('string34.encode("utf-8"):', string34.encode("utf-8"))
+# print('bytes7.decode("utf-8"):', bytes7.decode("utf-8"))
+# print('string34.encode("utf-16"):', string34.encode("utf-16"))
+# print('string44.decode("utf-16"):', string44.decode("utf-16"))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # set5 = set("spam")
 # set6 = {"h", "a", "m"}
@@ -3612,7 +3613,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # set7 = set("woman")
 # set8 = set("man")
@@ -3622,7 +3623,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # {i ** 2 for i in [1, 2, 3, 4]}  # Set comprehension.
 # print(list(set("woman")))
@@ -3633,7 +3634,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # decimal1 = decimal.Decimal("3.141")
 # print(decimal1 + 1)
@@ -3643,7 +3644,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # fraction1 = fractions.Fraction(1, 4)
 # print(fraction1 + 1)
@@ -3651,13 +3652,13 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(bool("spam"))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # var102 = None
 # print(var102)
@@ -3677,7 +3678,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # class Lovers:
@@ -3701,14 +3702,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(int(3.1415))
 # print(float(3))  # Converts to float.
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(repr("spam"))
 # print(str("spam"))
@@ -3716,7 +3717,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # number31 = 2
 # number32 = 4
@@ -3735,7 +3736,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # number37 = 3.3
 # print(number37 == 1.1 + 2.2)
@@ -3744,7 +3745,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(1j * 1j)
 # print(2 + 1j * 3)
@@ -3752,7 +3753,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(oct(64), hex(64), bin(64))
 # print(64, 0o100, 0x40, 0b1000000)
@@ -3761,14 +3762,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(f"{64:0}, {64:o}, {64:X}, {64:x}, {64:b}")  # Returns digits not strings.
 # print("%o, %x, %x, %X" % (64, 64, 255, 255))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # number38 = 99
 # print(bin(number38), number38.bit_length(), len(bin(number38)) - 2)
@@ -3776,7 +3777,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(math.pi, math.e)
 # print(math.sin(2 * math.pi / 180))
@@ -3795,7 +3796,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(hex(15))
 # print(bin(15))
@@ -3813,7 +3814,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # print("not in" if "s" not in "spam" else "in")
 # list54 = list55 = [1]
 # print("same" if list54 is not list55 else "different")
-# print("abcdefghi"[1:-1:2])
+# print("abcdefghi"[1 :-1 : 2])
 # string37 = "abcdefghi"
 # string38 = string37[slice(1, 2, -1)]
 # print(string38)
@@ -3824,7 +3825,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # string39 = "print(oct(8))"
 # eval(string39)
@@ -3832,21 +3833,21 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print("{16:o}, {16:x}, {16:b}")
 # print(f"{15:o}, {15:x}, {15:X}")
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(random.randint(1, 10))
 # print(random.randint(1, 10))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # suits = ["hearts", "clubs", "diamonds", "spades"]
 # random.shuffle(suits)
@@ -3856,26 +3857,26 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(0.1 + 0.1 + 0.1 - 0.3)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(decimal.Decimal.from_float(1.25))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(decimal.Decimal("0.1") + decimal.Decimal("0.1") + decimal.Decimal("0.1") - decimal.Decimal("0.3"))
 # print(decimal.Decimal("0.1") + decimal.Decimal("0.10") + decimal.Decimal("0.10") - decimal.Decimal("0.30"))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(decimal.Decimal(1) / decimal.Decimal(7))  # Default: 28 digits.
 # decimal.getcontext().prec = 4
@@ -3884,7 +3885,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # with decimal.localcontext() as ctx:
 # 	ctx.prec = 2
@@ -3893,7 +3894,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # fraction2 = fractions.Fraction(1, 3)
 # fraction3 = fractions.Fraction(4, 6)
@@ -3904,13 +3905,13 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(fractions.Fraction(".25"))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(fractions.Fraction("0.25"))
 # number41 = 0.25
@@ -3938,7 +3939,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # set9 = set("abcde")
 # set10 = set("bdxyz")
@@ -3991,7 +3992,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # set14 = {1, 2, 3}
 # print(set14)
@@ -4004,7 +4005,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list58 = [1, 2, (1, 2, [1, 2, (1, 2, [1, 2])])]
 #
@@ -4034,26 +4035,26 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print("knight's", 'knight"s')
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # path = r"C:\new\text.dat"
 # print(path)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(hex(255))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # dict17 = {"spam": 2, "ham": 1, "eggs": 3}
 # print(list(dict17.values()))
@@ -4062,7 +4063,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # print(dict17.get("toast"))
 # print(dict17.get("toast", 88))
 #
-# # LP.
+# # LP
 #
 # file27 = pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/in.txt", encoding = "utf-8")
 # print(len(file27.read()))
@@ -4075,7 +4076,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/in3.txt") as file28:
 # 	line = file28.readline()
@@ -4091,7 +4092,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # dict18 = {"a": 1, "0x29cc": "⧌", "0x29c9": "⧉", "0x29c6": "⧆", "0x29c1": "⧁"}
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/out.pkl", "wb") as file29:
@@ -4106,7 +4107,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/in.csv") as file32:
 # 	cSVFile = csv.reader(file32)
@@ -4115,7 +4116,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/out.bin", "wb") as file33:
 # 	bytes2 = struct.pack(">i4sh", -2147483647, b"pyth", -32768)
@@ -4130,7 +4131,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list65 = [0, 1]
 # list66 = [-1, list1, 2]
@@ -4156,14 +4157,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(bool(0.0))
 # print(bool({}))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(type([1]) == type([]))
 # print(list is type([]))
@@ -4171,13 +4172,13 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(type(lambda arg100: arg100 * 2))
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list68 = [0, 1, 2]
 # list69 = list68 * 4
@@ -4190,7 +4191,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list71 = [0, 1, 2]
 # list72 = [list71] * 4
@@ -4212,7 +4213,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list75 = ["grail"]
 # list75.append(list75)
@@ -4220,20 +4221,20 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list76 = [0, 0xA, 0b10, "d"]
 # print("list76:", list76)
-# print("list76[3:1]:", list76[3:1])
-# list76[3:1] = "?"
+# print("list76[3:1]:", list76[3 : 1])
+# list76[3 : 1] = "?"
 # print("list76:", list76)
-# print("list76[10:-10]:", list76[10:-10])
-# list76[10:] = "V"
+# print("list76[10:-10]:", list76[10 :-10])
+# list76[10 :] = "V"
 # print("list76:", list76)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # dict20 = {}
 # dict20[1] = "a"
@@ -4241,43 +4242,43 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # string40 = "spam"
 # print("string40[0][0][0][0][0]:", string40[0][0][0][0][0])
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # string41 = ["s", "p", "a", "m"]
 # print("string41[0][0][0][0][0]:", string41[0][0][0][0][0])
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # string42 = "spam"
 # print("string42:", string42)
-# string43 = string42[0:1] + "list76" + string42[2:4]
-# print("s:", s)
+# string43 = string42[0 : 1] + "list76" + string42[2 : 4]
+# print("string43:", string43)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print(zip is builtins.zip)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # # print(builtins is __builtin__)
 # print(builtins is __builtins__)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # try:
 # 	print("var103:", var103)
@@ -4295,7 +4296,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print("main: module1.var105:", module1.var105)
 # module1.var105 = 1
@@ -4305,7 +4306,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # var106 = 0
 #
@@ -4352,7 +4353,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # var140 = 0
 #
@@ -4375,7 +4376,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def function32() -> None:
@@ -4392,7 +4393,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def returnClosure(base: int) -> callable:
@@ -4440,7 +4441,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def returnLambda(base: float) -> callable:
@@ -4461,7 +4462,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def function34() -> None:
@@ -4484,7 +4485,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def function34() -> None:
@@ -4504,7 +4505,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def function36() -> callable:
@@ -4518,14 +4519,14 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print("h")
 # # nonlocal a
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def tester(start: int) -> callable:
@@ -4547,7 +4548,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def tester(start: int) -> callable:
@@ -4573,7 +4574,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def demonstrateFunctionAttributes(arg110: any) -> callable:
@@ -4588,19 +4589,19 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 #
 # function39 = demonstrateFunctionAttributes(0)  # Assign the function object to "function39".  This function object has an "attribute1" attribute.
-# print("function39(\"spam\"):", function39("spam"))
-# print("function39(\"ham\"):", function39("ham"))
+# print('function39("spam"):', function39("spam"))
+# print('function39("ham"):', function39("ham"))
 # print("function39.attribute1:", function39.attribute1)  # Access the function attribute.
 #
 # function40 = demonstrateFunctionAttributes(42)  # Create another copy of the nested function.
 # print("function40.attribute1:", function40.attribute1)
 # print("function40.attribute1:", function40.attribute1)
-# function40("Incrementing the state (\"attribute1\"):")
+# function40('Incrementing the state ("attribute1"):')
 # print("function40.attribute1:", function40.attribute1)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def CustomizedOpen(customizationId: int) -> callable:
@@ -4608,7 +4609,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # 	originalOpen = builtins.open
 #
 # 	def customOpen(*keywordArguments: typing.Iterable, **positionalArguments: typing.Iterable) -> callable:
-# 		print("Customizing \"open\" using classes.  ID: %r:" % id, keywordArguments, positionalArguments)
+# 		print('Customizing "open" using classes.  ID: %r:' % id, keywordArguments, positionalArguments)
 # 		print("customOpen: originalOpen:", originalOpen, " customizationId:", customizationId)
 # 		return originalOpen(*keywordArguments, **positionalArguments)
 #
@@ -4626,7 +4627,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # class CustomizedOpen:
@@ -4637,7 +4638,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # 		builtins.open = self
 #
 # 	def __call__(self, *keywordArguments: typing.Iterable, **positionalArguments: typing.Iterable) -> callable:
-# 		print("Customizing \"open\" using classes.  ID: %r:", self.id, keywordArguments, positionalArguments)
+# 		print('Customizing "open" using classes.  ID: %r:', self.id, keywordArguments, positionalArguments)
 # 		print("customOpen: originalOpen:", self.originalOpen, " customizationId:", self.id)
 # 		return self.originalOpen(*keywordArguments, **positionalArguments)
 #
@@ -4653,7 +4654,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def changer(var111: int, var112: list) -> None:
@@ -4669,7 +4670,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def multiple(var112: int, list78: list) -> tuple:
@@ -4687,7 +4688,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def function41(arg140: any, arg141: any) -> None:
@@ -4710,7 +4711,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def keywordOnlyDemo(var114: any, *var115: typing.Iterable, var116: any) -> None:
@@ -4723,7 +4724,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def keywordOnlyDemo(var117: any, *, var118: any, var119: any) -> None:
@@ -4731,13 +4732,16 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 #
 # keywordOnlyDemo(0, var118 = 3, var119 = "var119")
-# with contextlib.suppress(TypeError):
+#
+# try:
 # 	keywordOnlyDemo(0, var119 = "var119")
 # 	keywordOnlyDemo(0)
+# except TypeError as ex:
+# 	print(sys.exc_info()[0].__name__ + ":", ex, "\n")
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def keywordOnlyArgumentsDemo(var120: any, *, var121: int = 0, var122: int = 1, var123: int = 2) -> None:
@@ -4748,7 +4752,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def argumentsOrderDemo(var124: any, *var125: typing.Iterable, var126: int = 0, **var127: typing.Iterable) -> None:
@@ -4768,7 +4772,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def argumentsOrderDemo(var132: int, *var133: typing.Iterable, var134: int = 0, **var135: typing.Iterable) -> None:
@@ -4789,12 +4793,12 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def findMinimum1(*iterable100: typing.Iterable) -> any:
 # 	firstItem = iterable100[0]
-# 	for it in iterable100[1:]:
+# 	for it in iterable100[1 :]:
 # 		firstItem = min(it, firstItem)
 # 	return firstItem
 #
@@ -4819,7 +4823,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def findMinOrMax(minOrMax: any, firstItem: any, *restItems: typing.Iterable) -> any:
@@ -4845,7 +4849,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def myPrint(*positionalArguments: typing.Iterable, **keywordArguments: typing.Iterable) -> None:
@@ -4889,13 +4893,13 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def summateRecursively(list80: list) -> int:
 # 	if not list80:
 # 		return 0
-# 	return list80[0] + summateRecursively(list80[1:])
+# 	return list80[0] + summateRecursively(list80[1 :])
 #
 #
 # print(summateRecursively([0, 1, 2, 3, 4, 5]))
@@ -4905,11 +4909,11 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def summateRecursively(list81: list) -> int:
-# 	return 0 if not list81 else list81[0] + summateRecursively(list81[1:])
+# 	return 0 if not list81 else list81[0] + summateRecursively(list81[1 :])
 #
 #
 # print(summateRecursively([0, 1, 2, 3, 4, 5]))
@@ -4919,11 +4923,11 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def summateRecursively(list82: list) -> int:
-# 	return list82[0] if len(list82) == 1 else list82[0] + summateRecursively(list82[1:])
+# 	return list82[0] if len(list82) == 1 else list82[0] + summateRecursively(list82[1 :])
 #
 #
 # print(summateRecursively([0, 1, 2, 3, 4, 5]))
@@ -4934,7 +4938,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def summateRecursively(list83: list) -> int:
@@ -4950,7 +4954,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def indirectlySummateRecursively(list84: list) -> bool:
@@ -4960,23 +4964,23 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 #
 # def nonEmpty(list85: list) -> int:
-# 	return list85[0] + indirectlySummateRecursively(list85[1:])
+# 	return list85[0] + indirectlySummateRecursively(list85[1 :])
 #
 #
 # print(indirectlySummateRecursively([0, 1, 2, 3, 4]))
 #
-# # LP.
+# # LP
 #
 # list86 = [9, 8, 7, 6, 5, 4, 3, 2, 1]
 # sum9 = 0
 # while list86:
 # 	sum9 += list86[0]
-# 	list86 = list86[1:]
+# 	list86 = list86[1 :]
 # print("sum9:", sum9)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list87 = [1, [2, [3, 4], 5], 6, [7, 8], [9]]
 #
@@ -4999,7 +5003,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list90 = [1, [2, [3, 4], 5], 6, [7, 8], [9]]
 # list90Sum = 0
@@ -5028,7 +5032,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # list92 = [1, [2, [3, 4], 5], 6, [7, 8], [9]]
 # sum11 = 0
@@ -5039,20 +5043,20 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # 	if type(element) is not list:
 # 		sum11 += element
 # 	else:
-# 		list92[:0] = element
+# 		list92[: 0] = element
 # print("sum11:", sum11)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 # print("sys.getrecursionlimit():", sys.getrecursionlimit())
 # sys.setrecursionlimit(1048576)
 # print("sys.getrecursionlimit():", sys.getrecursionlimit())
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
-
-# LP.
+#
+# # LP
 #
 #
 # def function44(number43: int) -> None:
@@ -5069,7 +5073,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # def function510(var1: "spam", var2: (1, 10), var3: float, var4: 2 + 3) -> int:
@@ -5081,8 +5085,7 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-#
-# # LP.
+# # LP
 #
 # print(lambda var1, var2, var3: var1 + var2 + var3(0, 1, 2))
 # lambda100 = lambda var1, var2, var3: var1 + var2 + var3(0, 1, 2)
@@ -5096,13 +5099,13 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# list1 = [lambda n: n ** 2, lambda n: n ** 3, lambda n: n ** 4]
-# for e in list1:
+# list93 = [lambda n: n ** 2, lambda n: n ** 3, lambda n: n ** 4]
+# for e in list93:
 # 	print(e(2))
 #
 # number100 = {"square": (lambda n: n ** 2), "cube": (lambda n: n ** 2)}["cube"](4)
 # print("number100:", number100)
-
+#
 # printAll = lambda list100: list(map(print, list100))
 # printAll(["spam", "toast", "eggs"])
 #
@@ -5115,34 +5118,713 @@ squares2 = list(map(lambda p: p ** 2, range(10)))  # Equivalent.  List comprehen
 # lambdaInner = lambdaOuter(1)  # number100 = 1
 # number102 = lambdaInner(2)  # number101 = 2
 # print(number102)
-
-# button1 = tkinter.Button(text = "Click me!", command = (lambda: print("Clicked me!")))
+#
+# button1 = tk.Button(text = "Click me!", command = (lambda: print("Clicked me!")))
 # button1.pack()
-# tkinter.mainloop()
+# tk.mainloop()
+#
+# salariesInLPA = [10, 20, 15]
+# print(*(map(lambda salary: salary + (salary * 0.1), salariesInLPA)))
+# print(*[salary + (salary * 0.1) for salary in salariesInLPA])
+# print(*list(map(lambda a, b: a ** b, [1, 2, 3, 4], [2, 3])))
+# print(*list(map(lambda a, b: a ** b, [1, 2, 3, 4], [2, 3, 4, 5])))
+# print(*filter(lambda n: n > 0, range(-5, 5)))
+# print(*filter(bool, range(-5, 5)))
+# print(functools.reduce(lambda a, b: a + b, [1, 2, 3, 4]))
+# print(functools.reduce(lambda a, b: a * b, [1, 2, 3, 4]))
+# try:
+# 	print(functools.reduce(lambda a, b, c: a + b + c, [1, 2, 3, 4]))
+# except TypeError:
+# 	print("can't pass three args in functools.reduce.")
+# print(functools.reduce(lambda currentDifference, e: currentDifference - e, [1, 2, 3, 4]))
+# print(functools.reduce(lambda currentDifference, e: currentDifference - e, [100, 2, 3, 4]))
+# print(functools.reduce(lambda currentDifference, e: e - currentDifference, [100, 2, 3, 4]))
+# try:
+# 	print(functools.reduce(lambda currentDifference, e: e - currentDifference, math.nan, []))
+# except TypeError:
+# 	print("default value in case of empty iterable doesn't work.")
+# print(functools.reduce(lambda a, b: operator.add(a, b), [1, 2, 3, 4]))
+# print(*list(map(lambda n: n ** 2, filter(lambda n: n % 2 == 0, range(10)))))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# # LP
+#
+# matrix100 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# matrix101 = [ce + 10 for r in matrix100 for ce in r]
+# print("matrix101:", matrix101)
+# matrix102 = [[ce + 10 for ce in r] for r in matrix100]
+# print("matrix102:", matrix102)
 
-salariesInLPA = [10, 20, 15]
-print(*(map(lambda salary: salary + (salary * .1), salariesInLPA)))
-print(*[salary + (salary * .1) for salary in salariesInLPA])
-print(*list(map(lambda a, b: a ** b, [1, 2, 3, 4], [2, 3])))
-print(*list(map(lambda a, b: a ** b, [1, 2, 3, 4], [2, 3, 4, 5])))
-print(*filter(lambda n: n > 0, range(-5, 5)))
-print(*filter(bool, range(-5, 5)))
-print(functools.reduce(lambda a, b: a + b, [1, 2, 3, 4]))
-print(functools.reduce(lambda a, b: a * b, [1, 2, 3, 4]))
-try:
-	print(functools.reduce(lambda a, b, c: a + b + c, [1, 2, 3, 4]))
-except TypeError:
-	print("can't pass three args in functools.reduce.")
-print(functools.reduce(lambda currentDifference, e: currentDifference - e, [1, 2, 3, 4]))
-print(functools.reduce(lambda currentDifference, e: currentDifference - e, [100, 2, 3, 4]))
-print(functools.reduce(lambda currentDifference, e: e - currentDifference, [100, 2, 3, 4]))
-try:
-	print(functools.reduce(lambda currentDifference, e: e - currentDifference, math.nan, []))
-except TypeError:
-	print("default value in case of empty iterable doesn't work.")
-print(functools.reduce(lambda a, b: operator.add(a, b), [1, 2, 3, 4]))
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
-# # LP.
+# LP
+
+# list96 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# list97 = [[2, 2, 2], [3, 3, 3], [4, 4, 4]]
+# list98 = [list96[r][c] * list97[r][c] for r in range(3) for c in range(3)]
+# print("list98:", list98)
+# list99 = [[list96[r][c] * list97[r][c] for c in range(3)] for r in range(3)]
+# print("list99:", list99)
+# list100 = [[ce1 * ce2 for (ce1, ce2) in zip(r1, r2)] for (r1, r2) in zip(list96, list97)]
+# print("list100:", list100)
+#
+
+# # LP
+#
+# try:
+# 	list101 = [l.rstrip() for l in open("var/in9.txt").readlines()]
+# 	print("list101:", list101)
+# except:
+# 	pass
+# try:
+# 	list102 = [l.rstrip() for l in open("var/in9.txt")]
+# 	print("list102:", list102)
+# except:
+# 	pass
+#
+# list103 = list(map(lambda l: l.rstrip(), open("var/in9.txt")))
+# print("list103:", list103)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# listOfTuples = [("bob", 35, "mgr"), ("sue", 40, "dev")]
+# list104 = [age for (_, age, _) in listOfTuples]
+# print("list104:", list104)
+# list105 = list(map(lambda r: r[1], listOfTuples))
+# print("list105:", list105)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+#
+# def generatorFunction1(number103):
+# 	for i in range(number103):
+# 		yield i ** 2
+#
+#
+# for i in generatorFunction1(5):
+# 	print(i, end = " : ")
+# print()
+#
+# print("generatorFunction1:", generatorFunction1)
+# generator1 = generatorFunction1(4)
+# print(next(generator1))
+# print(next(generator1))
+# print(next(generator1))
+# print(next(generator1))
+# try:
+# 	print(next(generator1))
+# except StopIteration as ex:
+# 	print("ex:", ex)
+#
+# generator2 = generatorFunction1(5)
+# print(iter(generator2) is generator2)
+# print(next(generator2))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# LP
+
+# def capitalizeFields(line):
+# 	for field in line.split(","):
+# 		yield field.upper()
+#
+#
+# print(tuple(capitalizeFields("aaa,bbb,ccc")))
+#
+# print({i: s for i, s in enumerate(capitalizeFields("aaa,bbb,ccc"))})
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+#
+# def generatorFunction3():
+# 	for i in range(10):
+# 		j = yield i  # j is assigned the value sent by the caller, since this value doesn't show up in function parameter list.
+# 		print("j:", j)
+#
+#
+# generator3 = generatorFunction3()
+# print("Calling next.")
+# print("next(generator3):", next(generator3))
+# print("Sending 77.")
+# print("generator3.send(77):", generator3.send(77))
+# print("Sending 88.")
+# print("generator3.send(88):", generator3.send(88))
+# print("Calling next.")
+# print("next(generator3):", next(generator3))
+# print("Calling next.")
+# print("next(generator3):", next(generator3))
+# print("Calling next.")
+# print("next(generator3):", next(generator3))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# generator4 = (i ** 2 for i in range(4))
+# print(iter(generator4) is generator4)
+# print(next(generator4))
+# print(next(generator4))
+# print(next(generator4))
+# print(next(generator4))
+# try:
+# 	print(next(generator4))
+# except StopIteration as ex:
+# 	print("ex:", ex)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# for j in (i ** 2 for i in range(4)):
+# 	print("%s, %s" % (j, j / 2.0))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# print("".join(e.upper() for e in "aaa,bbb,ccc".split(",")))
+#
+# e1, e2, e3 = (e + "\n" for e in "aaa,bbb,ccc".split(","))
+# print((e1, e3))
+#
+# print(sum((i ** 2) for i in range(4)))
+#
+# print(sorted(i ** 2 for i in range(4)))
+# print(sorted((i ** 2 for i in range(4)), reverse = True))
+#
+# print(list(abs(e) for e in (-1, -2, 3, 4)))
+#
+# line = "aaa,bbb,ccc"
+# print("".join(map(str.upper, line.split(","))))
+#
+# print(list(map(lambda e: e * 2, map(abs, (-1, -2, 3, 4)))))  # Nested map.
+# print(list(e * 2 for e in (abs(e) for e in (-1, -2, 3, 4))))  # Nested generators.
+# print(list(map(math.sqrt, (e ** 2 for e in range(4)))))
+# print(list(map(abs, map(abs, map(abs, (-1, 0, 1))))))
+# print(list(abs(i) for i in (abs(i) for i in (abs(i) for i in (-1, 0, 1)))))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# line = "aa bbb c"
+# print("".join(e for e in line.split() if len(e) > 1))  # Generator expression here is simpler than this filter equivalent:
+# print("".join(filter(lambda e: len(e) > 1, line.split())))
+#
+# print("".join(e.upper() for e in line.split() if len(e) > 1))
+# print("".join(map(str.upper, filter(lambda e: len(e) > 1, line.split()))))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# list106 = [1, 2, 3, 4]
+# iterator1, iterator2 = iter(list106), iter(list106)
+# print(next(iterator1))
+# print(next(iterator1))
+# print(next(iterator2))
+# del list106[2 :]
+# try:
+# 	print(next(iterator1))
+# except StopIteration as ex:
+# 	print("ex:", ex)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# # LP
+#
+#
+# def function20(n):
+# 	for i in range(n):
+# 		yield i
+# 	for i in (i ** 2 for i in range(n)):
+# 		yield i
+#
+#
+# print(list(function20(5)))
+#
+#
+# def function21(n):
+# 	yield from range(5)
+# 	yield from (i ** 2 for i in range(5))
+#
+#
+# print(list(function21(5)))
+# print(" : ".join(str(i) for i in function21(5)))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# dict21 = {"a": 1, "b": 2, "c": 3}
+# iterator3 = iter(dict21)
+# print(next(iterator3))
+# print(next(iterator3))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# for _, subdirectory, files in os.walk("."):
+# 	for file in files:
+# 		if file.startswith("."):
+# 			print("file:", file)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+#
+# def function22(a, b, c):
+# 	print("%s, %s, and %s" % (a, b, c))
+#
+#
+# function22(*range(3))
+# function22(*(i for i in range(3)))
+#
+# dict40 = dict(a = "Bob", b = "dev", c = 40.5)
+# print('function22(a = "Bob", b = "dev", c = 40.5):', function22(a = "Bob", b = "dev", c = 40.5))
+# print("function22(**dict40):", function22(**dict40))
+# print("function22(*dict40):", function22(*dict40))
+# print("function22(*dict40.values()):", function22(*dict40.values()))
+#
+# print(list(print(c.upper(), end = " ") for c in "spam"))
+# print(*(c.upper() for c in "spam"))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# # LP
+#
+# list99, string99 = [1, 2, 3], "spam"
+# for i in range(len(string99)):
+# 	string99 = string99[1 :] + string99[: 1]
+# 	print(string99, end = " ")
+#
+# print()
+#
+# for i in range(len(list99)):
+# 	list99 = list99[1 :] + list99[: 1]
+# 	print("list99:", list99, end = " ")
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# # LP
+#
+#
+# def permute1(seq):
+# 	if not seq:
+# 		return [seq]
+# 	else:
+# 		res = []
+# 		for i in range(len(seq)):
+# 			rest = seq[: i] + seq[i + 1 :]
+# 			for e in permute1(rest):
+# 				res.append(seq[i : i + 1] + e)
+# 		return res
+#
+#
+# print("permute1([1, 2, 3, 4, 5, 6]):", permute1([1, 2, 3, 4, 5, 6]))
+# for permutation in permute1([1, 2, 3, 4, 5, 6]):
+# 	print("permutation:", permutation)
+#
+#
+# def permute2(seq):
+# 	if not seq:
+# 		yield seq
+# 	else:
+# 		for i in range(len(seq)):
+# 			rest = seq[: i] + seq[i + 1 :]
+# 			for e in permute2(rest):
+# 				yield seq[i : i + 1] + e
+#
+#
+# print("permute2([1, 2, 3, 4, 5, 6]):", permute2([1, 2, 3, 4, 5, 6]))
+# for permutation in permute2([1, 2, 3, 4, 5, 6]):
+# 	print("permutation:", permutation)
+#
+# seq = list(range(10))
+# p1 = permute1(seq)  # Only took ~12 seconds.
+# print("permute1: done.")
+#
+# p2 = permute2(seq)  # Returned immediately.
+# print("permute2: done.")
+#
+# p2 = list(permute2(seq))  # Took ~7 seconds.
+# print("permute2: done.")
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# string1 = "abc"
+# string2 = "xzy123"
+# print(list(zip(string1, string2)))  # Truncates the shorter one.
+#
+# print(list(zip([-2, -1, 0, 1, 2])))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# # LP
+#
+# print(list(map(pow, [1, 2, 3, 4], [1, 2, 3, 4])))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# # LP
+#
+#
+# def myMap(function1, *sequences):
+# 	retval = []
+# 	print(sequences)
+# 	for args in zip(*sequences):
+# 		retval.append(function1(*args))
+# 	return retval
+#
+#
+# print(myMap(abs, [-1, -2, 1]))
+# print(myMap(pow, [1, 2, 3], [1, 2, 3]))
+#
+#
+# def myMap1(function1, *args):
+# 	return [function1(*arg) for arg in zip(*args)]
+#
+#
+# print(myMap1(abs, [-2, -1, 0, 1, 2]))
+# print(myMap1(pow, [1, 2, 3], [1, 2, 3]))
+#
+#
+# def myMap2(function1, *args):
+# 	for arg in zip(*args):
+# 		yield function1(*arg)
+#
+#
+# def myMap3(function1, *args):
+# 	return (function1(*arg) for arg in zip(*args))
+#
+#
+# print(list(myMap2(abs, [-2, -1, 0, 1, 2])))
+# print(list(myMap2(pow, [1, 2, 3], [1, 2, 3])))
+# print(list(myMap3(abs, [-2, -1, 0, 1, 2])))
+# print(list(myMap3(pow, [1, 2, 3], [1, 2, 3])))
+#
+# print(list(map(pow, [1, 2, 3], [1, 2, 3, 4])))
+# try:
+# 	print(list(map(None, [1, 2, 3], [1, 2, 3, 4])))
+# except TypeError as ex:
+# 	print("ex: Padding map not available in Python 3.", ex)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# # LP
+#
+#
+# def myZip(*sequences):
+# 	sequencesAsList = [list(se) for se in sequences]
+# 	retval = []
+# 	while all(sequencesAsList):
+# 		retval.append(tuple(se.pop(0) for se in sequencesAsList))
+# 	return retval
+#
+#
+# seq1, seq2 = "abc", "xyz123"
+# print(myZip(seq1, seq2))
+#
+#
+# def myPaddingMap(*sequences, pad = None):
+# 	sequences = [list(se) for se in sequences]
+# 	retval = []
+# 	while any(sequences):
+# 		retval.append(tuple((se.pop(0) if se else pad) for se in sequences))
+# 	return retval
+#
+#
+# print(myPaddingMap(seq1, seq2))
+# print(myPaddingMap(seq1, seq2, pad = "AA"))
+#
+#
+# def myZip1(*sequences):
+# 	sequences = [list(e) for e in sequences]
+# 	while all(sequences):
+# 		yield tuple(e.pop(0) for e in sequences)
+#
+#
+# seq1, seq2 = "abc", "xyz123"
+# print(list(myZip1(seq1, seq2)))
+#
+#
+# def myPaddingMap1(*sequencesInTuple, pad = None):
+# 	sequencesInListOfLists = [list(e) for e in sequencesInTuple]
+# 	while any(sequencesInListOfLists):
+# 		yield tuple((e.pop(0) if e else pad) for e in sequencesInListOfLists)
+#
+#
+# print(list(myPaddingMap1(seq1, seq2)))
+# print(list(myPaddingMap1(seq1, seq2, pad = "AA")))
+#
+#
+#
+# def myZip2(*sequences):
+# 	minLen = min(len(e) for e in sequences)
+# 	return [tuple(e[i] for e in sequences) for i in range(minLen)]
+#
+#
+# seq1, seq2 = "abc", "xyz123"
+# print(list(myZip2(seq1, seq2)))
+#
+#
+# def myPaddingMap2(*sequences, pad = None):
+# 	maxLen = max(len(e) for e in sequences)
+# 	return [tuple((e[i] if len(e) > i else pad) for e in sequences) for i in range(maxLen)]
+#
+#
+# print(list(myPaddingMap2(seq1, seq2)))
+# print(list(myPaddingMap2(seq1, seq2, pad = "AA")))
+
+# def myZip3(*sequences):
+# 	minLen = min(len(e) for e in sequences)
+# 	return (tuple(e[i] for e in sequences) for i in range(minLen))
+#
+#
+# seq1, seq2 = "abc", "xyz123"
+# print(myZip3(seq1, seq2))
+# print(list(myZip3(seq1, seq2)))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+
+# dict1 = {k: v for k in [1, 2, 3] for v in [1, 2, 3]}  # Adding another pair with existing key overwrote the value.
+# print("dict1:", dict1)
+
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+#
+# def timer(func, *args):
+# 	# start = time.clock()
+# 	start = time.time()
+# 	for i in range(1000):
+# 		func(*args)
+# 	# return time.clock() - start
+# 	return time.time() - start
+#
+#
+# print(timer(pow, 2, 1000))
+# print(timer(str.upper, "spam"))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# timer = time.clock if sys.platform[: 3] == "win" else time.time
+#
+#
+# def total(reps, function, *positionals, **keywords):
+# 	"""total: total wall clock time taken to run the function reps number of times."""
+#
+# 	repslist = list(range(reps))
+# 	start = timer()
+# 	for i in repslist:
+# 		retval = function(*positionals, **keywords)
+# 	elapsed = timer() - start
+#
+# 	return (elapsed, retval)
+#
+#
+# def bestof(reps, function, *positionals, **keywords):
+# 	"""bestof: best time to execute the funtion reps2 (1000) times, out of reps1 (5) number of times."""
+#
+# 	best = 2 ** 32
+# 	for i in range(reps):
+# 		start = timer()
+# 		retval = function(*positionals, **keywords)
+# 		elapsed = timer() - start
+# 		if elapsed < best:
+# 			best = elapsed
+#
+# 	return (best, retval)
+#
+#
+# def bestoftotal(reps1, reps2, function, *positionals, **keywords):
+# 	retval = bestof(reps1, total, reps2, function, *positionals, **keywords)  # Two values for duration because one is of "total" call and the other is for "bestof".  Differences in the values highlight the time taken for the "total" function invocation.
+# 	return retval
+#
+#
+# def total(function, *pargs, **kargs):
+# 	_reps = kargs.pop("_reps", 1000)
+# 	repsList = list(range(_reps))
+# 	start = timer()
+# 	for i in repsList:
+# 		retval = function(*pargs, **kargs)
+# 	elapsed = timer() - start
+# 	return (elapsed, retval)
+#
+#
+# def bestof(function, *pargs, **kargs):
+# 	_reps = kargs.pop("_reps", 5)
+# 	best = 2 ** 32
+# 	for i in range(_reps):
+# 		start = timer()
+# 		retval = function(*pargs, **kargs)
+# 		elapsed = timer() - start
+# 		if elapsed < best:
+# 			best = elapsed
+# 	return (best, retval)
+#
+#
+# def bestoftotal(function, *pargs, **kargs):
+# 	_reps1 = kargs.pop("_reps1", 5)
+# 	return min(total(function, *pargs, **kargs) for i in range(_reps1))
+
+# print("total(1000, pow, 2, 1000)[0]:", total(1000, pow, 2, 1000)[0])
+# print("total(1000, str.upper, 'spam'):", total(1000, str.upper, "spam"))
+# print("bestof(1000, pow, 2, 1000000)[0]:", bestof(1000, pow, 2, 1000000)[0])
+# print("bestof(1000, str.upper, 'spam'):", total(1000, str.upper, "spam"))
+# print("bestof(50, total, 1000, str.upper, 'spam'):", bestof(50, total, 1000, str.upper, "spam"))
+# print("bestoftotal(50, 1000, str.upper, 'spam'):", bestoftotal(50, 1000, str.upper, "spam"))
+#
+# print("total(1000, pow, 2, 1000)[0]:", total(1000, pow, 2, 1000000)[0])
+# print("bestof(1000, pow, 2, 1000)[0]:", bestof(1000, pow, 2, 1000000)[0])
+# sys.set_int_max_str_digits(43000)
+# print("bestoftotal(5, 100000, pow, 2, 1000000):", bestoftotal(5, 100000, pow, 2, 1000000))  # Execute the total function 5 times.  Prints the best time out of 5.  The total function executes the function 10 times.
+# print(min(total(100000, pow, 2, 10000000) for i in range(5)))
+
+# if sys.version_info[0] >= 3 and sys.version_info[1] >= 3:
+# 	timer = time.perf_counter
+# else:
+# 	timer = time.clock if sys.platform[: 3] == "win" else time.time
+# print(timer)
+#
+
+# reps = 10000
+# repsList = list(range(reps))
+
+# def forLoop():
+# 	retval = []
+# 	for i in repsList:
+# 		retval.append(abs(i))
+# 	return retval
+#
+#
+# def listComp():
+# 	return [abs(i) for i in repsList]
+#
+#
+# def mapFunction():
+# 	return list(map(abs, repsList))
+#
+#
+# def genExpr():
+# 	return list(abs(i) for i in repsList)
+#
+#
+# def genFunc():
+#
+# 	def gen():
+# 		for i in repsList:
+# 			yield abs(i)
+#
+# 	return list(gen())
+#
+#
+# print(sys.version)
+
+# def forLoop():
+# 	retval = []
+# 	for i in repsList:
+# 		retval.append(i + 10)
+# 	return retval
+#
+#
+# def listComp():
+# 	return [i + 10 for i in repsList]
+#
+#
+# def mapFunction():
+# 	return list(map(lambda i: i + 10, repsList))
+#
+#
+# def genExpr():
+# 	return list(i + 10 for i in repsList)
+#
+#
+# def genFunc():
+#
+# 	def provider():
+# 		for i in repsList:
+# 			yield i + 10
+#
+# 	return list(provider())
+
+# for test in (forLoop, listComp, mapFunction, genExpr, genFunc):
+# 	(bestval, (totalval, retval)) = bestoftotal(5, 1000, test)
+# 	print("%-9s: %.5f : %f => [%s...%s]" % (test.__name__, bestval, totalval, retval[0], retval[-1]))
+
+# for test in (forLoop, listComp, mapFunction, genExpr, genFunc):
+# 	(totalval, retval) = bestoftotal(test, _reps1 = 5, _reps = 1000)
+# 	print("%-9s: %.5f => [%s...%s]" % (test.__name__, totalval, retval[0], retval[-1]))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# print(min(timeit.repeat(stmt = "[i ** 2 for i in range(1000)]", number = 1000, repeat = 5)))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# x = 0
+#
+#
+# def function102():
+# 	print(x)
+#
+#
+# function102()
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# var101 = 0
+#
+#
+# def function103():
+# 	import __main__  # Import enclosing module.
+#
+# 	print("__main__.var101:", __main__.var101)  # Qualify it to get the global name.
+# 	var101 = 1  # Unqualified refers to the local scope.
+# 	print(var101)
+#
+#
+# function103()
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+
+# def function110():
+# 	function110.list110.append(0)
+# 	print(function110.list110)
+#
+#
+# function110.list110 = []
+# function110()
+# function110()
+# function110()
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
 #
 #
 # def decorator1(function500: callable) -> callable:
@@ -5151,52 +5833,55 @@ print(functools.reduce(lambda a, b: operator.add(a, b), [1, 2, 3, 4]))
 #
 #
 # @decorator1
+# def function500() -> None:
+# 	print("function500:")
+#
+#
+# print("function500():", function500())
+#
+#
+# def decorator2(function502: callable,) -> callable:
+# 	print("decorator2:")
+# 	print("Before calling function explicitly from decorator.")
+# 	function502()
+# 	print("After calling function explicitly from decorator.")
+# 	return function502
+#
+#
+# @decorator2
 # def function501() -> None:
 # 	print("function501:")
 #
 #
 # print("function501():", function501())
 #
-#
-# def decorator2(function501: callable) -> callable:
-# 	print("decorator2:")
-# 	return function501
-#
-#
-# @decorator2
-# def function502() -> None:
-# 	print("function502:")
-#
-#
-# print("function502():", function502())
-#
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
-# def decorator1(function503: callable) -> callable:
-# 	print("decorator: function503:", function503)
+# def decorator10(function503: callable,) -> callable:
+# 	print("decorator10:", decorator10, "function503:", function503,)
 #
-# 	def wrapper(*iterable500: typing.Iterable) -> None:
-# 		print("wrapper: iterable500:", iterable500)
+# 	def wrapper(*iterable500: typing.Iterable,) -> None:
+# 		print("wrapper: iterable500:", iterable500,)
 # 		function503(*iterable500)
 #
 # 	return wrapper
 #
 #
-# @decorator1
-# def function504(var500: any, var501: any) -> None:
-# 	print("function504: var500:", var500, "var501:", var501)
+# @decorator10
+# def function503(var500: any, var501: any) -> None:
+# 	print("function503: var500:", var500, "var501:", var501,)
 # 	tuple500 = var500, var501
-# 	print("function504: tuple500:", tuple500)
+# 	print("function503: tuple500:", tuple500,)
 #
 #
-# function504(100, 101)
+# function503(100, 101)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
-# # LP.
+# # LP
 #
 #
 # class Decorator1:

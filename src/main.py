@@ -2,20 +2,23 @@
 
 from __future__ import annotations
 
-import contextlib
+import compileall
 import curses
 import datetime
+import decimal
+import dis
 import doctest
+import functools
 import inspect
 import logging
 import math
+import operator
 import os.path
 import pathlib
 import socket
-import dis
-import compileall
 import subprocess
 import sys
+import time
 import timeit
 import typing
 import unittest
@@ -249,8 +252,10 @@ import unittest.mock
 # print("socket.gethostname():", socket.gethostname())
 # socket2.listen(5)
 # print('socket.gethostbyname("python.org"):', socket.gethostbyname("python.org"))
-# with contextlib.suppress(socket.herror):
+# try:
 # 	print('socket.gethostbyaddr("199.232.20.223"):', socket.gethostbyaddr("199.232.20.223"))
+# except socket.herror as ex:
+# 	print(sys.exc_info()[0].__name__ + ":", ex, "\n")
 # print('socket.gethostbyaddr("223.233.66.174"):', socket.gethostbyaddr("223.233.66.174"))
 # print('socket.gethostbyaddr("223.233.66.174"):', socket.gethostbyaddr("223.233.66.174")[0])
 #
@@ -338,39 +343,273 @@ import unittest.mock
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
-# MINE.
+# # MINE.
+#
+#
+# def function44(number43: int) -> None:
+# 	string43 = "spam"
+# 	print("string43:", string43)
+# 	return string43 * number43
+#
+#
+# for l in function44.__code__.co_lines():
+# 	print("l:", l)
+#
+# for l in inspect.getsourcelines(function44):
+# 	print("l:", l)
+#
+# print("function44.__code__.co_code:")
+# for i, l in enumerate(function44.__code__.co_code):
+# 	print("i:", i, "l:", l)
+#
+# compileall.compile_file("/home/punit/src/_not_mine/PythonTestBed/src/main.py")
+#
+# print("dis.dis(function44):")
+# print(dis.dis(function44))
+#
+# # MINE.
+#
+#
+# def function45():
+# 	pass
+#
+#
+# [print(e) for e in dir(function45) if e.startswith("__")]
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# MINE
+# print(print(print()))
+#
+# print(*list(map(lambda n: n ** 2, filter(lambda n: operator.imod(n, 2) == 0, range(0, 10)))))
+#
+# print({chr(i + 65): i + 65 for i in range(10) if i % 2 == 0 for i in range(26) if i % 2 == 1})
+# print({chr(i + 65): i + 65 for i in range(26) if i % 2 == 0 for i in range(10) if i % 2 == 1})
+# print([i for i in range(10) if i % 2 == 0 for i in range(26) if i % 2 == 1])  # Value of i that is printed is from the inner loop.  65 elements.  Outer loop only tells the number of iterations to run.  Odd numbers only.
+# print([i for i in range(26) if i % 2 == 0 for i in range(10) if i % 2 == 1])  # 65 elements.  Odd numbers only.
+# print([i for i in range(26) if i % 2 == 1 for i in range(10) if i % 2 == 0])  # Even numbers only.  65 elements.
+#
+# list120 = []
+# for i in range(26):
+# 	if i % 2 == 1:
+# 		for i in range(10):
+# 			if i % 2 == 0:
+# 				list120.append(i)
+# print(list120)
 
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# list96 = [[1, 2, 3], [4, 5, 6, 10], [7, 8, 9]]
+# list97 = [[2, 2, 2], [3, 3, 3, 3], [4, 4, 4]]
+# list98 = [list96[i][j] ** list97[i][j] for i in range(len(list96)) for j in range(len(list96[i]))]
+# print("list98:", list98)
+#
+#
+# def generatorFunction3():
+# 	for i in range(10):
+# 		j = yield i
+# 		print(j)
+#
+#
+# generator3 = generatorFunction3()
+# print(next(generator3))
+# print(generator3.send(77))
+# print(generator3.send(88))
+# print(next(generator3))
+# print(next(generator3))
+# print(next(generator3))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# string1 = "abc"
+# string2 = "xzy123"
+# string3 = "jkl12345"
+# print(list(zip(string1, string2, string3)))  # Truncates the shorter two strings.
+#
+# print(map(abs, [-2, -1]))
+# a = map(abs, [-1, -2])
+# print(a)
+# b = (c.upper() for c in "spam")
+# print(b)
+# print(type(a) is type(b))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# mapObject = map(pow, [1, 2, 3], [1, 2, 3])
+# for i in mapObject:
+# 	print("i:", i)
+# try:
+# 	print(next(mapObject))
+# except StopIteration as ex:
+# 	print(inspect.getframeinfo(inspect.currentframe()).lineno, ": ex:", ex)
+# for i in mapObject:
+# 	print("i:", i)
+# try:
+# 	print(next(mapObject))
+# except StopIteration as ex:
+# 	print(inspect.getframeinfo(inspect.currentframe()).lineno, ": ex:", ex)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# MINE
+# generatorObject1 = (a for a in [1, 2, 3])
+# print("generatorObject1:", generatorObject1)
+# set1 = set(generatorObject1)  # Works because set initalizer expects any iterable.
+# print("set1:", set1)
+#
+# generatorObject2 = ((k, k ** 2) for k in [1, 2, 3])  # Dictionary initializer expects iterable of tuples.
+# print("generatorObject2:", generatorObject2)
+# dict1 = dict(generatorObject2)
+# print("dict1:", dict1)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
-def function44(number43: int) -> None:
-	string43 = "spam"
-	print("string43:", string43)
-	return string43 * number43
+# # LP, MINE
+#
+#
+# def timer(func, *args):
+# 	# start = time.clock()
+# 	start = time.time()
+# 	for i in range(1000):
+# 		func(*args)
+# 	# return time.clock() - start
+# 	return time.time() - start
+#
+#
+# print(timer(lambda i: i ** i, 20000))
+#
+# timer = time.clock if sys.platform[: 3] == "win" else time.time
+#
+#
+# def total(reps, function, *positionals, **keywords):
+# 	repslist = list(range(reps))
+# 	start = timer()
+# 	for i in repslist:
+# 		retval = function(*positionals, **keywords)
+# 	elapsed = timer() - start
+#
+# 	return (elapsed, retval)
+#
+#
+# def bestof(reps, function, *positionals, **keywords):
+# 	best = 2 ** 32
+# 	for i in range(reps):
+# 		start = timer()
+# 		retval = function(*positionals, **keywords)
+# 		elapsed = timer() - start
+# 		if elapsed < best:
+# 			best = elapsed
+#
+# 	return (best, retval)
+#
+#
+# def bestoftotal(reps1, reps2, function, *positionals, **keywords):
+# 	return bestof(reps1, total, reps2, function, *positionals, **keywords)
+#
+#
+# val1 = total(1000, pow, 2, 1000)[0]
+# print("total(1000, pow, 2, 1000)[0]:", val1)
+# val2 = total(1000, str.upper, "spam")[0]
+# print("total(1000, str.upper, 'spam')[0]:", val2)
+# print(decimal.Decimal(val1).normalize())
+# print(decimal.Decimal(val2).normalize())
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+#
+# UNKNOWN
+# def foo():
+# 	for i in range(5):
+# 		print("a")
+# 	one = 10
+# 	two = 20
+# 	return one
+#
+#
+# def function100():
+# 	pass
+#
+#
+# def function101():
+# 	var = 2
+# 	return var
+#
+#
+# function100 = 0
+# print(function100)
+# var10 = 1
+# function100 = var10
+# print(function100)
+# function100 = function101()
+# print(function100)
 
+# ispy3 = False
+# string20 = "A $listif3 B"
+# string20 = string20.replace("$listif3", "list" if ispy3 else "")
+# print(string20)
+#
+# ispy3 = False
+# string20 = "A$listif3B"
+# string20 = string20.replace("$listif3", "list" if ispy3 else "")
+# print(string20)
+#
+# ispy3 = True
+# string20 = "Alistif3B"
+# string20 = string20.replace("listif3", "list" if ispy3 else "")
+# print(string20)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
-for l in function44.__code__.co_lines():
-	print("l:", l)
+# YOUTUBE VIDEO
+# total = 0
+# for i in range(1, 100_000_001):
+# 	total += i
+#
+# print(total)
 
-for l in inspect.getsourcelines(function44):
-	print("l:", l)
+# YOUTUBE VIDEO
+# var100 = 50
+# print(sys.getsizeof(var100), "bytes")
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
-print("function44.__code__.co_code:")
-for i, l in enumerate(function44.__code__.co_code):
-	print("i:", i, "l:", l)
+# def f1(a, b):
+# 	print("f1:", "a:", a, "b:", b)
+#
+#
+# def f2(a, *b):
+# 	print("f2:", "a:", a, "b:", b)
+#
+#
+# def f3(a, **b):
+# 	print("f3:", "a:", a, "b:", b)
+#
+#
+# def f4(a, *b, **c):
+# 	print("f4:", "a:", a, "b:", b, "c:", c)
+#
+#
+# def f5(a, b = 2, c = 3):
+# 	print("f5:", a, b, c)
+#
+#
+# def f6(a, b = 2, *c):
+# 	print("f6:", a, b, c)
+#
+#
+# f1(1, 2)
+# f1(b = 2, a = 1)
+# f2(1, 2, 3)
+# f3(1, x = 2, y = 3)
+# f4(1, 2, 3, x = 2, y = 3)
+# f5(1)
+# f6(1)
+# f6(1, 3, 4)
+#
+# dict101 = {"a": 1, "b": 2}
+# print(dict101)
 
-compileall.compile_file("/home/punit/src/_not_mine/PythonTestBed/src/main.py")
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
-print("dis.dis(function44):")
-print(dis.dis(function44))
-
-# MINE.
-
-
-def function45():
-	pass
-
-
-[print(e) for e in dir(function45) if e.startswith("__")]
+print(functools.reduce(lambda a, b: a * b, range(1, 7)))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
-
-print(print(print()))
