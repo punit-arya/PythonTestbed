@@ -15,6 +15,7 @@ import math
 import operator
 import os.path
 import pathlib
+import pprint
 import socket
 import subprocess
 import sys
@@ -23,6 +24,8 @@ import timeit
 import typing
 import unittest
 import unittest.mock
+
+import matplotlib.pyplot as mp
 
 # list1 = [0, 1, "a"]
 # list1.append(list1)
@@ -610,6 +613,50 @@ import unittest.mock
 
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
-print(functools.reduce(lambda a, b: a * b, range(1, 7)))
+# print(functools.reduce(lambda a, b: a * b, range(1, 7)))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
-print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+# A 5-by-10 ARRAY OF 3-ELEMENT LISTS.
+
+# array = [[[[0, 0, 0]] * 10] * 5] * 3
+# # pprint.pprint(array)
+# for i in range(3):
+# 	for j in range(5):
+# 		for k in range(10):
+# 			if i == 0:
+# 				array[i][j][k] = [0, 0, 255]
+# 			elif i == 1:
+# 				array[i][j][k] = [0, 255, 0]
+# 			elif i == 2:
+# 				array[i][j][k] = [255, 0, 0]
+# 			else:
+# 				print("UNPOSSIBLE!")
+# pprint.pprint(array)
+
+# array1 = [0] * 3  # List of ten elements.
+# print(array1)
+# array2 = [[0] * 3]  # List with only one element.
+# print(array2)
+# array3 = [[0] * 3] * 5  # List with 5 elements, each element a 10-element list.
+# print(array3)
+# array4 = [[[0] * 3] * 5]  # Same as above, but a single-element list containing the above.
+# print(array4)
+# array5 = [[[0] * 3] * 5] * 10  # Same as above, but a single-element list containing the above.
+# print(array5)
+
+# pixel = [0, 0, 0]
+# # image = pixel[5][10]
+# # image[1][2] = [255, 0, 0]
+# image = [[pixel] * 5] * 10
+# # image[1][2] = [255, 255, 0]
+# print(image[1][2])
+# print(image[1][2][3])
+# pprint.pprint(image)
+
+# pixel = [0, 0, 0]
+# image = [[pixel] * 5 for _ in range(10)]
+# pprint.pprint(image)
+# image[0][1] = [255, 0, 255]
+# # pprint.pprint(image)
+# mp.imshow([[0, 255, 255] * 5] * 10)

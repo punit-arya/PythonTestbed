@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import annotations, division
+# from __future__ import annotations, division
 
 import _thread
 import array
@@ -5840,11 +5840,11 @@ import moduleFib
 # print("function500():", function500())
 #
 #
-# def decorator2(function502: callable,) -> callable:
+# def decorator2(function502: callable) -> callable:
 # 	print("decorator2:")
-# 	print("Before calling function explicitly from decorator.")
+# 	print("Calling function explicitly from decorator...")
 # 	function502()
-# 	print("After calling function explicitly from decorator.")
+# 	print("Finished calling function from decorator.")
 # 	return function502
 #
 #
@@ -5856,15 +5856,17 @@ import moduleFib
 # print("function501():", function501())
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+
 #
 # # LP
 #
 #
-# def decorator10(function503: callable,) -> callable:
-# 	print("decorator10:", decorator10, "function503:", function503,)
+# def decorator10(function503: callable) -> callable:
+# 	print("decorator10:", decorator10, "function503:", function503)
 #
-# 	def wrapper(*iterable500: typing.Iterable,) -> None:
-# 		print("wrapper: iterable500:", iterable500,)
+# 	def wrapper(*iterable500: typing.Iterable) -> None:
+# 		print("wrapper: iterable500:", iterable500)
 # 		function503(*iterable500)
 #
 # 	return wrapper
@@ -5872,9 +5874,9 @@ import moduleFib
 #
 # @decorator10
 # def function503(var500: any, var501: any) -> None:
-# 	print("function503: var500:", var500, "var501:", var501,)
+# 	print("function503: var500:", var500, "var501:", var501)
 # 	tuple500 = var500, var501
-# 	print("function503: tuple500:", tuple500,)
+# 	print("function503: tuple500:", tuple500)
 #
 #
 # function503(100, 101)
@@ -5884,26 +5886,26 @@ import moduleFib
 # # LP
 #
 #
-# class Decorator1:
-#
-# 	def __init__(self, function500: callable) -> None:  # On "@" decoration.
-# 		print("__init__: function500:", function500)
-# 		self.function500 = function500
-#
-# 	def __call__(self, *args: typing.Iterable) -> None:  # On wrapped function call.
-# 		print("self.function500:", self.function500)
-# 		print("self.function500(1000, 1001):", self.function500(1000, 1001))
-# 		print("self.function500(*args):", self.function500(*args))
-#
-#
-# @Decorator1
-# def function501(arg1: any, arg2: any) -> None:
-# 	print("function501: arg1:", arg1, "arg2:", arg2)  # Passed to "__init__".
-#
-#
-# function501(100, 101)  # Passed to "__call__".
-#
-# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+class Decorator1:
+
+	def __init__(self, function500: callable) -> None:  # On "@" decoration.
+		print("__init__: function500:", function500)
+		self.function500 = function500
+
+	def __call__(self, *args: typing.Iterable) -> None:  # On wrapped function call.
+		print("self.function500:", self.function500)
+		print("self.function500(1000, 1001):", self.function500(1000, 1001))
+		print("self.function500(*args):", self.function500(*args))
+
+
+@Decorator1
+def function501(arg1: any, arg2: any) -> None:
+	print("function501: arg1:", arg1, "arg2:", arg2)  # Passed to "__init__".
+
+
+function501(100, 101)  # Passed to "__call__".
+
+print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
 # # UNKNOWN
 #
