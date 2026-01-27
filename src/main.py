@@ -660,3 +660,8 @@ import matplotlib.pyplot as mp
 # image[0][1] = [255, 0, 255]
 # # pprint.pprint(image)
 # mp.imshow([[0, 255, 255] * 5] * 10)
+
+# print(type(sys.modules))
+# print(sys.modules)
+
+print(sys.path)
