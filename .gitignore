@@ -175,7 +175,7 @@ build.log
 *.exe
 *.msi
 *.deb
-*.zip
+# *.zip
 *.tgz
 *.log
 *.log.*
@@ -617,7 +617,7 @@ docs/
 *.rsc
 *.int
 *.lk
-*.zip
+# *.zip
 
 
 #### Dart
@@ -1754,7 +1754,7 @@ jobs/**/*workspace
 *.war
 *.nar
 *.ear
-*.zip
+# *.zip
 *.tar.gz
 *.rar
 
@@ -2546,7 +2546,7 @@ Libs/
 *.jar
 *.war
 *.ear
-*.zip
+# *.zip
 *.tar.gz
 *.rar
 
@@ -2620,7 +2620,7 @@ application/logs/*
 *.war
 *.nar
 *.ear
-*.zip
+# *.zip
 *.tar.gz
 *.rar
 
@@ -2753,7 +2753,7 @@ luac.out
 
 # luarocks build files
 *.src.rock
-*.zip
+# *.zip
 *.tar.gz
 
 # Object files
@@ -2937,7 +2937,7 @@ junit*.properties
 *.gz
 *.rar
 *.tar
-*.zip
+# *.zip
 
 ## Dymola-specific files
 buildlog.txt
@@ -5899,7 +5899,7 @@ Offline-Models
 Offline-SGBDs
 *.exe
 *.msi
-*.zip
+# *.zip
 *.7z
 
 # Exclude default and custom temporary directories
@@ -5941,7 +5941,7 @@ __pycache__/
 *.7z
 *.jar
 *.rar
-*.zip
+# *.zip
 *.gz
 *.gzip
 *.tgz
@@ -6670,7 +6670,7 @@ Export/
 *.rpt
 *.svd
 *.log
-*.zip
+# *.zip
 
 
 #### Global/Patch
@@ -7652,7 +7652,7 @@ $RECYCLE.BIN/
 *.jar
 *.rar
 *.tar
-*.zip
+# *.zip
 *.com
 *.class
 *.dll
@@ -7802,7 +7802,7 @@ SKC_2
 
 # Binary Archive
 *.7z
-*.zip
+# *.zip
 *.rar
 *.exe
 
@@ -7845,7 +7845,7 @@ SKC_2
 *.log
 *.debug
 *.str
-*.zip
+# *.zip
 *.tmp
 *.rst
 *.os

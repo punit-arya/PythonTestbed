@@ -62,6 +62,7 @@ import zlib
 
 import __main__
 import circularImport
+import dir1.dir2.module11
 import docstrings
 import module1
 import module2
@@ -72,7 +73,11 @@ import module5
 # import src._not_mine.module6 as module6
 import module6
 import module7
+import module8
+import module9
+import module10
 import moduleFib
+from module8 import module8list1, module8var1
 
 # 200 /home/punit/src/_not_mine/PythonTestBed/var/in.txt /home/punit/src/_not_mine/PythonTest1Bed/var/in.txt function41
 
@@ -5826,6 +5831,43 @@ import moduleFib
 
 # # LP
 #
+# print(module8.module8var1, module8.module8list1)
+# print(module8var1, module8list1)
+# module8var1 = 1
+# module8list1[0] = 1
+# print(module8.module8var1, module8.module8list1)
+# print(module8var1, module8list1)
+# module8.module8var1 = 2
+# module8.module8list1[0] = 2
+# print(module8.module8var1, module8.module8list1)
+# print(module8var1, module8list1)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# print("module9.sys:", module9.sys)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
+# print("module10.var1:", module10.var1)
+# print("module10.__dict__['var1']:", module10.__dict__['var1'])
+
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# LP
+
+print("dir1.dir2:", dir1.dir2)
+print("dir(dir1.dir2):", dir(dir1.dir2))
+print("dir(dir1.dir2.module11):", dir(dir1.dir2.module11))
+print("dir1.dir2.module11.var1:", dir1.dir2.module11.var1)
+
+print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# # LP
+#
 #
 # def decorator1(function500: callable) -> callable:
 # 	print("decorator1:")
@@ -5857,7 +5899,6 @@ import moduleFib
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
-
 #
 # # LP
 #
@@ -5886,26 +5927,26 @@ import moduleFib
 # # LP
 #
 #
-class Decorator1:
-
-	def __init__(self, function500: callable) -> None:  # On "@" decoration.
-		print("__init__: function500:", function500)
-		self.function500 = function500
-
-	def __call__(self, *args: typing.Iterable) -> None:  # On wrapped function call.
-		print("self.function500:", self.function500)
-		print("self.function500(1000, 1001):", self.function500(1000, 1001))
-		print("self.function500(*args):", self.function500(*args))
-
-
-@Decorator1
-def function501(arg1: any, arg2: any) -> None:
-	print("function501: arg1:", arg1, "arg2:", arg2)  # Passed to "__init__".
-
-
-function501(100, 101)  # Passed to "__call__".
-
-print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+# class Decorator1:
+#
+# 	def __init__(self, function500: callable) -> None:  # On "@" decoration.
+# 		print("__init__: function500:", function500)
+# 		self.function500 = function500
+#
+# 	def __call__(self, *args: typing.Iterable) -> None:  # On wrapped function call.
+# 		print("self.function500:", self.function500)
+# 		print("self.function500(1000, 1001):", self.function500(1000, 1001))
+# 		print("self.function500(*args):", self.function500(*args))
+#
+#
+# @Decorator1
+# def function501(arg1: any, arg2: any) -> None:
+# 	print("function501: arg1:", arg1, "arg2:", arg2)  # Passed to "__init__".
+#
+#
+# function501(100, 101)  # Passed to "__call__".
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
 # # UNKNOWN
 #
