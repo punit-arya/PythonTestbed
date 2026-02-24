@@ -62,9 +62,9 @@ import zlib
 
 import __main__
 import circularImport
-import dir1.dir2.module11
+import dir1.dir2.module12
 import docstrings
-import module1
+# import module1
 import module2
 import module3
 import module4
@@ -78,6 +78,10 @@ import module9
 import module10
 import moduleFib
 from module8 import module8list1, module8var1
+print(sys.path)
+from . import module1
+print("var105:", module1.var105)
+exit(0)
 
 # 200 /home/punit/src/_not_mine/PythonTestBed/var/in.txt /home/punit/src/_not_mine/PythonTest1Bed/var/in.txt function41
 
@@ -940,7 +944,7 @@ from module8 import module8list1, module8var1
 # # sys.ps1 = "C> "
 # # print(sys.ps1)
 # sys.path.append("/home/punit/lib/python")
-# print(sys.path)
+# print("sys.path:", sys.path)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 #
@@ -5859,10 +5863,15 @@ from module8 import module8list1, module8var1
 
 # LP
 
+print("dir1:", dir1)
+print("dir1.__file__:", dir1.__file__)
+print("dir(dir1):", dir(dir1))
 print("dir1.dir2:", dir1.dir2)
 print("dir(dir1.dir2):", dir(dir1.dir2))
-print("dir(dir1.dir2.module11):", dir(dir1.dir2.module11))
-print("dir1.dir2.module11.var1:", dir1.dir2.module11.var1)
+print("dir1.dir2.module12:", dir1.dir2.module12)
+print("dir(dir1.dir2.module12):", dir(dir1.dir2.module12))
+print("dir1.dir2.module12.var1:", dir1.dir2.module12.var1)
+print("dir(dir1.dir2.module12.var1):", dir(dir1.dir2.module12.var1))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 

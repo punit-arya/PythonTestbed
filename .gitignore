@@ -4108,12 +4108,12 @@ bin/*.ap_
 /.config
 /coverage/
 /InstalledFiles
-/pkg/
+# /pkg/
 /spec/reports/
 /spec/examples.txt
 /test/tmp/
 /test/version_tmp/
-/tmp/
+# /tmp/
 
 # Used by dotenv library to load environment variables.
 # .env
@@ -4486,7 +4486,7 @@ fastlane/test_output
 !var/sessions/.gitkeep
 
 # Logs (Symfony4)
-/var/log/*
+# /var/log/*
 !var/log/.gitkeep
 
 # Parameters
@@ -6545,7 +6545,8 @@ Backup of *.doc*
 
 #### Global/ModelSim
 # ignore ModelSim generated files and directories (temp files and so on)
-[_@]*
+# [_@]*
+@*
 
 # ignore compilation output of ModelSim
 *.mti
@@ -7477,7 +7478,7 @@ terraform.rc
 # website: https://forge.puppet.com/
 
 # Built packages
-pkg/*
+# pkg/*
 
 # Should run on multiple platforms so don't check in
 Gemfile.lock
@@ -8037,3 +8038,6 @@ Mkfile.old
 dkms.conf
 
 
+# MY ADDITIONS
+*.anva
+ansible_vault_password.txt
