@@ -7972,7 +7972,7 @@ icon.png
 # Ignore libraries and dependencies
 deps/
 obj/
-  
+
 # Ignore operating system-specific files
 $RECYCLE.BIN/
 .Trash-1000/
