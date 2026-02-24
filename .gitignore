@@ -98,7 +98,7 @@ build/
 local.properties
 
 # Log/OS Files
-*.log
+# *.log
 
 # Android Studio generated files and folders
 captures/
@@ -177,7 +177,7 @@ build.log
 *.deb
 # *.zip
 *.tgz
-*.log
+# *.log
 *.log.*
 *.sig
 
@@ -1060,7 +1060,7 @@ hosting/.cache
 /emulator-ui/
 
 # Logs
-*.log
+# *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -1102,7 +1102,7 @@ Thumbs.db
 *.bak
 *.cache
 *.ilk
-*.log
+# *.log
 [Dd]ebug*/
 *.lib
 *.sbr
@@ -1120,7 +1120,7 @@ packages/
 # Miscellaneous
 *.class
 *.lock
-*.log
+# *.log
 *.pyc
 *.swp
 .buildlog/
@@ -1557,7 +1557,7 @@ samples/**/*.co                  # kernel code outputs
 
 # 5. Tags, logs and test outputs
 tags                             # ctags index
-*.log                            # log files
+# *.log                            # log files
 /tests_output/                   # custom test output directory
 /samples_output/                 # custom sample output directory
 
@@ -1741,7 +1741,7 @@ jobs/**/*workspace
 *.class
 
 # Log file
-*.log
+# *.log
 
 # BlueJ files
 *.ctxt
@@ -2534,7 +2534,7 @@ Libs/
 
 
 # Log file
-*.log
+# *.log
 
 # BlueJ files
 *.ctxt
@@ -2607,7 +2607,7 @@ application/logs/*
 *.class
 
 # Log file
-*.log
+# *.log
 
 # BlueJ files
 *.ctxt
@@ -2738,7 +2738,7 @@ install.php
 *.ps
 *.midi
 *.mid
-*.log
+# *.log
 *~
 
 
@@ -2977,7 +2977,7 @@ crash.log
 
 # Logs
 logs
-*.log
+# *.log
 npm-debug.log*
 pnpm-debug.log*
 yarn-debug.log*
@@ -3052,7 +3052,7 @@ result-*
 #### Node
 # Logs
 logs
-*.log
+# *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -3280,7 +3280,7 @@ opa-debug-js
 *.api
 *.api-txt
 *.exe
-*.log
+# *.log
 
 
 #### OpenCart
@@ -3422,7 +3422,7 @@ dist/
 # Cache, temp and personal files
 
 /.htaccess
-*.log
+# *.log
 
 # Cache
 /cache/*
@@ -3674,7 +3674,7 @@ cover/
 *.pot
 
 # Django stuff:
-*.log
+# *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -4222,7 +4222,7 @@ obj/
 
 # Backup files
 *.bak
-*.log
+# *.log
 
 
 
@@ -4235,7 +4235,7 @@ obj/
 
 #### Scala
 *.class
-*.log
+# *.log
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
@@ -4395,7 +4395,7 @@ a.out
 # The silent upgrade scripts aren't needed.
 /silentUpgrade*.php
 # Logs files can safely be ignored.
-*.log
+# *.log
 # Ignore the new upload directories.
 /upload/*
 !/upload/index.html
@@ -4534,7 +4534,7 @@ install-log.txt
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
-*.log
+# *.log
 *.lot
 *.fls
 *.out
@@ -5049,7 +5049,7 @@ LineIDs.dbg.bak
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-*.log
+# *.log
 
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
 *.blend1
@@ -5371,7 +5371,7 @@ StyleCopReport.xml
 *.tmp
 *.tmp_proj
 *_wpftmp.csproj
-*.log
+# *.log
 *.tlog
 *.vspscc
 *.vssscc
@@ -5730,7 +5730,7 @@ wp-config.php
 /wp-content/uploads/
 
 # Log files
-*.log
+# *.log
 
 # htaccess
 /.htaccess
@@ -5764,7 +5764,7 @@ Debug*/Debug*\ Libs
 #### Yeoman
 node_modules/
 bower_components/
-*.log
+# *.log
 
 build/
 dist/
@@ -6670,7 +6670,7 @@ Export/
 *.cyfit
 *.rpt
 *.svd
-*.log
+# *.log
 # *.zip
 
 
@@ -6744,7 +6744,7 @@ project/plugins/project/
 # Stata dataset and output files
 *.dta
 *.gph
-*.log
+# *.log
 *.smcl
 *.stpr
 *.stsem
@@ -6827,7 +6827,7 @@ csrc/
 
 # Log file - the following switch allows to specify the file that will be
 # used to write all messages from simulation:  -l <filename>
-*.log
+# *.log
 
 # Coverage results (generated with urg) and database location.  The
 # following switch can also be used:  urg -dir <coverage_directory>.vdb
@@ -6923,7 +6923,7 @@ pip-selfcheck.json
 ################################################################
 
 # Log files
-*.log
+# *.log
 panic*.log.*
 
 # OpenAccess database lock files
@@ -7131,7 +7131,7 @@ mise/*.local.toml
 *.yxbe
 *.bak
 *.pcxml
-*.log
+# *.log
 *.bin
 *.yxlang
 CASS.ini
@@ -7216,7 +7216,7 @@ ignored/
 *.bak
 *.isopen
 *.orig
-*.log
+# *.log
 *.asar
 *.csvlog*
 *.set
@@ -7388,7 +7388,7 @@ JOB.OTL.OLD
 
 # Log files, typically tagfix or other auto generated logs that aren't useful 
 # outside of the user that made them and clutter up the index.
-*.log
+# *.log
 
 
 #### community/OpenSSL
@@ -7564,7 +7564,7 @@ tests/source/units/auto-tests/
 #SharePoint Framework (SPFx)
 # Logs
 logs
-*.log
+# *.log
 npm-debug.log*
 
 # Dependency directories
@@ -7674,7 +7674,7 @@ $RECYCLE.BIN/
 ############################
 
 .tmp
-*.log
+# *.log
 *.sql
 *.sqlite
 
@@ -7820,7 +7820,7 @@ SKC_2
 **/.settings/**
 **/.objects/**
 **/.tmh/**
-**/*.log
+# **/*.log
 
 
 #### community/V
@@ -7843,7 +7843,7 @@ SKC_2
 
 # [home]
 *.jou
-*.log
+# *.log
 *.debug
 *.str
 # *.zip
@@ -7967,7 +7967,7 @@ icon.png
 *.tmp
 
 # Ignore log files
-*.log
+# *.log
 
 # Ignore libraries and dependencies
 deps/
