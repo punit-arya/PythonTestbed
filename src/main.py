@@ -665,3 +665,7 @@ import matplotlib.pyplot as mp
 # print(sys.modules)
 
 # print(sys.path)
+
+j = [i if i % 2 else 0 for i in range(5)]
+print(j)
+# print([str(i) for i in range(10) if i % 2 else i])
