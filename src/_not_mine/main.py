@@ -64,6 +64,7 @@ import __main__
 import circularImport
 import dir1.dir2.module12
 import docstrings
+
 # import module1
 import module2
 import module3
@@ -78,10 +79,6 @@ import module9
 import module10
 import moduleFib
 from module8 import module8list1, module8var1
-print(sys.path)
-from . import module1
-print("var105:", module1.var105)
-exit(0)
 
 # 200 /home/punit/src/_not_mine/PythonTestBed/var/in.txt /home/punit/src/_not_mine/PythonTest1Bed/var/in.txt function41
 
