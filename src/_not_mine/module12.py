@@ -1,5 +1,5 @@
-var0 = 0
 import string
 
 
+var0 = 0
 print(string)

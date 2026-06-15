@@ -45,7 +45,6 @@ import shelve
 import shutil
 import site
 import statistics
-import string
 import struct
 import sys
 import textwrap
@@ -64,21 +63,23 @@ import __main__
 import circularImport
 import dir1.dir2.module12
 import docstrings
-
-# import module1
+import module1
 import module2
 import module3
 import module4
 import module5
-
-# import src._not_mine.module6 as module6
 import module6
 import module7
 import module8
 import module9
 import module10
+import module15
+import module16
 import moduleFib
-from module8 import module8list1, module8var1
+import string1.string
+from module8 import module8list1, module8num1
+from module13 import *
+from module14 import *
 
 # 200 /home/punit/src/_not_mine/PythonTestBed/var/in.txt /home/punit/src/_not_mine/PythonTest1Bed/var/in.txt function41
 
@@ -4086,9 +4087,7 @@ from module8 import module8list1, module8var1
 #
 # with pathlib.Path.open("/home/punit/src/_not_mine/PythonTestBed/var/in3.txt") as file28:
 # 	line = file28.readline()
-# 	print("line:", line)
 # 	listLines = line.split("$")
-# 	print("listLines:", listLines)
 # 	object9 = ast.literal_eval(listLines[0])
 # 	print("object9:", object9)
 # 	object10 = ast.literal_eval(listLines[1])
@@ -5832,16 +5831,24 @@ from module8 import module8list1, module8var1
 
 # # LP
 #
-# print(module8.module8var1, module8.module8list1)
-# print(module8var1, module8list1)
-# module8var1 = 1
+# print("Before changing the value of the shared names: (Referring module's namespace): ", end = "")
+# print(module8.module8num1, module8.module8list1)
+# print("Before changing the value of the shared names: (Referring current namespace): ", end = "")
+# print(module8num1, module8list1)
+# print("Now changing the value of the shared names...")
+# module8num1 = 1
 # module8list1[0] = 1
-# print(module8.module8var1, module8.module8list1)
-# print(module8var1, module8list1)
-# module8.module8var1 = 2
+# print("After changing the value of the shared names: (Referring module's namespace): ", end = "")
+# print(module8.module8num1, module8.module8list1)
+# print("After changing the value of the shared names: (Referring current namespace): ", end = "")
+# print(module8num1, module8list1)
+# print("Now changing the value in the module's namespace...")
+# module8.module8num1 = 2
 # module8.module8list1[0] = 2
-# print(module8.module8var1, module8.module8list1)
-# print(module8var1, module8list1)
+# print("After changing the value of the shared names: (Referring module's namespace): ", end = "")
+# print(module8.module8num1, module8.module8list1)
+# print("After changing the value of the shared names: (Referring current namespace): ", end = "")
+# print(module8num1, module8list1)
 #
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
@@ -5858,22 +5865,71 @@ from module8 import module8list1, module8var1
 
 # print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
-# LP
+# # LP
+#
+# print("dir1:", dir1)
+# print("dir1.__file__:", dir1.__file__)
+# print("dir(dir1):", dir(dir1))
+# print("dir1.dir2:", dir1.dir2)
+# print("dir(dir1.dir2):", dir(dir1.dir2))
+# print("dir1.dir2.module12:", dir1.dir2.module12)
+# print("dir(dir1.dir2.module12):", dir(dir1.dir2.module12))
+# print("dir1.dir2.module12.var1:", dir1.dir2.module12.var1)
+# print("dir(dir1.dir2.module12.var1):", dir(dir1.dir2.module12.var1))
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
-print("dir1:", dir1)
-print("dir1.__file__:", dir1.__file__)
-print("dir(dir1):", dir(dir1))
-print("dir1.dir2:", dir1.dir2)
-print("dir(dir1.dir2):", dir(dir1.dir2))
-print("dir1.dir2.module12:", dir1.dir2.module12)
-print("dir(dir1.dir2.module12):", dir(dir1.dir2.module12))
-print("dir1.dir2.module12.var1:", dir1.dir2.module12.var1)
-print("dir(dir1.dir2.module12.var1):", dir(dir1.dir2.module12.var1))
+# sys.path.insert(0, "/home/punit/src/PythonTestBed/src/_not_mine/namespace/component_1")
+# sys.path.insert(1, "/home/punit/src/PythonTestBed/src/_not_mine/namespace/component_2")
+# import module_dir
+# import namespace_module_1
+# import namespace_module_2
+#
+#
+# print("module_dir:", module_dir)
+# print("module_dir.__path__:", module_dir.__path__)
+# print("namespace_module_1:", namespace_module_1)
+# print("namespace_module_2:", namespace_module_2)
+# print(dir(namespace_module_1))
+# print("namespace_module_1.__name__:", namespace_module_1.__file__)
+# print("namespace_module_2.__name__:", namespace_module_2.__file__)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# print("var90:", var90)
+# # print("_var91:", _var91)
+# print("var92:", var92)
+# # print("_var93:", _var93)
+#
+# print("var1000:", var1000)
+# print("_var1001:", _var1001)
+# # print("var1002:", var1002)
+# # print("_var1003:", _var1003)
+#
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+# help(module16)
+
+# print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
+
+
+def countLines(file):
+	file.seek(0)
+	return sum(1 for _ in file)
+
+
+def countChars(file):
+	file.seek(0)
+	return sum(len(line) for line in file)
+
+
+with pathlib.Path("var/in10.txt").open() as file:
+	print(countLines(file))
+	print(countChars(file))
 
 print("\n", "-" * 4, " ", inspect.getframeinfo(inspect.currentframe()).lineno, " ", "-" * 4, sep = "", end = "\n\n")
 
 # # LP
-#
 #
 # def decorator1(function500: callable) -> callable:
 # 	print("decorator1:")

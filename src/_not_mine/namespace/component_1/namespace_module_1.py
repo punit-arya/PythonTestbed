@@ -1,0 +1,1 @@
+print("component_1")

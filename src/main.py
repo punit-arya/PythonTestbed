@@ -21,6 +21,7 @@ import subprocess
 import sys
 import time
 import timeit
+import types
 import typing
 import unittest
 import unittest.mock
@@ -666,6 +667,89 @@ import matplotlib.pyplot as mp
 
 # print(sys.path)
 
-j = [i if i % 2 else 0 for i in range(5)]
-print(j)
+# j = [i if i % 2 else 0 for i in range(5)]
+# print(j)
 # print([str(i) for i in range(10) if i % 2 else i])
+
+# def addCommas(number):
+# 	# negative = number < 0
+# 	# numberAsStr = str(abs(number))
+# 	numberAsStr = str(number)
+# 	numberWithCommas = ""
+# 	# if len(numberAsStr) < 3:
+# 	# 	return numberAsStr
+# 	# for i in range(len(numberAsStr) - 3, -1, -3):
+# 	# 	numberWithCommas = "," + numberAsStr[i:i + 3] + numberWithCommas
+# 	# numberWithCommas = numberAsStr[0:i] + numberWithCommas
+# 	for i, c in enumerate(numberAsStr[-1::-1]):
+# 		numberWithCommas += c
+# 		if ((i + 1) % 3) == 0 and i and (i + 1) != len(numberAsStr):
+# 			numberWithCommas += ","
+# 	numberWithCommas = numberWithCommas[-1::-1]
+# 	# numberWithCommas = "-" + numberWithCommas if negative else numberWithCommas
+# 	return numberWithCommas
+#
+#
+# # LP.  p. 752
+# def addCommas(n):
+# 	digits = str(n)
+# 	# assert (digits.isdigit())
+# 	result = ""
+# 	while digits:
+# 		digits, last3 = digits[:-3], digits[-3:]
+# 		result = (last3 + "," + result) if result else last3
+# 	return result
+#
+#
+# def wrapperFunc():
+# 	print(addCommas(0))
+# 	print(addCommas(1))
+# 	print(addCommas(12))
+# 	print(addCommas(123))
+# 	print(addCommas(1234))
+# 	print(addCommas(12345))
+# 	print(addCommas(123456))
+# 	print(addCommas(1234567))
+# 	# print(addCommas(-1))
+# print(addCommas(-12))
+# 	# print(addCommas(-123))
+# 	# print(addCommas(-1234))
+# 	# print(addCommas(-12345))
+# 	# print(addCommas(-123456))
+# 	# print(addCommas(-1234567))
+#
+#
+# # print(timeit.timeit(wrapperFunc, number = 100000))
+#
+# print("{:,d}".format(12345))
+
+# print("ab" or "cd")
+# print("ab" and "cd")
+# print("ab" and "")
+# print("ab" or "")
+# print("" and "ab")
+
+# if __name__ == "__main__":  # Importing itself.
+# 	import main
+# 	print(dir(main))
+
+# print(type(sys.modules["__main__"]))
+#
+# for module, value in sys.modules.items():
+# 	print("module:", module)
+# 	print("value:", value)
+
+# moduleName = "string"
+# exec("import " + moduleName)
+# print(string)
+
+# mainModule = sys.modules[__name__]
+# namespace = mainModule.__dict__.copy()
+# # print(dir(types))
+# # print(namespace)
+# for k, v in namespace.items():
+# 	if type(v) is types.ModuleType:
+# 		print(k, end = " ")
+# print()
+
+# print(types.ModuleType)
