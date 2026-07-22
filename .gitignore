@@ -1026,7 +1026,6 @@ resources/.arch-internal-preview.css
 *.bak
 *.db
 *.avi
-*.pdf
 *.ps
 *.mid
 *.midi
@@ -1364,7 +1363,6 @@ _book
 # eBook build output
 *.epub
 *.mobi
-*.pdf
 
 
 #### GitHubPages
@@ -2734,7 +2732,6 @@ install.php
 
 
 #### Lilypond
-*.pdf
 *.ps
 *.midi
 *.mid
@@ -6247,7 +6244,6 @@ secring.*
 *.svgz
 
 # Portable Document Format
-*.pdf
 
 # X BitMap
 *.xbm
