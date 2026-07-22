@@ -6556,7 +6556,6 @@ Backup of *.doc*
 *.bak
 *.cmp
 *.jpg
-*.html
 *.bsf
 
 # ignore simulation output of ModelSim
@@ -7938,7 +7937,6 @@ SKC_2
 *.c
 *.h
 *.vho
-*.html
 */*/bd/*/ip/*/*.tcl
 */*/*/bd/*/ip/*/*.tcl
 hw_handoff
